@@ -51,7 +51,7 @@ func SpawnMoney(value, parts, global_pos, target, owner):
 
 func _die():
 	# spawn scrap
-	#EnemyManager.Enemies.erase(self)
+	EnemyManager.Enemies.erase(self)
 	queue_free()
 
 func _on_BaseEnemy_body_entered(body):
