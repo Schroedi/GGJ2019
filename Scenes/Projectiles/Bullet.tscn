@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Scenes/Projectiles/Projectile.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Textures/frozenmoon/ebullet1.png" type="Texture" id=2]
+
+[node name="Bullet" instance=ExtResource( 1 )]
+continuous_cd = 1
+velocity = 500
+
+[node name="ebullet1" type="Sprite" parent="." index="0"]
+position = Vector2( -2.96454, 0.316074 )
+scale = Vector2( 0.8, 0.8 )
+texture = ExtResource( 2 )
+

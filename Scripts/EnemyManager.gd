@@ -26,7 +26,7 @@ func spawnEnemy():
 	var s = BaseEnemy.instance()
 	var offset = Vector2()	
 	s.offset= rand_range(0,10)
-	s.global_position = Vector2(-200+s.offset,0)+Vector2(500,250)
+	s.global_position = Vector2(-300+s.offset,0)+Vector2(960,350)
 	s.linear_velocity =  Vector2(0,0)
 	s.circlePos = 0
 	#s.Owner = _level.owner
@@ -39,10 +39,7 @@ func spawnEnemy():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	#advance enemy positions
-	for e in Enemies:
-		e.circlePos += e.movementSpeed * delta
-		e.global_position = Vector2(-200+e.offset,0).rotated(deg2rad(e.circlePos))+Vector2(500,250)
-		pass
+
 	
 	lastSpawn += delta
 	#spawn wave enemies
@@ -56,6 +53,9 @@ func _process(delta):
 		currentWave += 1
 		currentWaveSpawnsLeft += WaveEnemyCount
 		currentWaveDuration = WaveDuration
+	
+	
+	#remove stale enemies
 	
 	currentWaveDuration -= delta		
 	pass

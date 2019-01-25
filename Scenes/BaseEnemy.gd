@@ -1,11 +1,10 @@
 extends RigidBody2D
 const DamageHelper = preload("res://Scripts/Damage.gd")
-onready var Level = get_node("/root/Scene/Level")
-onready var _seeker = get_node("Seek2D")
+onready var Level = get_node("/root/GameLevel")
 
 var _target:WeakRef = null
 
-export var life = 500
+export var life = 10
 export var shield = 200
 export var damage = {"HullDmg":50, "ShieldDmg": 0}
 var inflictsDamage = true
@@ -52,11 +51,11 @@ func SpawnMoney(value, parts, global_pos, target, owner):
 
 func _die():
 	# spawn scrap
-	call_deferred("SpawnMoney", _scrapValue, _scrapParts, global_position, _target, 0)
+	#EnemyManager.Enemies.erase(self)
 	queue_free()
 
 func _on_BaseEnemy_body_entered(body):
-	if "damage" in body and "playerOwned" in body and body.playerOwned:
+	if "damage" in body :
 		_damage(body.damage)
 		body.queue_free()
 		
@@ -67,9 +66,13 @@ func UseEnergy(v):
 func GetCombinedStats():
 	return 0
 
+func _process(delta):
+	circlePos += movementSpeed * delta
+	global_position = Vector2(-300+offset,0).rotated(deg2rad(circlePos))+Vector2(960,350)
+		
 
 func _damage(dmg):
-	DamageHelper.ApplyDamage(self, dmg)
+	life-=dmg
 	$LifeBar.value = life
 	if life < 0:
 		_die()
