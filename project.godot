@@ -21,11 +21,16 @@ config/icon="res://icon.png"
 
 [autoload]
 
+Stats="*res://Stats/Stats.gd"
 EnemyManager="*res://Scripts/EnemyManager.gd"
 
 [display]
 
 window/dpi/allow_hidpi=true
+
+[editor_plugins]
+
+enabled=PoolStringArray( "open-external-editor" )
 
 [rendering]
 
