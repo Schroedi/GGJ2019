@@ -1,6 +1,7 @@
 extends RigidBody2D
 const DamageHelper = preload("res://Scripts/Damage.gd")
-onready var Level = get_node("/root/GameLevel")
+const GameLevel = preload("res://Scenes/GameLevel.gd")
+onready var Level:GameLevel = get_node("/root/GameLevel") 
 
 var _target:WeakRef = null
 
@@ -8,8 +9,7 @@ export var life = 10
 export var shield = 200
 export var damage = {"HullDmg":50, "ShieldDmg": 0}
 var inflictsDamage = true
-export var _scrapValue = 50
-export var _scrapParts = 4
+export var goldValue =0
 export var circlePos = 0
 export var movementSpeed =20
 export var wave =0
@@ -52,6 +52,8 @@ func SpawnMoney(value, parts, global_pos, target, owner):
 
 func _die():
 	# spawn scrap
+	Level.addGold(goldValue) #todo scale on increased gold
+	Level.playerLifes+=1
 	EnemyManager.Enemies.erase(self)
 	queue_free()
 

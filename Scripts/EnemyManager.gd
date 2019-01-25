@@ -1,5 +1,6 @@
 extends Node
-onready var _level = get_node("/root/GameLevel")
+const GameLevel = preload("res://Scenes/GameLevel.gd")
+onready var _level:GameLevel = get_node("/root/GameLevel")
 const BaseEnemy = preload("res://Scenes/BaseEnemy.tscn")
 # Declare member variables here. Examples:
 # var a = 2
@@ -10,10 +11,13 @@ var WaveEnemyCount = 10
 var WaveSpawnDistance = 1.5
 var WaveMovementSpeed = 20
 var WaveLifeBaseLife = 10
+var WaveGoldBase = 10
 
 var WaveLifeScaling =1.1
 var WaveMovementScaling = 1.05
+var WaveGoldScaling = 1.05
 
+var currentWaveGold = WaveGoldBase
 var currentWaveLife = WaveLifeBaseLife
 var currentWaveMovementSpeed = WaveMovementSpeed
 var currentWave = 0
@@ -50,6 +54,8 @@ func spawnEnemy():
 	s.life = currentWaveLife
 	s.movementSpeed = currentWaveMovementSpeed
 	s.wave = currentWave
+	s.goldValue = currentWaveGold
+	_level.playerLifes-=1
 	#s.Owner = _level.owner
 	Enemies.append(s)
 	_level.add_child(s)
@@ -74,6 +80,7 @@ func _process(delta):
 		currentWave += 1
 		currentWaveLife *= WaveLifeScaling
 		currentWaveMovementSpeed *= WaveMovementScaling
+		currentWaveGold *= WaveGoldScaling
 		currentWaveSpawnsLeft += WaveEnemyCount
 		currentWaveDuration = WaveDuration
 	
