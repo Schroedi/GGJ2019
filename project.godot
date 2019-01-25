@@ -16,8 +16,16 @@ _global_script_class_icons={
 [application]
 
 config/name="GGJ2019"
-run/main_scene="res://Scenes/MainMenu.tscn"
+run/main_scene="res://Scenes/GameLevel.tscn"
 config/icon="res://icon.png"
+
+[autoload]
+
+EnemyManager="*res://Scripts/EnemyManager.gd"
+
+[display]
+
+window/dpi/allow_hidpi=true
 
 [rendering]
 

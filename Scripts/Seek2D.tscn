@@ -1,0 +1,58 @@
+[gd_scene format=2]
+
+[node name="Seek2D" type="Node2D"]
+
+[node name="UpdateTarget" type="Timer" parent="."]
+wait_time = 0.3
+autostart = true
+
+[node name="Debug" type="Node2D" parent="."]
+visible = false
+
+[node name="Tgt" type="Polygon2D" parent="Debug"]
+z_index = 27
+color = Color( 1, 0, 0, 1 )
+polygon = PoolVector2Array( 0.137062, -9.52826, -9.72379, 0.263153, -0.00182343, 8.66571, 9.23405, -0.222944 )
+
+[node name="Orig" type="Polygon2D" parent="Debug"]
+z_index = 27
+color = Color( 0.384314, 1, 0, 1 )
+polygon = PoolVector2Array( 0.137062, -9.52826, -9.72379, 0.263153, -0.00182343, 8.66571, 9.23405, -0.222944 )
+
+[node name="Dist" type="Label" parent="Debug"]
+margin_left = 41.0
+margin_top = -32.0
+margin_right = 81.0
+margin_bottom = -18.0
+text = "DD"
+
+[node name="Slowing" type="Label" parent="Debug"]
+margin_left = 41.0
+margin_top = -17.0
+margin_right = 81.0
+margin_bottom = -3.0
+text = "DD"
+
+[node name="Desired" type="Label" parent="Debug"]
+margin_left = 41.0
+margin_top = -3.0
+margin_right = 81.0
+margin_bottom = 11.0
+text = "DD"
+
+[node name="Vel" type="Label" parent="Debug"]
+margin_left = 41.0
+margin_top = 10.0
+margin_right = 81.0
+margin_bottom = 24.0
+text = "DD"
+
+[node name="Steer" type="Label" parent="Debug"]
+margin_left = 41.0
+margin_top = 22.0
+margin_right = 81.0
+margin_bottom = 36.0
+text = "DD"
+
+[connection signal="tree_exiting" from="." to="." method="_on_Seek2D_tree_exiting"]
+[connection signal="timeout" from="UpdateTarget" to="." method="_on_UpdateTarget_timeout"]
