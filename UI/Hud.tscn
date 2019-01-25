@@ -38,16 +38,10 @@ margin_right = 40.0
 margin_bottom = 40.0
 
 [node name="UiItem" parent="Inventory/Panel/ItemContainer" instance=ExtResource( 2 )]
-margin_left = 30.5262
-margin_top = 31.5789
-margin_right = 94.5262
-margin_bottom = 95.5789
 
 [node name="UiItem2" parent="Inventory/Panel/ItemContainer" instance=ExtResource( 2 )]
 margin_left = 125.694
-margin_top = 31.5789
 margin_right = 189.694
-margin_bottom = 95.5789
 
 [node name="Merge" type="Control" parent="."]
 margin_right = 40.0
