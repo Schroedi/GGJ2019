@@ -12,6 +12,7 @@ export var _scrapValue = 50
 export var _scrapParts = 4
 export var circlePos = 0
 export var movementSpeed =20
+export var wave =0
 export var offset = 10
 var consumption = 0 
 

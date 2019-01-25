@@ -8,7 +8,14 @@ const BaseEnemy = preload("res://Scenes/BaseEnemy.tscn")
 var WaveDuration = 30
 var WaveEnemyCount = 10
 var WaveSpawnDistance = 1.5
+var WaveMovementSpeed = 20
+var WaveLifeBaseLife = 10
 
+var WaveLifeScaling =1.1
+var WaveMovementScaling = 1.05
+
+var currentWaveLife = WaveLifeBaseLife
+var currentWaveMovementSpeed = WaveMovementSpeed
 var currentWave = 0
 var currentWaveSpawnsLeft = WaveEnemyCount
 var currentWaveDuration = WaveDuration
@@ -39,6 +46,10 @@ func spawnEnemy():
 	s.global_position = Vector2(-300+s.offset,0)+Vector2(960,350)
 	s.linear_velocity =  Vector2(0,0)
 	s.circlePos = 0
+	
+	s.life = currentWaveLife
+	s.movementSpeed = currentWaveMovementSpeed
+	s.wave = currentWave
 	#s.Owner = _level.owner
 	Enemies.append(s)
 	_level.add_child(s)
@@ -61,6 +72,8 @@ func _process(delta):
 	#advance wave
 	if(currentWaveDuration<0):
 		currentWave += 1
+		currentWaveLife *= WaveLifeScaling
+		currentWaveMovementSpeed *= WaveMovementScaling
 		currentWaveSpawnsLeft += WaveEnemyCount
 		currentWaveDuration = WaveDuration
 	
