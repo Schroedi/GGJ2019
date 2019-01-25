@@ -26,12 +26,9 @@ EnemyManager="*res://Scripts/EnemyManager.gd"
 
 [display]
 
-window/dpi/allow_hidpi=true
-
-[display]
-
 window/size/width=1920
 window/size/height=1080
+window/dpi/allow_hidpi=true
 
 [editor_plugins]
 

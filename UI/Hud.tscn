@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://Ui/ItemInfo.tscn" type="PackedScene" id=1]
+[ext_resource path="res://UI/ItemInfo.tscn" type="PackedScene" id=1]
 [ext_resource path="res://icon.png" type="Texture" id=2]
 [ext_resource path="res://TextMain.tres" type="DynamicFont" id=3]
 
