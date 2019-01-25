@@ -20,7 +20,17 @@ var Enemies = Array()
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	set_process(false)
 	pass # Replace with function body.
+
+
+func StartSpawn():
+	set_process(true)
+
+
+func StopSpawn():
+	set_process(false)
+
 
 func spawnEnemy():
 	var s = BaseEnemy.instance()
