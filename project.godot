@@ -19,6 +19,14 @@ config/name="GGJ2019"
 run/main_scene="res://Scenes/MainMenu.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+Stats="*res://Stats/Stats.gd"
+
+[editor_plugins]
+
+enabled=PoolStringArray( "open-external-editor" )
+
 [rendering]
 
 quality/driver/driver_name="GLES2"
