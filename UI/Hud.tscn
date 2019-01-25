@@ -1,10 +1,9 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://UI/ItemInfo.tscn" type="PackedScene" id=1]
-[ext_resource path="res://icon.png" type="Texture" id=2]
-[ext_resource path="res://UI/UiItem.gd" type="Script" id=3]
-[ext_resource path="res://Items/icon_select.png" type="Texture" id=4]
-[ext_resource path="res://TextMain.tres" type="DynamicFont" id=5]
+[ext_resource path="res://UI/UiItem.tscn" type="PackedScene" id=2]
+[ext_resource path="res://UI/Merge.gd" type="Script" id=3]
+[ext_resource path="res://TextMain.tres" type="DynamicFont" id=4]
 
 [node name="Hud" type="Control"]
 anchor_right = 1.0
@@ -34,23 +33,26 @@ margin_left = -383.0
 margin_top = -234.0
 margin_right = 383.0
 
-[node name="Item1" type="TextureButton" parent="Inventory/Panel"]
+[node name="ItemContainer" type="Control" parent="Inventory/Panel"]
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="UiItem" parent="Inventory/Panel/ItemContainer" instance=ExtResource( 2 )]
 margin_left = 30.5262
 margin_top = 31.5789
 margin_right = 94.5262
 margin_bottom = 95.5789
-toggle_mode = true
-texture_normal = ExtResource( 2 )
-script = ExtResource( 3 )
 
-[node name="Highlight" type="TextureRect" parent="Inventory/Panel/Item1"]
-margin_right = 64.0
-margin_bottom = 64.0
-texture = ExtResource( 4 )
+[node name="UiItem2" parent="Inventory/Panel/ItemContainer" instance=ExtResource( 2 )]
+margin_left = 125.694
+margin_top = 31.5789
+margin_right = 189.694
+margin_bottom = 95.5789
 
 [node name="Merge" type="Control" parent="."]
 margin_right = 40.0
 margin_bottom = 40.0
+script = ExtResource( 3 )
 
 [node name="Panel" type="Panel" parent="Merge"]
 margin_left = 1374.0
@@ -58,12 +60,12 @@ margin_top = 847.0
 margin_right = 1617.0
 margin_bottom = 1079.0
 
-[node name="Button" type="Button" parent="Merge/Panel"]
+[node name="Merge" type="Button" parent="Merge/Panel"]
 margin_left = 48.7368
 margin_top = 175.105
 margin_right = 191.737
 margin_bottom = 218.105
-custom_fonts/font = ExtResource( 5 )
+custom_fonts/font = ExtResource( 4 )
 text = "Merge"
 
-[connection signal="toggled" from="Inventory/Panel/Item1" to="Inventory/Panel/Item1" method="_on_Item_toggled"]
+[connection signal="pressed" from="Merge/Panel/Merge" to="Merge" method="_on_Merge_pressed"]
