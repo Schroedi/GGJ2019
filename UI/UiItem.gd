@@ -1,10 +1,9 @@
 extends TextureButton
 
 const BaseItem = preload("res://Items/BaseItem.gd")
-const ItemGen = preload("res://Items/ItemGen.gd")
 
 onready var ItemInfo = get_node("/root/GameLevel/Hud/ItemInfo")
-onready var Item:BaseItem = ItemGen.CreateItem()	
+onready var Item:BaseItem
 
 func _on_Item_toggled(button_pressed):
 	ItemInfo.ShowItem(Item)
