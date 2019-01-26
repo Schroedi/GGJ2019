@@ -1,8 +1,10 @@
 extends RigidBody2D
 const DamageHelper = preload("res://Scripts/Damage.gd")
+const Helpers = preload("res://Scripts/Helpers.gd")
 const GameLevel = preload("res://Scenes/GameLevel.gd")
 const ItemVis = preload("res://Items/ItemVis.tscn")
 const popup = preload("res://Scenes/pop_label.tscn")
+const Bullet = preload("res://Scenes/Projectiles/Bullet.tscn")
 onready var Level:GameLevel = get_node("/root/GameLevel") 
 
 var _target:WeakRef = null
@@ -72,9 +74,45 @@ func _die():
 	EnemyManager.Enemies.erase(self)
 	queue_free()
 
+func bounceProjectile(var src, var target,var dmg,var bounceLeft,var splash, var bullet,var level):
+	Helpers.fireProjectile(src,target,
+					dmg,
+					bounceLeft, 
+					splash,
+					bullet,
+					level)
+	
 func _on_BaseEnemy_body_entered(body):
-	if "damage" in body and body.damage > 0:
+	
+	if "damage" in body and body.damage > 0 and body.Target.get_ref()==self:
 		_damage(body.damage)
+		if("splash" in body and body.splash>0):
+			var enms =EnemyManager.findEnemiesInRange(self,body.splash)
+			for en in enms:
+				var isLast = en == body.Source.get_ref()
+				var isSelf =  en == self 
+				var isNotEnemy = not (en.get_class() == self.get_class())
+				if  isLast  or isSelf or isNotEnemy :	
+					continue
+				else:	
+					en._damage(body.damage)
+		if "targetBounce" in body and body.targetBounce>0:
+			var enms =EnemyManager.findEnemiesInRange(self,EnemyManager.bounceRange)
+			for en in enms:
+				var isLast = en == body.Source.get_ref()
+				var isSelf =  en == self 
+				var isNotEnemy = not (en.get_class() == self.get_class())
+				if  isLast  or isSelf or isNotEnemy :	
+					continue
+				else:	
+					call_deferred("bounceProjectile",weakref(self),weakref(en),
+					body.damage,
+					body.targetBounce-1, 
+					0
+					,Bullet,
+					Level)
+					break
+		
 		# this projective cannot damage other bodies anymore
 		body.damage = 0
 		body.queue_free()
@@ -95,7 +133,7 @@ func _process(delta):
 		
 
 func _damage(dmg):
-	life-=dmg
+	life-=dmg	
 	var pl = popup.instance()
 	pl.global_position = global_position+Vector2(rand_range(-50,50),rand_range(-50,50))
 	pl.setColor(Color.red)
