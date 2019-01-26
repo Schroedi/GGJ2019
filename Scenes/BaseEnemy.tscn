@@ -10,6 +10,7 @@ radius = 43.8163
 [node name="BaseEnemy" type="RigidBody2D" groups=[
 "enemy",
 ]]
+z_index = -150
 collision_layer = 2
 mass = 50.0
 gravity_scale = 0.0

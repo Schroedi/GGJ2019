@@ -21,6 +21,7 @@ scale = Vector2( 2.09357, 1.70588 )
 
 [node name="canon" type="Sprite" parent="Barrel"]
 position = Vector2( 0.589722, -2.23425 )
+z_index = -100
 texture = ExtResource( 2 )
 
 [node name="ItemCollect" type="Area2D" parent="."]
