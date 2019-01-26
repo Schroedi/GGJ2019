@@ -23,8 +23,6 @@ var _currentEnemy:WeakRef = null
 onready var tile = get_parent().get_parent()
 onready var canonEnd = get_node("Barrel/Muzzle")
 onready var barrel = get_node("Barrel")
-onready var shootArea = get_node("ShootArea")
-onready var shootAreaShape = get_node("ShootArea/CollisionShape2D").shape as CircleShape2D
 
 
 func get_consumption():
