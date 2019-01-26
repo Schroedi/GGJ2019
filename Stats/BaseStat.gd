@@ -2,6 +2,7 @@ extends Node
 
 var Id:String
 var value
+var dropWeight = 1
 
 func GetText() -> String:
 	return str(Id, value)

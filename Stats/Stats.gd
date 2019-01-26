@@ -3,6 +3,7 @@ extends Node
 var CurrentStats = {}
 
 var AlltStats = []
+var DropWeights = []
 
 func _init():
 	loadAllStats("res://Stats/Available/")
@@ -16,7 +17,9 @@ func loadAllStats(path):
 		if file == "":
 			break
 		elif not file.begins_with("."):
-			AlltStats.append(load(path+file))
+			var stat = load(path+file)
+			AlltStats.append(stat)
+			DropWeights.append(stat.new().dropWeight)
 	dir.list_dir_end()
 
 func GetAllStats():
