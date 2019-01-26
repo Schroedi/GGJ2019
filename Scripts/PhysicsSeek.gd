@@ -6,7 +6,7 @@ extends Node2D
 
 # will hold an object reference during runtime
 var Target:WeakRef
-export var TargetDistance = 200
+export var TargetDistance = 500
 export var MaxSpeed = 200
 export var MaxAcc = 50
 
@@ -95,6 +95,7 @@ func _physics_process(delta: float) -> void:
 	#_parent.applied_force = Vector2()
 	#_parent.add_central_force(steer)
 	_parent.apply_central_impulse(steer * delta)
+	_parent.rotation = _parent.linear_velocity.angle()
 
 
 func _on_UpdateTarget_timeout() -> void:

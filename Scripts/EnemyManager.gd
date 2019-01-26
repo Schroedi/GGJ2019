@@ -8,9 +8,9 @@ const BaseEnemy = preload("res://Scenes/BaseEnemy.tscn")
 
 var WaveDuration = 30
 var WaveEnemyCount = 10
-var WaveSpawnDistance = 1.5
-var WaveMovementSpeed = 20
-var WaveLifeBaseLife = 10
+var WaveSpawnDistance = 1
+var WaveMovementSpeed = 50
+var WaveLifeBaseLife = 30
 var WaveGoldBase = 10
 
 var WaveLifeScaling =1.1
