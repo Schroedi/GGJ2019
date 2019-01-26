@@ -17,6 +17,7 @@ var WaveSpawnDistance = 1
 var WaveMovementSpeed = 50
 var WaveLifeBaseLife = 30
 var WaveGoldBase = 10
+var WaveBossLifeMultiplier = 5
 
 var WaveLifeScaling =1.1
 var WaveMovementScaling = 1.05
@@ -28,6 +29,7 @@ var currentWaveMovementSpeed = WaveMovementSpeed
 var currentWave = 0
 var currentWaveSpawnsLeft = WaveEnemyCount
 var currentWaveDuration = WaveDuration
+
 var lastSpawn = 0
 
 
@@ -62,7 +64,6 @@ func spawnEnemy():
 	s.global_position = Vector2(x,y)+ElipseCenter
 	s.linear_velocity =  Vector2(0,0)
 	s.circlePos = 0
-	
 	s.life = currentWaveLife
 	s.movementSpeed = currentWaveMovementSpeed
 	s.wave = currentWave
@@ -71,6 +72,10 @@ func spawnEnemy():
 	#s.Owner = _level.owner
 	Enemies.append(s)
 	_level.add_child(s)
+	if(currentWave%10 ==0 ):
+		if(currentWaveSpawnsLeft==5):
+			s.life = currentWaveLife*WaveBossLifeMultiplier
+			s.set_scale(2)
 	pass
 	
 
@@ -93,8 +98,10 @@ func _process(delta):
 		currentWaveLife *= WaveLifeScaling
 		currentWaveMovementSpeed *= WaveMovementScaling
 		currentWaveGold *= WaveGoldScaling
-		currentWaveSpawnsLeft += WaveEnemyCount
+		currentWaveSpawnsLeft += WaveEnemyCount + Stats.CurrentStats["enemyCount"]
 		currentWaveDuration = WaveDuration
+		if(currentWaveSpawnsLeft*WaveSpawnDistance)>WaveDuration:
+			WaveSpawnDistance =  WaveDuration / (currentWaveSpawnsLeft+2)
 	
 	
 	#remove stale enemies

@@ -6,4 +6,4 @@ func _init():
 	Id = "bank"
 	# Seconds, gold
 	value = Vector2(5,1)
-	defaultValue = Vector2(0,0)
+	defaultValue = Vector2(5,0)

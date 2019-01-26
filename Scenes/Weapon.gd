@@ -9,7 +9,8 @@ export var BaseDmg = 10
 var reloadTimeReamining = 0
 var targetReady = false
 
-var bankTimer =0
+var bankTimer = 0
+var randomDamageTimer = 0
 
 # how much energy does this weapon pull per second in normal operation
 export var consumptionPerShot:float = 0
@@ -139,6 +140,16 @@ func _process(delta):
 			bankTimer = 0
 	bankTimer+=delta
 
+	#random Damage
+	if Stats.CurrentStats["randomDamage"][0] >0:
+		if(randomDamageTimer > Stats.CurrentStats["randomDamage"][1]):		
+			var dmg = CalcDamage()*Stats.CurrentStats["randomDamage"][0]
+			if EnemyManager.Enemies.size()>0:				
+				var enm = randi()%EnemyManager.Enemies.size()
+				var en = EnemyManager.Enemies[enm]
+				en._damage(dmg)
+				randomDamageTimer = 0
+	randomDamageTimer+=delta
 
 func Save():
 	return {"filename": get_filename()}

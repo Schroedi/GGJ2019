@@ -62,6 +62,7 @@ func _spawnItem():
 
 func _die():
 	# spawn scrap
+	goldValue += Stats.CurrentStats["money"]
 	Level.addGold(goldValue) #todo scale on increased gold
 	var pl = popup.instance()
 	pl.global_position = global_position+Vector2(rand_range(-50,50),rand_range(-50,50))
