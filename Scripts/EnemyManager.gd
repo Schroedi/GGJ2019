@@ -98,7 +98,12 @@ func _process(delta):
 		currentWaveLife *= WaveLifeScaling
 		currentWaveMovementSpeed *= WaveMovementScaling
 		currentWaveGold *= WaveGoldScaling
-		currentWaveSpawnsLeft += WaveEnemyCount + Stats.CurrentStats["enemyCount"]
+		var encountChance =Stats.CurrentStats["enemyCount"]
+		var encount = floor(encountChance)
+		encountChance-=encount
+		if(1-encount<randf()):
+			encount +=1
+		currentWaveSpawnsLeft += WaveEnemyCount + encount
 		currentWaveDuration = WaveDuration
 		if(currentWaveSpawnsLeft*WaveSpawnDistance)>WaveDuration:
 			WaveSpawnDistance =  WaveDuration / (currentWaveSpawnsLeft+2)

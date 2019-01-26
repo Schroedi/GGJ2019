@@ -18,6 +18,7 @@ export var circlePos = 0
 export var movementSpeed =20
 export var wave =0
 export var offset = 10
+export var slowtimer =0
 var consumption = 0 
 
 # TODO: this is needed for the weapon. It needs it for dmg. calculation
@@ -127,10 +128,14 @@ func GetCombinedStats():
 	return 0
 
 func _process(delta):
-	circlePos += movementSpeed * delta
+	var slow = 1
+	if slowtimer>0 :
+		slow = 1-Stats.CurrentStats["slow"].x/100.0 
+	circlePos += movementSpeed * delta *slow
 	var x = (EnemyManager.ElipseA+offset) * cos(deg2rad(circlePos));
 	var y = (EnemyManager.ElipseB+offset) * sin(deg2rad(circlePos));
 	global_position = Vector2(x,y)+EnemyManager.ElipseCenter
+	slowtimer-=delta
 		
 
 func _damage(dmg):
@@ -142,5 +147,9 @@ func _damage(dmg):
 	Level.call_deferred("add_child", pl)
 	#Level.add_child(pl)
 	$LifeBar.value = life
+	#slow
+	if Stats.CurrentStats["slow"].x>0:
+		slowtimer = Stats.CurrentStats["slow"].y
+	
 	if life < 0:
 		_die()
