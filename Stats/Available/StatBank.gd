@@ -4,12 +4,6 @@ func GetText() -> String:
 	
 func _init():
 	Id = "bank"
-	value = [5,1]
-
-func Equip():
-	Stats.CurrentStats[Id][0] += value[0]
-	Stats.CurrentStats[Id][1] += value[1]
-
-func Unequip():
-	Stats.CurrentStats[Id][0] -= value[0]
-	Stats.CurrentStats[Id][1] -= value[1]
+	# Seconds, gold
+	value = Vector2(5,1)
+	defaultValue = Vector2(0,0)

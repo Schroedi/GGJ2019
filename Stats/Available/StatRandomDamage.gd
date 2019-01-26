@@ -5,12 +5,6 @@ func GetText() -> String:
 	
 func _init():
 	Id = "randomDamage"
-	value = [10,10]
-
-func Equip():
-	Stats.CurrentStats[Id][0] += value[0]
-	Stats.CurrentStats[Id][1] += value[1]
-
-func Unequip():
-	Stats.CurrentStats[Id][0] -= value[0]
-	Stats.CurrentStats[Id][1] -= value[1]
+	# damage, seconds
+	value = Vector2(10,10)
+	defaultValue = Vector2(0,0)
