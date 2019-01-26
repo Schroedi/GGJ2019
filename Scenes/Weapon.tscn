@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Scenes/Weapon.gd" type="Script" id=1]
-[ext_resource path="res://Assets/Earth.png" type="Texture" id=2]
+[ext_resource path="res://Textures/canon.png" type="Texture" id=2]
 [ext_resource path="res://Scenes/ItemCollect.gd" type="Script" id=3]
 
 [sub_resource type="CircleShape2D" id=1]
@@ -20,8 +20,7 @@ rotation = 3.13471
 scale = Vector2( 2.09357, 1.70588 )
 
 [node name="canon" type="Sprite" parent="Barrel"]
-position = Vector2( -0.105232, 1.70374 )
-scale = Vector2( 0.619627, 0.619627 )
+position = Vector2( 0.589722, -2.23425 )
 texture = ExtResource( 2 )
 
 [node name="ItemCollect" type="Area2D" parent="."]

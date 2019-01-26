@@ -9,6 +9,8 @@ export var BaseDmg = 10
 var reloadTimeReamining = 0
 var targetReady = false
 
+var bankTimer =0
+
 # how much energy does this weapon pull per second in normal operation
 export var consumptionPerShot:float = 0
 
@@ -16,6 +18,10 @@ const Helpers = preload("res://Scripts/Helpers.gd")
 
 export var Bullet:PackedScene = preload("res://Scenes/Projectiles/Bullet.tscn")
 export var _playerOwned = true setget set_player_owned
+
+const popup = preload("res://Scenes/pop_label.tscn")
+const GameLevel = preload("res://Scenes/GameLevel.gd")
+onready var Level:GameLevel = get_node("/root/GameLevel") 
 
 var _currentEnemy:WeakRef = null
 
@@ -118,6 +124,20 @@ func _process(delta):
 			pass
 	else:
 		barrel.global_rotation += 	delta * turnSpeed * 0.05
+		
+		
+	#banking
+	if Stats.CurrentStats["bank"][1] >0:
+		if(bankTimer > Stats.CurrentStats["bank"][0]):		
+			var gold = Stats.CurrentStats["bank"][1]	
+			Level.addGold(gold)
+			var pl = popup.instance()
+			pl.global_position = global_position+Vector2(rand_range(-50,50),rand_range(-50,50))
+			pl.setColor(Color.gold)
+			pl.setLabel(String(gold)+"g")	
+			Level.add_child(pl)
+			bankTimer = 0
+	bankTimer+=delta
 
 
 func Save():
