@@ -1,6 +1,6 @@
 extends Control
 
-onready var ItemContainer = get_node("../Inventory/Panel/ItemContainer")
+onready var ItemContainer = get_node("../Inventory/Panel/ScrollContainer/ItemContainer")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

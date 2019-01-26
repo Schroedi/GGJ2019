@@ -1,7 +1,6 @@
 extends RigidBody2D
 const DamageHelper = preload("res://Scripts/Damage.gd")
 const GameLevel = preload("res://Scenes/GameLevel.gd")
-const ItemGen = preload("res://Items/ItemGen.gd")
 const ItemVis = preload("res://Items/ItemVis.tscn")
 const popup = preload("res://Scenes/pop_label.tscn")
 onready var Level:GameLevel = get_node("/root/GameLevel") 
