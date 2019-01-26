@@ -33,21 +33,11 @@ func _ready():
 func _updateTarget():
 	var tr = Target.get_ref()
 	if not tr:
+		_parent.queue_free()
 		return
 	
-	# if the target is collidable, get an accurate distance, not only the dist to the center
-	if tr is PhysicsBody2D:
-		var space_state = get_world_2d().direct_space_state
-		# use global coordinates, not local to node
-		var layerMask = tr.collision_layer
-		var result = space_state.intersect_ray(global_position, tr.global_position, [], layerMask)
-		if result:
-			# head to point targetDistance away from impact
-			_targetPos = result["position"] + result["normal"] * TargetDistance
-	else:
-		_targetPos = tr.global_position
+	_targetPos = tr.global_position
 		# for non physics objects we do not need to retarget
-		$UpdateTarget.stop()
 	
 	_tgtIndicator.global_position = _targetPos
 
@@ -98,7 +88,7 @@ func _physics_process(delta: float) -> void:
 	_parent.rotation = _parent.linear_velocity.angle()
 
 
-func _on_UpdateTarget_timeout() -> void:
+func _process(delta) -> void:
 	_updateTarget()
 	pass # Replace with function body.
 

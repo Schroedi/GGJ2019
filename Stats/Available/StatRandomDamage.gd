@@ -5,4 +5,6 @@ func GetText() -> String:
 	
 func _init():
 	Id = "randomDamage"
-	value = [10,10]
+	# damage, seconds
+	value = Vector2(10,10)
+	defaultValue = Vector2(0,0)

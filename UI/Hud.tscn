@@ -1,71 +1,144 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=10 format=2]
 
-[ext_resource path="res://UI/ItemInfo.tscn" type="PackedScene" id=1]
-[ext_resource path="res://UI/Inventory.gd" type="Script" id=2]
-[ext_resource path="res://UI/Merge.gd" type="Script" id=3]
-[ext_resource path="res://TextMain.tres" type="DynamicFont" id=4]
-[ext_resource path="res://UI/PlayerInfo.gd" type="Script" id=5]
+[ext_resource path="res://UI/Slots.gd" type="Script" id=1]
+[ext_resource path="res://UI/SlotStyleNormal.tres" type="StyleBox" id=2]
+[ext_resource path="res://UI/Slot.gd" type="Script" id=3]
+[ext_resource path="res://UI/ItemInfo.gd" type="Script" id=4]
+[ext_resource path="res://TextMain.tres" type="DynamicFont" id=5]
+[ext_resource path="res://UI/Inventory.gd" type="Script" id=6]
+[ext_resource path="res://UI/ScrollContainer.gd" type="Script" id=7]
+[ext_resource path="res://UI/Merge.gd" type="Script" id=8]
+[ext_resource path="res://UI/PlayerInfo.gd" type="Script" id=9]
 
 [node name="Hud" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 
-[node name="ItemInfo" parent="." instance=ExtResource( 1 )]
-margin_left = 7.98821
-margin_top = 847.363
-margin_right = 7.98816
-margin_bottom = 847.364
+[node name="Slots" type="Panel" parent="."]
+margin_left = 26.9109
+margin_top = 213.772
+margin_right = 174.911
+margin_bottom = 725.772
+script = ExtResource( 1 )
 
-[node name="Inventory" type="Control" parent="."]
-anchor_right = 1.0
-anchor_bottom = 1.0
-script = ExtResource( 2 )
+[node name="Slot1" type="Panel" parent="Slots"]
+margin_left = 31.1241
+margin_top = 28.0413
+margin_right = 111.124
+margin_bottom = 108.041
+custom_styles/panel = ExtResource( 2 )
 
-[node name="Panel" type="Panel" parent="Inventory"]
-margin_left = 493.722
-margin_top = 742.365
-margin_right = 1259.72
-margin_bottom = 976.365
+[node name="Center" type="CenterContainer" parent="Slots/Slot1"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -40.0
+margin_top = -39.9999
+margin_right = 40.0
+margin_bottom = 40.0001
+script = ExtResource( 3 )
 
-[node name="ScrollContainer" type="ScrollContainer" parent="Inventory/Panel"]
-margin_right = 765.0
+[node name="Slot2" type="Panel" parent="Slots"]
+margin_left = 32.2617
+margin_top = 121.324
+margin_right = 112.262
+margin_bottom = 201.324
+custom_styles/panel = ExtResource( 2 )
+
+[node name="Slot3" type="Panel" parent="Slots"]
+margin_left = 31.1241
+margin_top = 214.038
+margin_right = 111.124
+margin_bottom = 294.038
+custom_styles/panel = ExtResource( 2 )
+
+[node name="Slot4" type="Panel" parent="Slots"]
+margin_left = 32.2617
+margin_top = 304.477
+margin_right = 112.262
+margin_bottom = 384.477
+custom_styles/panel = ExtResource( 2 )
+
+[node name="Slot5" type="Panel" parent="Slots"]
+margin_left = 32.8305
+margin_top = 396.623
+margin_right = 112.831
+margin_bottom = 476.623
+custom_styles/panel = ExtResource( 2 )
+
+[node name="ItemInfo" type="Panel" parent="."]
+margin_left = 2.05054
+margin_top = 846.873
+margin_right = 515.051
+margin_bottom = 1070.87
+script = ExtResource( 4 )
+
+[node name="Name" type="RichTextLabel" parent="ItemInfo"]
+margin_right = 499.0
+margin_bottom = 43.0
+custom_fonts/mono_font = ExtResource( 5 )
+custom_fonts/bold_italics_font = ExtResource( 5 )
+custom_fonts/italics_font = ExtResource( 5 )
+custom_fonts/bold_font = ExtResource( 5 )
+custom_fonts/normal_font = ExtResource( 5 )
+bbcode_enabled = true
+
+[node name="Descr" type="RichTextLabel" parent="ItemInfo"]
+margin_left = 1.0
+margin_top = 46.0
+margin_right = 507.0
+margin_bottom = 211.0
+custom_fonts/mono_font = ExtResource( 5 )
+custom_fonts/bold_italics_font = ExtResource( 5 )
+custom_fonts/italics_font = ExtResource( 5 )
+custom_fonts/bold_font = ExtResource( 5 )
+custom_fonts/normal_font = ExtResource( 5 )
+bbcode_enabled = true
+
+[node name="Inventory" type="Panel" parent="."]
+margin_left = 538.834
+margin_top = 844.892
+margin_right = 1304.83
+margin_bottom = 1078.89
+script = ExtResource( 6 )
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Inventory"]
+margin_right = 762.0
 margin_bottom = 236.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
+script = ExtResource( 7 )
 
-[node name="ItemContainer" type="GridContainer" parent="Inventory/Panel/ScrollContainer"]
+[node name="ItemContainer" type="GridContainer" parent="Inventory/ScrollContainer"]
 columns = 11
 
-[node name="Merge" type="Control" parent="."]
-margin_right = 40.0
-margin_bottom = 40.0
-script = ExtResource( 3 )
+[node name="Merge" type="Panel" parent="."]
+margin_left = 1671.33
+margin_top = 842.899
+margin_right = 1914.33
+margin_bottom = 1074.9
+script = ExtResource( 8 )
 
-[node name="Panel" type="Panel" parent="Merge"]
-margin_left = 1374.0
-margin_top = 847.0
-margin_right = 1617.0
-margin_bottom = 1079.0
-
-[node name="Merge" type="Button" parent="Merge/Panel"]
+[node name="Merge" type="Button" parent="Merge"]
 margin_left = 48.7368
 margin_top = 175.105
 margin_right = 191.737
 margin_bottom = 218.105
-custom_fonts/font = ExtResource( 4 )
+custom_fonts/font = ExtResource( 5 )
 text = "Merge"
 
 [node name="PlayerInfo" type="Panel" parent="."]
 margin_right = 199.0
 margin_bottom = 95.0
-script = ExtResource( 5 )
+script = ExtResource( 9 )
 
 [node name="Gold" type="Label" parent="PlayerInfo"]
 margin_left = 15.2842
 margin_top = 5.79745
 margin_right = 79.2842
 margin_bottom = 78.7974
-custom_fonts/font = ExtResource( 4 )
+custom_fonts/font = ExtResource( 5 )
 text = "Gold"
 
 [node name="Life" type="Label" parent="PlayerInfo"]
@@ -73,7 +146,7 @@ margin_left = 19.764
 margin_top = 42.1632
 margin_right = 68.764
 margin_bottom = 77.1632
-custom_fonts/font = ExtResource( 4 )
+custom_fonts/font = ExtResource( 5 )
 text = "Life"
 
-[connection signal="pressed" from="Merge/Panel/Merge" to="Merge" method="_on_Merge_pressed"]
+[connection signal="pressed" from="Merge/Merge" to="Merge" method="_on_Merge_pressed"]

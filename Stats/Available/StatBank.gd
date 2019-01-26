@@ -4,4 +4,6 @@ func GetText() -> String:
 	
 func _init():
 	Id = "bank"
-	value = [5,1]
+	# Seconds, gold
+	value = Vector2(5,1)
+	defaultValue = Vector2(0,0)

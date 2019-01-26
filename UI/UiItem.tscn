@@ -5,10 +5,6 @@
 [ext_resource path="res://Items/icon_select.png" type="Texture" id=3]
 
 [node name="UiItem" type="TextureButton"]
-margin_left = 30.5262
-margin_top = 31.5789
-margin_right = 94.5262
-margin_bottom = 95.5789
 toggle_mode = true
 texture_normal = ExtResource( 1 )
 script = ExtResource( 2 )
