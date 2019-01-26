@@ -3,7 +3,6 @@
 [ext_resource path="res://UI/ItemInfo.gd" type="Script" id=1]
 [ext_resource path="res://TextMain.tres" type="DynamicFont" id=2]
 
-
 [node name="ItemInfo" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -13,18 +12,25 @@ script = ExtResource( 1 )
 margin_right = 372.0
 margin_bottom = 133.0
 
-[node name="Name" type="Label" parent="Panel"]
+[node name="Name" type="RichTextLabel" parent="Panel"]
 margin_right = 232.0
 margin_bottom = 24.0
-custom_fonts/font = ExtResource( 2 )
-text = "Item Name"
+custom_fonts/mono_font = ExtResource( 2 )
+custom_fonts/bold_italics_font = ExtResource( 2 )
+custom_fonts/italics_font = ExtResource( 2 )
+custom_fonts/bold_font = ExtResource( 2 )
+custom_fonts/normal_font = ExtResource( 2 )
+bbcode_enabled = true
 
-[node name="Descr" type="Label" parent="Panel"]
+[node name="Descr" type="RichTextLabel" parent="Panel"]
 margin_left = 0.554779
 margin_top = 45.8043
 margin_right = 365.555
 margin_bottom = 210.804
-custom_fonts/font = ExtResource( 2 )
-text = "Item infoItem infoItem infoItem infoItem infoItem info"
-autowrap = true
+custom_fonts/mono_font = ExtResource( 2 )
+custom_fonts/bold_italics_font = ExtResource( 2 )
+custom_fonts/italics_font = ExtResource( 2 )
+custom_fonts/bold_font = ExtResource( 2 )
+custom_fonts/normal_font = ExtResource( 2 )
+bbcode_enabled = true
 
