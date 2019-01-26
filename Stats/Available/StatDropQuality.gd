@@ -5,3 +5,4 @@ func GetText() -> String:
 func _init():
 	Id = "dropQuality"
 	value = 0.1
+	defaultValue = 0

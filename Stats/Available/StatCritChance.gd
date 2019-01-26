@@ -6,3 +6,4 @@ func GetText() -> String:
 func _init():
 	Id = "crit"
 	value = 0.1
+	defaultValue = 0
