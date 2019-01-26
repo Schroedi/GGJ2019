@@ -8,7 +8,6 @@ var Target
 var Source
 var targetBounce = 0
 var splash = 0
-onready var BounceCollision = $Area2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -16,7 +15,6 @@ func _ready():
 	$Seek2D.Target = Target
 	# orientate along velocity
 	rotation = linear_velocity.angle()
-	print( targetBounce)
 	
 
 
