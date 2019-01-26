@@ -4,6 +4,7 @@ var CurrentStats = {}
 
 var AlltStats = []
 var DropWeights = []
+var StatIds = []
 
 func _init():
 	loadAllStats("res://Stats/Available/")
@@ -19,11 +20,11 @@ func loadAllStats(path):
 		elif not file.begins_with("."):
 			var stat = load(path+file)
 			AlltStats.append(stat)
-			DropWeights.append(stat.new().dropWeight)
+			var statInst = stat.new()
+			DropWeights.append(statInst.dropWeight)
+			StatIds.append(statInst.Id)
+			CurrentStats[statInst.Id] = statInst.defaultValue
 	dir.list_dir_end()
 
 func GetAllStats():
 	return AlltStats
-
-func _ready():
-	CurrentStats["speed"] = 2
