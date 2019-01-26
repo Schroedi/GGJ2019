@@ -8,19 +8,29 @@ var rng = RandomNumberGenerator.new()
 
 func _on_Merge_pressed():
 	var items = ItemContainer.get_children()
+	var levelSum = 0
 	var selected = []
 	for i in items:
 		if i.IsSelected():
 			selected.append(i)
+			levelSum += i.Item.ItemLvl
 	
 	# count how often stats appear in items to weight selection
 	var weights = Stats.DropWeights.duplicate()
+	var levels = {}
+	var oldValue = 0
 	for i in selected:
 		for s in i.Item.ItemStats:
+			oldValue += s.Level
 			var stati = Stats.StatIds.find(s.Id)
+			# sum stat levels per stat type
+			if levels.has(s.Id):
+				levels[s.Id] += s.value
+			else:
+				levels[s.Id] = s.value
 			weights[stati] += 1
 	
-	# TODO create new item and add it
+	# create new item and add it
 	var item = BaseItem.new()
 	var statCount = rng.randi_range(1,4)
 	for i in statCount:
@@ -28,9 +38,26 @@ func _on_Merge_pressed():
 		weights[stati] = 0
 		item.ItemStats.append(Stats.AlltStats[stati].new())
 
-	# TODO set stat level
+	# copy stat levels selected from previous items
+	for sn in item.ItemStats:
+		if levels.has(sn.Id):
+			for i in levels[sn.Id]:
+				sn.LevelUp()
 
-	# TODO set item level
+	# Get sum of current newly created item levels
+	var newSum = 0
+	for sn in item.ItemStats:
+		newSum += sn.Level
+
+	var targetSum = rand_range(oldValue, oldValue * 1.1)
+	# add random levels until we reach our target power
+	while newSum < targetSum:
+		var id = randi() % statCount
+		item.ItemStats[id].LevelUp()
+		newSum += 1
+
+	# set item level as sum of old levels
+	item.ItemLvl = levelSum
 	
 	# remove merged items
 	for i in selected:
