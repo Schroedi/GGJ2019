@@ -1,6 +1,6 @@
 extends Node
 
-var ItemStats:Array
+var ItemStats = []
 var ItemLvl:int = 0
 
 func GetText() -> String:

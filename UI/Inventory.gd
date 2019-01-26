@@ -6,4 +6,4 @@ const UiItem = preload("res://UI/UiItem.tscn")
 func AddItem(item:BaseItem):
 	var ui = UiItem.instance()
 	ui.Item = item
-	$Panel.add_child(ui)
+	$Panel/ScrollContainer/ItemContainer.add_child(ui)
