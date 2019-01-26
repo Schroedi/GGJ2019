@@ -1,6 +1,7 @@
 extends RigidBody2D
 const DamageHelper = preload("res://Scripts/Damage.gd")
 const GameLevel = preload("res://Scenes/GameLevel.gd")
+const popup = preload("res://Scenes/pop_label.tscn")
 onready var Level:GameLevel = get_node("/root/GameLevel") 
 
 var _target:WeakRef = null
@@ -53,6 +54,12 @@ func SpawnMoney(value, parts, global_pos, target, owner):
 func _die():
 	# spawn scrap
 	Level.addGold(goldValue) #todo scale on increased gold
+	var pl = popup.instance()
+	pl.global_position = global_position+Vector2(rand_range(-50,50),rand_range(-50,50))
+	pl.setColor(Color.gold)
+	pl.setLabel(String(goldValue)+"g")
+	
+	Level.add_child(pl)
 	Level.playerLifes+=1
 	EnemyManager.Enemies.erase(self)
 	queue_free()
@@ -60,7 +67,9 @@ func _die():
 func _on_BaseEnemy_body_entered(body):
 	if "damage" in body :
 		_damage(body.damage)
+		print(String(body.get_instance_id())+"/"+String(self.get_instance_id()))
 		body.queue_free()
+		
 		
 func UseEnergy(v):
 	return true
@@ -76,6 +85,11 @@ func _process(delta):
 
 func _damage(dmg):
 	life-=dmg
+	var pl = popup.instance()
+	pl.global_position = global_position+Vector2(rand_range(-50,50),rand_range(-50,50))
+	pl.setColor(Color.red)
+	pl.setLabel(dmg)
+	Level.add_child(pl)
 	$LifeBar.value = life
 	if life < 0:
 		_die()

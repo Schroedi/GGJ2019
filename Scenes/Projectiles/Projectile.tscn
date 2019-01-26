@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Scenes/Projectiles/Projectile.gd" type="Script" id=1]
+[ext_resource path="res://Scripts/Seek2D.tscn" type="PackedScene" id=2]
 
 [sub_resource type="CircleShape2D" id=1]
 
@@ -21,5 +22,10 @@ shape = SubResource( 1 )
 [node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="CollisionShape2D"]
 position = Vector2( 0.96145, -0.145993 )
 scale = Vector2( 2.12473, 1.18664 )
+
+[node name="Seek2D" parent="." instance=ExtResource( 2 )]
+TargetDistance = 0
+MaxSpeed = 1000
+MaxAcc = 40000
 
 [connection signal="screen_exited" from="CollisionShape2D/VisibilityNotifier2D" to="." method="_on_VisibilityNotifier2D_screen_exited"]

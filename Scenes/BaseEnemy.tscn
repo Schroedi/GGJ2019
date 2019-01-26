@@ -5,7 +5,7 @@
 
 [sub_resource type="CapsuleShape2D" id=1]
 
-radius = 43.7542
+radius = 43.8163
 
 [node name="BaseEnemy" type="RigidBody2D" groups=[
 "enemy",
@@ -26,12 +26,12 @@ custom_colors/font_color = Color( 0, 0, 0, 0 )
 value = 100.0
 
 [node name="Polygon2D" type="Polygon2D" parent="."]
-position = Vector2( -6.72796, 7.48598 )
+position = Vector2( -7.30787, -19.7698 )
 color = Color( 0.207843, 0.654902, 0.360784, 1 )
 polygon = PoolVector2Array( 7.12921, -7.16909, -14.0307, 55.695, 28.9816, 55.3872 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 0.579903, 23.5444 )
+position = Vector2( -0.115989, 0.231968 )
 shape = SubResource( 1 )
 
 [connection signal="body_entered" from="." to="." method="_on_BaseEnemy_body_entered"]
