@@ -4,7 +4,7 @@ extends Node2D
 export var turnSpeed = 10
 # shots per second
 export var fireRate:float = 1.0
-export var BaseDmg = {"HullDmg":0, "ShieldDmg": 0}
+export var BaseDmg = 10
 
 var reloadTimeReamining = 0
 var targetReady = false
@@ -39,32 +39,34 @@ func set_player_owned(v):
 
 # Calculate complete damage for a given tile lebel
 # returns: {"HullDmg":42, "ShieldDmg": 24}
-func CalcDamage(lvl) -> Dictionary:
-	var stats = tile.GetCombinedStats()
-	var base = BaseDmg.duplicate()
-	# apply lvl scaling, double every level
-	base["HullDmg"] = base["HullDmg"] * pow(2, lvl)
-	base["ShieldDmg"] = base["ShieldDmg"] * pow(2, lvl)
-	
-	# apply stats from tree and tile
-	var hullDmg = (base["HullDmg"] + stats[Stats.Stats.STAT_HULLDMG_ADD])
-	hullDmg *= 1 + stats[Stats.Stats.STAT_HULLDMG_MUL]
-	var shieldDmg = (base["ShieldDmg"] + stats[Stats.Stats.STAT_SHIELDDMG_ADD])
-	shieldDmg *= 1 + stats[Stats.Stats.STAT_SHIELDDMG_MUL]
-	return {"HullDmg":hullDmg, "ShieldDmg": shieldDmg}
+func CalcDamage() -> float:
+	var dmg = BaseDmg + Stats.CurrentStats["damage"]
+	var crit =Stats.CurrentStats["crit"];
+	if(crit>0 and randf()>(1-crit)):
+		crit *= (Stats.CurrentStats["critMulti"]+1)		
+	return dmg
 
 
 func _shoot():
 	if targetReady:
 		# parent is socket and his parent is the ship tile
-	
-		var bull = Bullet.instance()
-		bull.global_position = canonEnd.global_position
-		bull.damage = 11
-		var dir = canonEnd.global_position - global_position
-		bull.dir = dir.normalized()
-		bull.Target = _currentEnemy
-		get_node("/root/GameLevel").add_child(bull)
+		var targetChance =Stats.CurrentStats["multiTarget"]
+		var targets = floor(targetChance)
+		targetChance -= targets
+		if(randf()>1-targetChance):
+			targets+=1
+		targets+=1
+		for i in range(targets):
+			if(i>=EnemyManager.Enemies.size()):
+				break			
+			var bull = Bullet.instance()
+			bull.global_position = canonEnd.global_position
+			bull.damage = CalcDamage();
+			var dir = canonEnd.global_position - global_position
+			bull.dir = dir.normalized()
+			bull.Target =weakref( EnemyManager.Enemies[i])
+			bull.dir =Vector2(rand_range(-1,1),rand_range(-1,1))
+			get_node("/root/GameLevel").add_child(bull)
 		
 		reloadTimeReamining = 1 / (fireRate * Stats.CurrentStats["speed"])
 	else:

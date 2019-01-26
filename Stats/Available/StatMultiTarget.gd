@@ -9,3 +9,4 @@ func GetText() -> String:
 func _init():
 	Id = "multiTarget"
 	value = 0.1
+	defaultValue = 3
