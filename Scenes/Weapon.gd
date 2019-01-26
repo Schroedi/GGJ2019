@@ -77,7 +77,7 @@ func _shoot():
 			,Bullet,
 			get_node("/root/GameLevel"))
 			
-		reloadTimeReamining = 1 / (fireRate * Stats.CurrentStats["speed"])
+		reloadTimeReamining = 1 / (fireRate * (1+Stats.CurrentStats["speed"]))
 	else:
 		#print("aiming")
 		pass
