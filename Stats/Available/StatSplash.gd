@@ -5,3 +5,4 @@ func GetText() -> String:
 func _init():
 	Id = "splash"
 	value = 10
+	defaultValue = 0

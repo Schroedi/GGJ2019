@@ -50,24 +50,26 @@ func CalcDamage() -> float:
 func _shoot():
 	if targetReady:
 		# parent is socket and his parent is the ship tile
-		var targetChance =Stats.CurrentStats["multiTarget"]
+		var targetChance = Stats.CurrentStats["multiTarget"]
 		var targets = floor(targetChance)
+		var bounceChance = Stats.CurrentStats["bounce"]
+		var bounce = floor(bounceChance)
 		targetChance -= targets
 		if(randf()>1-targetChance):
 			targets+=1
 		targets+=1
+		if(randf()>1-targetChance):
+			bounce+=1
 		for i in range(targets):
 			if(i>=EnemyManager.Enemies.size()):
 				break			
-			var bull = Bullet.instance()
-			bull.global_position = canonEnd.global_position
-			bull.damage = CalcDamage();
-			var dir = canonEnd.global_position - global_position
-			bull.dir = dir.normalized()
-			bull.Target =weakref( EnemyManager.Enemies[i])
-			bull.dir =Vector2(rand_range(-1,1),rand_range(-1,1))
-			get_node("/root/GameLevel").add_child(bull)
-		
+			Helpers.fireProjectile(weakref(canonEnd),weakref( EnemyManager.Enemies[i]),
+			CalcDamage(),
+			bounce, 
+			Stats.CurrentStats["splash"]
+			,Bullet,
+			get_node("/root/GameLevel"))
+			
 		reloadTimeReamining = 1 / (fireRate * Stats.CurrentStats["speed"])
 	else:
 		#print("aiming")

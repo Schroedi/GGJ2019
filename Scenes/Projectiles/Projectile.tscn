@@ -8,6 +8,7 @@
 radius = 21.8191
 
 [node name="Projectile" type="RigidBody2D"]
+collision_layer = 0
 collision_mask = 2
 mass = 0.5
 gravity_scale = 0.0
