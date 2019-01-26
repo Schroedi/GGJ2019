@@ -1,6 +1,8 @@
 extends RigidBody2D
 const DamageHelper = preload("res://Scripts/Damage.gd")
 const GameLevel = preload("res://Scenes/GameLevel.gd")
+const ItemGen = preload("res://Items/ItemGen.gd")
+const ItemVis = preload("res://Items/ItemVis.tscn")
 const popup = preload("res://Scenes/pop_label.tscn")
 onready var Level:GameLevel = get_node("/root/GameLevel") 
 
@@ -51,6 +53,12 @@ func SpawnMoney(value, parts, global_pos, target, owner):
 	for i in range(parts):
 		var offset = Vector2(rand_range(0, 5), rand_range(0, 5))		
 
+func _spawnItem():
+	var vis = ItemVis.instance()
+	vis.global_position = global_position
+	vis.item = ItemGen.CreateItem()
+	Level.add_child(vis)
+
 func _die():
 	# spawn scrap
 	Level.addGold(goldValue) #todo scale on increased gold
@@ -61,13 +69,15 @@ func _die():
 	
 	Level.add_child(pl)
 	Level.playerLifes+=1
+	call_deferred("_spawnItem")
 	EnemyManager.Enemies.erase(self)
 	queue_free()
 
 func _on_BaseEnemy_body_entered(body):
-	if "damage" in body :
+	if "damage" in body and body.damage > 0:
 		_damage(body.damage)
-		print(String(body.get_instance_id())+"/"+String(self.get_instance_id()))
+		# this projective cannot damage other bodies anymore
+		body.damage = 0
 		body.queue_free()
 		
 		
@@ -91,7 +101,8 @@ func _damage(dmg):
 	pl.global_position = global_position+Vector2(rand_range(-50,50),rand_range(-50,50))
 	pl.setColor(Color.red)
 	pl.setLabel(dmg)
-	Level.add_child(pl)
+	Level.call_deferred("add_child", pl)
+	#Level.add_child(pl)
 	$LifeBar.value = life
 	if life < 0:
 		_die()
