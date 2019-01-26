@@ -1,6 +1,9 @@
 extends RigidBody2D
 const DamageHelper = preload("res://Scripts/Damage.gd")
 const GameLevel = preload("res://Scenes/GameLevel.gd")
+const ItemGen = preload("res://Items/ItemGen.gd")
+const ItemVis = preload("res://Items/ItemVis.tscn")
+const popup = preload("res://Scenes/pop_label.tscn")
 onready var Level:GameLevel = get_node("/root/GameLevel") 
 
 var _target:WeakRef = null
@@ -50,17 +53,33 @@ func SpawnMoney(value, parts, global_pos, target, owner):
 	for i in range(parts):
 		var offset = Vector2(rand_range(0, 5), rand_range(0, 5))		
 
+func _spawnItem():
+	var vis = ItemVis.instance()
+	vis.global_position = global_position
+	vis.item = ItemGen.CreateItem()
+	Level.add_child(vis)
+
 func _die():
 	# spawn scrap
 	Level.addGold(goldValue) #todo scale on increased gold
+	var pl = popup.instance()
+	pl.global_position = global_position+Vector2(rand_range(-50,50),rand_range(-50,50))
+	pl.setColor(Color.gold)
+	pl.setLabel(String(goldValue)+"g")
+	
+	Level.add_child(pl)
 	Level.playerLifes+=1
+	call_deferred("_spawnItem")
 	EnemyManager.Enemies.erase(self)
 	queue_free()
 
 func _on_BaseEnemy_body_entered(body):
-	if "damage" in body :
+	if "damage" in body and body.damage > 0:
 		_damage(body.damage)
+		# this projective cannot damage other bodies anymore
+		body.damage = 0
 		body.queue_free()
+		
 		
 func UseEnergy(v):
 	return true
@@ -71,11 +90,19 @@ func GetCombinedStats():
 
 func _process(delta):
 	circlePos += movementSpeed * delta
-	global_position = Vector2(-300+offset,0).rotated(deg2rad(circlePos))+Vector2(960,350)
+	var x = (EnemyManager.ElipseA+offset) * cos(deg2rad(circlePos));
+	var y = (EnemyManager.ElipseB+offset) * sin(deg2rad(circlePos));
+	global_position = Vector2(x,y)+EnemyManager.ElipseCenter
 		
 
 func _damage(dmg):
 	life-=dmg
+	var pl = popup.instance()
+	pl.global_position = global_position+Vector2(rand_range(-50,50),rand_range(-50,50))
+	pl.setColor(Color.red)
+	pl.setLabel(dmg)
+	Level.call_deferred("add_child", pl)
+	#Level.add_child(pl)
 	$LifeBar.value = life
 	if life < 0:
 		_die()

@@ -63,6 +63,7 @@ func _shoot():
 		bull.damage = 11
 		var dir = canonEnd.global_position - global_position
 		bull.dir = dir.normalized()
+		bull.Target = _currentEnemy
 		get_node("/root/GameLevel").add_child(bull)
 		
 		reloadTimeReamining = 1 / fireRate

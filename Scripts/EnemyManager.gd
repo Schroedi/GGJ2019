@@ -6,11 +6,15 @@ const BaseEnemy = preload("res://Scenes/BaseEnemy.tscn")
 # var a = 2
 # var b = "text"
 
+const ElipseA = 350
+const ElipseB = 200
+const ElipseCenter =Vector2(960,400)
+
 var WaveDuration = 30
 var WaveEnemyCount = 10
-var WaveSpawnDistance = 1.5
-var WaveMovementSpeed = 20
-var WaveLifeBaseLife = 10
+var WaveSpawnDistance = 1
+var WaveMovementSpeed = 50
+var WaveLifeBaseLife = 30
 var WaveGoldBase = 10
 
 var WaveLifeScaling =1.1
@@ -45,9 +49,10 @@ func StopSpawn():
 
 func spawnEnemy():
 	var s = BaseEnemy.instance()
-	var offset = Vector2()	
 	s.offset= rand_range(0,10)
-	s.global_position = Vector2(-300+s.offset,0)+Vector2(960,350)
+	var x = (EnemyManager.ElipseA + s.offset) * cos(deg2rad(0));
+	var y = (EnemyManager.ElipseB + s.offset) * sin(deg2rad(0));
+	s.global_position = Vector2(x,y)+ElipseCenter
 	s.linear_velocity =  Vector2(0,0)
 	s.circlePos = 0
 	

@@ -6,7 +6,7 @@
 script = ExtResource( 1 )
 
 [node name="UpdateTarget" type="Timer" parent="."]
-wait_time = 0.3
+wait_time = 0.01
 autostart = true
 
 [node name="Debug" type="Node2D" parent="."]
