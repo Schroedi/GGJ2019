@@ -1,10 +1,10 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://UI/Slot.tscn" type="PackedScene" id=1]
 [ext_resource path="res://UI/ItemInfo.gd" type="Script" id=2]
-[ext_resource path="res://TextItemTitle.tres" type="DynamicFont" id=3]
-[ext_resource path="res://TextMain.tres" type="DynamicFont" id=4]
-[ext_resource path="res://Assets/infobox/itier0.png" type="Texture" id=5]
+[ext_resource path="res://Assets/infobox/itier0.png" type="Texture" id=3]
+[ext_resource path="res://TextItemTitle.tres" type="DynamicFont" id=4]
+[ext_resource path="res://TextMain.tres" type="DynamicFont" id=5]
 [ext_resource path="res://Assets/infobox/star.png" type="Texture" id=6]
 [ext_resource path="res://Assets/infobox/upgrade.png" type="Texture" id=7]
 [ext_resource path="res://UI/Inventory.gd" type="Script" id=8]
@@ -15,6 +15,7 @@
 [ext_resource path="res://TextBold.tres" type="DynamicFont" id=13]
 [ext_resource path="res://Assets/infobox/gold.png" type="Texture" id=14]
 [ext_resource path="res://Assets/infobox/life.png" type="Texture" id=15]
+[ext_resource path="res://UI/AllStatsPanel.tscn" type="PackedScene" id=16]
 
 [sub_resource type="StyleBoxEmpty" id=1]
 
@@ -78,36 +79,37 @@ margin_bottom = 1111.0
 custom_styles/panel = SubResource( 2 )
 script = ExtResource( 2 )
 
+[node name="Background Tier" type="NinePatchRect" parent="ItemInfo"]
+margin_right = 460.0
+margin_bottom = 600.0
+texture = ExtResource( 3 )
+
 [node name="Name" type="RichTextLabel" parent="ItemInfo"]
 margin_left = 13.0
 margin_top = 17.0
 margin_right = 446.0
 margin_bottom = 91.0
-custom_fonts/mono_font = ExtResource( 3 )
-custom_fonts/bold_italics_font = ExtResource( 3 )
-custom_fonts/italics_font = ExtResource( 3 )
-custom_fonts/bold_font = ExtResource( 3 )
-custom_fonts/normal_font = ExtResource( 3 )
-bbcode_enabled = true
-
-[node name="Descr" type="RichTextLabel" parent="ItemInfo"]
-margin_left = 83.0
-margin_top = 298.0
-margin_right = 448.0
-margin_bottom = 568.0
 custom_fonts/mono_font = ExtResource( 4 )
 custom_fonts/bold_italics_font = ExtResource( 4 )
 custom_fonts/italics_font = ExtResource( 4 )
 custom_fonts/bold_font = ExtResource( 4 )
 custom_fonts/normal_font = ExtResource( 4 )
 bbcode_enabled = true
+text = "Item Name"
+
+[node name="Descr" type="RichTextLabel" parent="ItemInfo"]
+margin_left = 83.0
+margin_top = 298.0
+margin_right = 448.0
+margin_bottom = 568.0
+custom_fonts/mono_font = ExtResource( 5 )
+custom_fonts/bold_italics_font = ExtResource( 5 )
+custom_fonts/italics_font = ExtResource( 5 )
+custom_fonts/bold_font = ExtResource( 5 )
+custom_fonts/normal_font = ExtResource( 5 )
+bbcode_enabled = true
 text = "Stat 1
 Stat 1+"
-
-[node name="Background Tier" type="NinePatchRect" parent="ItemInfo"]
-margin_right = 460.0
-margin_bottom = 600.0
-texture = ExtResource( 5 )
 
 [node name="Star" type="NinePatchRect" parent="ItemInfo"]
 margin_left = 40.063
@@ -364,7 +366,7 @@ margin_left = 48.7368
 margin_top = 175.105
 margin_right = 191.737
 margin_bottom = 218.105
-custom_fonts/font = ExtResource( 4 )
+custom_fonts/font = ExtResource( 5 )
 text = "Merge"
 
 [node name="PlayerInfo" type="Panel" parent="."]
@@ -402,5 +404,11 @@ margin_top = 70.0
 margin_right = 70.0
 margin_bottom = 110.0
 texture = ExtResource( 15 )
+
+[node name="AllStatsPanel" parent="." instance=ExtResource( 16 )]
+margin_left = 1503.26
+margin_top = 12.3111
+margin_right = 1914.26
+margin_bottom = 772.311
 
 [connection signal="pressed" from="Merge/Merge" to="Merge" method="_on_Merge_pressed"]
