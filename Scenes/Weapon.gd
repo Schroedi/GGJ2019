@@ -66,7 +66,7 @@ func _shoot():
 		bull.Target = _currentEnemy
 		get_node("/root/GameLevel").add_child(bull)
 		
-		reloadTimeReamining = 1 / fireRate
+		reloadTimeReamining = 1 / (fireRate * Stats.CurrentStats["speed"])
 	else:
 		#print("aiming")
 		pass
