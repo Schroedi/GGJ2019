@@ -1,4 +1,4 @@
-extends Button
+extends TextureButton
 
 onready var Inventory = get_node("/root/GameLevel/Hud/Inventory")
 onready var ItemContainer = get_node("/root/GameLevel/Hud/Inventory/ScrollContainer/ItemContainer")

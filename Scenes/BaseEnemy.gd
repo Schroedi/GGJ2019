@@ -19,10 +19,7 @@ export var movementSpeed =20
 export var wave =0
 export var offset = 10
 export var slowtimer =0
-var consumption = 0 
 
-# TODO: this is needed for the weapon. It needs it for dmg. calculation
-var TileLevel = 1
 
 func set_scale(scale):
 	# Override behaviour only if it is a RigidBody2D and do not touch other nodes
