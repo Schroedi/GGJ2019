@@ -13,3 +13,9 @@ func LevelUp():
 	# 10% more, override for non numeric or more complex stats
 	value *= 1.1
 	Level += 1
+
+func Equip():
+	Stats.CurrentStats[Id] += value
+
+func Unequip():
+	Stats.CurrentStats[Id] -= value
