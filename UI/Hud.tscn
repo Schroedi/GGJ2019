@@ -6,7 +6,7 @@
 [ext_resource path="res://UI/ItemInfo.gd" type="Script" id=4]
 [ext_resource path="res://TextMain.tres" type="DynamicFont" id=5]
 [ext_resource path="res://UI/Inventory.gd" type="Script" id=6]
-[ext_resource path="res://UI/ItemContainer.gd" type="Script" id=7]
+[ext_resource path="res://UI/ScrollContainer.gd" type="Script" id=7]
 [ext_resource path="res://UI/Merge.gd" type="Script" id=8]
 [ext_resource path="res://UI/PlayerInfo.gd" type="Script" id=9]
 
@@ -98,10 +98,10 @@ margin_right = 762.0
 margin_bottom = 236.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
+script = ExtResource( 7 )
 
 [node name="ItemContainer" type="GridContainer" parent="Inventory/ScrollContainer"]
 columns = 11
-script = ExtResource( 7 )
 
 [node name="Merge" type="Panel" parent="."]
 margin_left = 1671.33
