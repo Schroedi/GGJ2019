@@ -80,7 +80,9 @@ func GetCombinedStats():
 
 func _process(delta):
 	circlePos += movementSpeed * delta
-	global_position = Vector2(-300+offset,0).rotated(deg2rad(circlePos))+Vector2(960,350)
+	var x = (EnemyManager.ElipseA+offset) * cos(deg2rad(circlePos));
+	var y = (EnemyManager.ElipseB+offset) * sin(deg2rad(circlePos));
+	global_position = Vector2(x,y)+EnemyManager.ElipseCenter
 		
 
 func _damage(dmg):
