@@ -28,3 +28,11 @@ func loadAllStats(path):
 
 func GetAllStats():
 	return AlltStats
+
+func EquipItem(item):
+	for s in item.ItemStats:
+		s.Equip()
+
+func UnEquipItem(item):
+	for s in item.ItemStats:
+		s.Unequip()
