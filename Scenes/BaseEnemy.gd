@@ -1,6 +1,8 @@
 extends RigidBody2D
 const DamageHelper = preload("res://Scripts/Damage.gd")
 const GameLevel = preload("res://Scenes/GameLevel.gd")
+const ItemGen = preload("res://Items/ItemGen.gd")
+const ItemVis = preload("res://Items/ItemVis.tscn")
 const popup = preload("res://Scenes/pop_label.tscn")
 onready var Level:GameLevel = get_node("/root/GameLevel") 
 
@@ -51,6 +53,12 @@ func SpawnMoney(value, parts, global_pos, target, owner):
 	for i in range(parts):
 		var offset = Vector2(rand_range(0, 5), rand_range(0, 5))		
 
+func _spawnItem():
+	var vis = ItemVis.instance()
+	vis.global_position = global_position
+	vis.item = ItemGen.CreateItem()
+	Level.add_child(vis)
+
 func _die():
 	# spawn scrap
 	Level.addGold(goldValue) #todo scale on increased gold
@@ -61,6 +69,7 @@ func _die():
 	
 	Level.add_child(pl)
 	Level.playerLifes+=1
+	_spawnItem()
 	EnemyManager.Enemies.erase(self)
 	queue_free()
 
