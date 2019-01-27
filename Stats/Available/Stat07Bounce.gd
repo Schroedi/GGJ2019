@@ -11,7 +11,7 @@ func GetName() ->String:
 	
 func _init():
 	Id = "bounce"
-	value = 0.1
+	value = 1
 	defaultValue = 0
 	IconId = [6,16]
 	MainName = ["Spiker","Annoyer"]

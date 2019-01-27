@@ -8,6 +8,7 @@ func can_drop_data(position, data):
 
 
 func drop_data(position, data):
+	Stats.UnEquipItem(data.Item)
 	data.get_parent().remove_child(data)
 	data.unselect()
 	data.rect_position = Vector2(-6, -6)

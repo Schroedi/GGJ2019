@@ -62,7 +62,7 @@ func GetName() -> String:
 	
 func getCost():
 	var baseCost = ItemTier * 10
-	var cost = pow(baseCost, ItemLvl)
+	var cost =baseCost *pow(2, ItemLvl-1)
 	return cost
 
 func LevelUp():
