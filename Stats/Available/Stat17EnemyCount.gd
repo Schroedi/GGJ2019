@@ -1,15 +1,9 @@
 extends "res://Stats/BaseStat.gd"
 func GetText() -> String:
-	var v1 = floor(value)
-	var v2 = (value-v1)*100
-	
-	return ("{0}").format([v1,v2])
+	return ("{0}").format( ["%.2f" %value])
 	
 func GetTextItem() -> String:
-	var v1 = floor(value)
-	var v2 = (value-v1)*100
-	
-	return ("[color=black]Waves have [color=red]{0}[/color][color=black] additional targets[/color]").format([v1,v2])
+	return ("[color=black]Waves have [color=red]{0}[/color][color=black] additional targets[/color]").format(["%.2f" %value])
 	
 func _init():
 	Id = "enemyCount"
