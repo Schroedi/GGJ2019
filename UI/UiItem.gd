@@ -15,7 +15,7 @@ func get_drag_data(position):
 
 
 func _on_UiItem_mouse_entered():
-	ItemInfo.ShowItem(Item)
+	ItemInfo.ShowItem(self)
 
 
 func _on_UiItem_mouse_exited():
@@ -33,6 +33,6 @@ func _on_UiItem_pressed():
 	# unhighlight all other
 	$Highlight.visible = not $Highlight.visible
 	if IsSelected():
-		ItemInfo.select(self.Item)
+		ItemInfo.select(self)
 	else:
 		ItemInfo.unselect()

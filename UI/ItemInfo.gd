@@ -1,13 +1,13 @@
 extends Control
 
-const BaseItem = preload("res://Items/BaseItem.gd")
+const UiItem = preload("res://UI/UiItem.gd")
 var selected = null
 
-func VisItem(item:BaseItem):
-	$Name.bbcode_text = item.GetName()
-	$Descr.bbcode_text = item.GetTextItem()
+func VisItem(item:UiItem):
+	$Name.bbcode_text = item.Item.GetName()
+	$Descr.bbcode_text = item.Item.GetTextItem()
 
-func ShowItem(item:BaseItem):
+func ShowItem(item:UiItem):
 	# ignore hover infos if an item is fixed
 	if selected:
 		return
@@ -16,6 +16,8 @@ func ShowItem(item:BaseItem):
 func unselect():
 	selected = null
 
-func select(item:BaseItem):
+func select(item:UiItem):
+	if selected:
+		selected.unselect()
 	selected = item
 	VisItem(selected)
