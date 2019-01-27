@@ -5,6 +5,9 @@ func GetText() -> String:
 	
 func GetTextItem() -> String:
 	return "[color=red]+{0}%[/color][color=black] chance to hit critical[/color]".format(   ["%.1f" %(value*100)] )
+		
+func GetName() ->String:
+	return "Critical hit chance"
 	
 func _init():
 	Id = "crit"

@@ -26,6 +26,7 @@ EnemyManager="*res://Scripts/EnemyManager.gd"
 ItemGen="*res://Items/ItemGen.gd"
 WeightRng="*res://Scripts/WeightRng.gd"
 GameState="*res://Scripts/GameState.gd"
+NameGen="*res://Scripts/NameGen.gd"
 
 [display]
 

@@ -1,25 +1,26 @@
-[gd_scene load_steps=22 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://Scenes/Weapon.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Earth.png" type="Texture" id=2]
 [ext_resource path="res://Assets/Items/KAKTUS.png" type="Texture" id=3]
-[ext_resource path="res://Assets/Items/KRAWATTE.png" type="Texture" id=4]
-[ext_resource path="res://Assets/Items/MIC.png" type="Texture" id=5]
-[ext_resource path="res://Assets/Items/RADAR.png" type="Texture" id=6]
-[ext_resource path="res://Assets/Items/ROCKET.png" type="Texture" id=7]
-[ext_resource path="res://Assets/Items/SCHIRM.png" type="Texture" id=8]
-[ext_resource path="res://Assets/Items/SCHUH2.png" type="Texture" id=9]
-[ext_resource path="res://Assets/Items/SCHUH.png" type="Texture" id=10]
-[ext_resource path="res://Assets/Items/SWORD.png" type="Texture" id=11]
-[ext_resource path="res://Assets/Items/TROWER.png" type="Texture" id=12]
-[ext_resource path="res://Assets/Items/WECKER.png" type="Texture" id=13]
-[ext_resource path="res://Assets/Items/ZZZ.png" type="Texture" id=14]
-[ext_resource path="res://Assets/Items/ANGEL.png" type="Texture" id=15]
-[ext_resource path="res://Assets/Items/HUT.png" type="Texture" id=16]
-[ext_resource path="res://Assets/Items/GUMMIBAER.png" type="Texture" id=17]
-[ext_resource path="res://Assets/Items/KAESE.png" type="Texture" id=18]
-[ext_resource path="res://Assets/Items/GUNHAND.png" type="Texture" id=19]
-[ext_resource path="res://Scenes/ItemCollect.gd" type="Script" id=20]
+[ext_resource path="res://Assets/Items/HASE.png" type="Texture" id=4]
+[ext_resource path="res://Assets/Items/KRAWATTE.png" type="Texture" id=5]
+[ext_resource path="res://Assets/Items/MIC.png" type="Texture" id=6]
+[ext_resource path="res://Assets/Items/RADAR.png" type="Texture" id=7]
+[ext_resource path="res://Assets/Items/ROCKET.png" type="Texture" id=8]
+[ext_resource path="res://Assets/Items/SCHIRM.png" type="Texture" id=9]
+[ext_resource path="res://Assets/Items/SCHUH2.png" type="Texture" id=10]
+[ext_resource path="res://Assets/Items/SCHUH.png" type="Texture" id=11]
+[ext_resource path="res://Assets/Items/SWORD.png" type="Texture" id=12]
+[ext_resource path="res://Assets/Items/TROWER.png" type="Texture" id=13]
+[ext_resource path="res://Assets/Items/WECKER.png" type="Texture" id=14]
+[ext_resource path="res://Assets/Items/ZZZ.png" type="Texture" id=15]
+[ext_resource path="res://Assets/Items/ANGEL.png" type="Texture" id=16]
+[ext_resource path="res://Assets/Items/HUT.png" type="Texture" id=17]
+[ext_resource path="res://Assets/Items/GUMMIBAER.png" type="Texture" id=18]
+[ext_resource path="res://Assets/Items/KAESE.png" type="Texture" id=19]
+[ext_resource path="res://Assets/Items/GUNHAND.png" type="Texture" id=20]
+[ext_resource path="res://Scenes/ItemCollect.gd" type="Script" id=21]
 
 [sub_resource type="CircleShape2D" id=1]
 
@@ -49,92 +50,97 @@ visible = false
 rect_pivot_offset = Vector2( 150, 400 )
 texture = ExtResource( 3 )
 
-[node name="KRAWATTE" type="TextureRect" parent="Barrel/Panel"]
+[node name="HASE" type="TextureRect" parent="Barrel/Panel"]
 visible = false
 rect_pivot_offset = Vector2( 150, 400 )
 texture = ExtResource( 4 )
 
-[node name="MIC" type="TextureRect" parent="Barrel/Panel"]
+[node name="KRAWATTE" type="TextureRect" parent="Barrel/Panel"]
 visible = false
 rect_pivot_offset = Vector2( 150, 400 )
 texture = ExtResource( 5 )
 
-[node name="RADAR" type="TextureRect" parent="Barrel/Panel"]
+[node name="MIC" type="TextureRect" parent="Barrel/Panel"]
 visible = false
 rect_pivot_offset = Vector2( 150, 400 )
 texture = ExtResource( 6 )
 
-[node name="ROCKET" type="TextureRect" parent="Barrel/Panel"]
+[node name="RADAR" type="TextureRect" parent="Barrel/Panel"]
 visible = false
 rect_pivot_offset = Vector2( 150, 400 )
 texture = ExtResource( 7 )
 
-[node name="SCHIRM" type="TextureRect" parent="Barrel/Panel"]
+[node name="ROCKET" type="TextureRect" parent="Barrel/Panel"]
 visible = false
 rect_pivot_offset = Vector2( 150, 400 )
 texture = ExtResource( 8 )
 
-[node name="SCHUH2" type="TextureRect" parent="Barrel/Panel"]
+[node name="SCHIRM" type="TextureRect" parent="Barrel/Panel"]
 visible = false
 rect_pivot_offset = Vector2( 150, 400 )
 texture = ExtResource( 9 )
 
-[node name="SCHUH" type="TextureRect" parent="Barrel/Panel"]
+[node name="SCHUH2" type="TextureRect" parent="Barrel/Panel"]
 visible = false
 rect_pivot_offset = Vector2( 150, 400 )
 texture = ExtResource( 10 )
 
-[node name="SWORD" type="TextureRect" parent="Barrel/Panel"]
+[node name="SCHUH" type="TextureRect" parent="Barrel/Panel"]
 visible = false
 rect_pivot_offset = Vector2( 150, 400 )
 texture = ExtResource( 11 )
 
-[node name="TROWER" type="TextureRect" parent="Barrel/Panel"]
+[node name="SWORD" type="TextureRect" parent="Barrel/Panel"]
 visible = false
 rect_pivot_offset = Vector2( 150, 400 )
 texture = ExtResource( 12 )
 
-[node name="WECKER" type="TextureRect" parent="Barrel/Panel"]
+[node name="TROWER" type="TextureRect" parent="Barrel/Panel"]
 visible = false
 rect_pivot_offset = Vector2( 150, 400 )
 texture = ExtResource( 13 )
 
-[node name="ZZZ" type="TextureRect" parent="Barrel/Panel"]
+[node name="WECKER" type="TextureRect" parent="Barrel/Panel"]
 visible = false
 rect_pivot_offset = Vector2( 150, 400 )
 texture = ExtResource( 14 )
 
-[node name="ANGEL" type="TextureRect" parent="Barrel/Panel"]
+[node name="ZZZ" type="TextureRect" parent="Barrel/Panel"]
 visible = false
 rect_pivot_offset = Vector2( 150, 400 )
 texture = ExtResource( 15 )
 
-[node name="HUT" type="TextureRect" parent="Barrel/Panel"]
+[node name="ANGEL" type="TextureRect" parent="Barrel/Panel"]
 visible = false
 rect_pivot_offset = Vector2( 150, 400 )
 texture = ExtResource( 16 )
 
-[node name="GUMMIBAER" type="TextureRect" parent="Barrel/Panel"]
+[node name="HUT" type="TextureRect" parent="Barrel/Panel"]
 visible = false
 rect_pivot_offset = Vector2( 150, 400 )
 texture = ExtResource( 17 )
 
-[node name="KAESE" type="TextureRect" parent="Barrel/Panel"]
+[node name="GUMMIBAER" type="TextureRect" parent="Barrel/Panel"]
 visible = false
 rect_pivot_offset = Vector2( 150, 400 )
 texture = ExtResource( 18 )
+
+[node name="KAESE" type="TextureRect" parent="Barrel/Panel"]
+visible = false
+rect_pivot_offset = Vector2( 150, 400 )
+texture = ExtResource( 19 )
 
 [node name="GUN" type="TextureRect" parent="Barrel/Panel"]
 visible = false
 rect_rotation = -0.0619234
 rect_pivot_offset = Vector2( 150, 400 )
-texture = ExtResource( 19 )
+texture = ExtResource( 20 )
 
 [node name="ItemCollect" type="Area2D" parent="."]
 visible = false
 collision_layer = 4
 collision_mask = 4
-script = ExtResource( 20 )
+script = ExtResource( 21 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ItemCollect"]
 shape = SubResource( 1 )

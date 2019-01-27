@@ -5,6 +5,11 @@ func GetText() -> String:
 func GetTextItem() -> String:
 	return "[color=black]Targets drop [color=red]{0}[/color][color=black] more gold[/color]".format( ["%.1f"%value])	
 	
+	
+
+func GetName() ->String:
+	return "Additional gold dropped by targets"
+	
 func _init():
 	Id = "money"
 	value = 0.1

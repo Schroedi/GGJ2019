@@ -12,3 +12,5 @@ func drop_data(position, data):
 	data.unselect()
 	data.rect_position = Vector2(-6, -6)
 	add_child(data)
+	var weapon = GameState.Level.get_node("Weapon")
+	weapon.unequip(data.Item)

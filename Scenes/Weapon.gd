@@ -30,7 +30,8 @@ onready var tile = get_parent().get_parent()
 onready var canonEnd = get_node("Barrel/Muzzle")
 onready var barrel = get_node("Barrel")
 
-export var IconObjects = []
+var IconObjects = []
+var slotVis = {}
 
 
 func get_consumption():
@@ -181,3 +182,16 @@ func Save():
 func SetShowRange(visible:bool):
 	$ShootArea/range.visible = visible
 
+func equip(item, slotId):
+	var iconId = item.Icon
+	var vis = IconObjects[iconId].duplicate()
+	vis.rect_rotation = 360 / 5 * slotId
+	vis.visible = true
+	$Barrel/Panel.add_child(vis)
+	slotVis[item] = vis
+
+func unequip(item):
+	if slotVis.has(item):
+		var it= slotVis[item]
+		slotVis.erase(item)
+		it.queue_free()

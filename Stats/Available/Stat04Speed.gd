@@ -4,6 +4,9 @@ func GetText() -> String:
 	
 func GetTextItem() -> String:
 	return "[color=red]+{0}%[/color][color=black] faster attacks[/color]".format(  ["%.2f" %(value*100)] )
+
+func GetName() ->String:
+	return "Attack speed"
 	
 func _init():
 	Id = "speed"

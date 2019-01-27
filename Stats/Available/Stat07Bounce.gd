@@ -3,9 +3,11 @@ func GetText() -> String:
 	
 	return ("{0}").format(["%.2f" %value] )
 	
-func GetTextItem() -> String:
-	
+func GetTextItem() -> String:	
 	return ("[color=black]Attacks bounce [/color][color=red]{0}[/color][color=black] times[/color]").format( ["%.2f" %value] )	
+	
+func GetName() ->String:
+	return "Bounce to nearby targets"
 	
 func _init():
 	Id = "bounce"

@@ -8,9 +8,12 @@ func GetTextItem() -> String:
 func _init():
 	Id = "bank"
 	# Seconds, gold
-	value = Vector2(1,0.1)
+	value = Vector2(1,1)
 	defaultValue = Vector2(0,0)
-	
+
+func GetName() ->String:
+	return "Investment"
+		
 func LevelUp():
 	# 10% more, override for non numeric or more complex stats
 	value.y *= 1.1
