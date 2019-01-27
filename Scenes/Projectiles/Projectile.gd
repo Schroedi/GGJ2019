@@ -15,7 +15,6 @@ func _ready():
 	$Seek2D.Target = Target
 	# orientate along velocity
 	rotation = linear_velocity.angle()
-	print( targetBounce)
 
 
 func _on_VisibilityNotifier2D_screen_exited():
