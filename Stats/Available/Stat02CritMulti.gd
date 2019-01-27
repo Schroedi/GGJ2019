@@ -14,3 +14,5 @@ func _init():
 	value = 0.1
 	defaultValue =0
 	IconId = [5,12]
+	MainName = ["Cheese","Stiletto"]
+	

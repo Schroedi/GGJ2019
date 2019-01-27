@@ -13,3 +13,4 @@ func _init():
 	value = 0.1
 	defaultValue = 0
 	IconId = [4,16]
+	MainName = ["Hat","Clock"]

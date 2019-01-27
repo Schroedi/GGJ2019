@@ -13,3 +13,4 @@ func _init():
 	Id = "enemyCount"
 	value = 0.1
 	IconId = [0,8,17]
+	MainName = ["Bait Rod","Microphone","Sleep"]

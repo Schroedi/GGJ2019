@@ -19,4 +19,5 @@ func LevelUp():
 	value.y *= 1.1
 	Level += 1
 	IconId = [7,10]
+	MainName = ["Tie","Missile"]
 	

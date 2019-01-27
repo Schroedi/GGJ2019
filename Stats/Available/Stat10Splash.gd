@@ -13,3 +13,4 @@ func _init():
 	value = 10
 	defaultValue = 0
 	IconId = [5,11,16]
+	MainName = ["Cheese","Umbrella","Clock"]

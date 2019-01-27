@@ -20,3 +20,4 @@ func LevelUp():
 	value.y /= 1.1
 	Level += 1
 	IconId = [15]
+	MainName = ["Trump Tower"]

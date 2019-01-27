@@ -13,3 +13,5 @@ func _init():
 	value = 0.1
 	defaultValue = 1
 	IconId = [3,13]
+	MainName = ["Rabbit","Alarm"]
+	

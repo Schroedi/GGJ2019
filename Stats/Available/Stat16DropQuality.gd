@@ -14,3 +14,4 @@ func _init():
 	value = 0.1
 	defaultValue = 0
 	IconId = [1,6]
+	MainName = ["Hero","Cactus"]

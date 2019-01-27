@@ -13,3 +13,5 @@ func _init():
 	value = 1
 	defaultValue = 0
 	IconId = [2,10,14]
+	Prefix = ["hurting","sharpened","wounding","slashing","brutal","rough","spiked","strong","hard","robust","solid","powerfull"]
+	MainName = ["Frog","Rocket","Broadsword"]
