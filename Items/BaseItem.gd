@@ -19,9 +19,13 @@ func GetTextItem() -> String:
 func GetName() -> String:
 	return "Legendary epic greatsword of Item, AKA Base Item"
 
-func LevelUp():
+func getCost():
 	var baseCost = ItemTier * 10
 	var cost = pow(baseCost, ItemLvl)
+	return cost
+
+func LevelUp():
+	var cost = getCost()
 	if (GameState.Level.playerGold < cost):
 		var pl = popup.instance()
 		pl.global_position = Vector2(340,600)
