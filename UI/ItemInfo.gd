@@ -7,6 +7,10 @@ func VisItem(item:UiItem):
 	$Name.bbcode_text = item.Item.GetName()
 	$Descr.bbcode_text = item.Item.GetTextItem()
 	$Upgrade/Cost.text = "%d" % int(item.Item.getCost())
+	# TODO tier BG
+	var tier = min(item.Item.ItemTier, 5) - 1
+	$"Background Tier".texture = GameState.InfoTexTiers[tier]
+	# TODO icon
 
 func ShowItem(item:UiItem):
 	# ignore hover infos if an item is fixed

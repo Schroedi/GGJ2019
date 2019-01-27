@@ -8,7 +8,6 @@ onready var Item:BaseItem setget setItem
 func setItem(v):
 	Item = v
 	var tier = min(Item.ItemTier, 5) - 1
-	print (tier)
 	texture_normal = GameState.ItemTexTiers[tier]
 
 
