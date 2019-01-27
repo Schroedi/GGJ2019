@@ -229,7 +229,7 @@ margin_right = 8.60501
 margin_bottom = 123.532
 texture = ExtResource( 10 )
 
-[node name="kaktus" type="Sprite" parent="ItemInfo"]
+[node name="Icon" type="Sprite" parent="ItemInfo"]
 position = Vector2( 145.13, 189.955 )
 texture = ExtResource( 11 )
 

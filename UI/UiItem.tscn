@@ -3,7 +3,7 @@
 [ext_resource path="res://Assets/icons/tier0.png" type="Texture" id=1]
 [ext_resource path="res://UI/UiItem.gd" type="Script" id=2]
 [ext_resource path="res://Assets/icons/selected.png" type="Texture" id=3]
-[ext_resource path="res://Assets/icons/item_gun.png" type="Texture" id=4]
+[ext_resource path="res://Assets/icons/weapon items/gun.png" type="Texture" id=4]
 [ext_resource path="res://Assets/icons/slot1.png" type="Texture" id=5]
 
 [node name="UiItem" type="TextureButton"]
@@ -18,7 +18,7 @@ margin_bottom = 88.0
 mouse_filter = 2
 texture = ExtResource( 3 )
 
-[node name="item_gun" type="Sprite" parent="."]
+[node name="icon" type="Sprite" parent="."]
 position = Vector2( 44, 44 )
 texture = ExtResource( 4 )
 
