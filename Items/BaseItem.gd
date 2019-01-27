@@ -4,7 +4,7 @@ var ItemStats = []
 var ItemLvl:int = 0
 # higher tier items are more expensive to level
 # based on number of stats?
-var ItemTier:int = 0
+var ItemTier:int = 1
 
 func GetTextItem() -> String:
 	var text = ""
@@ -20,8 +20,10 @@ func GetName() -> String:
 func LevelUp():
 	var baseCost = ItemTier * 10
 	var cost = pow(baseCost, ItemLvl)
-	# TODO: check if enough money, inform otherwise
-	# TODO: substract money
+	if (GameState.Level.playerGold < cost):
+		print("out of gold")
+		return
+	GameState.Level.playerGold -= cost
 	for s in ItemStats:
 		s.LevelUp()
 	ItemLvl += 1
