@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Scenes/BaseEnemy.gd" type="Script" id=1]
 [ext_resource path="res://UI/LifeBarStyle.tres" type="StyleBox" id=2]
+[ext_resource path="res://Assets/Scrap/scrap2.png" type="Texture" id=3]
 
 [sub_resource type="CapsuleShape2D" id=1]
 
@@ -29,6 +30,7 @@ custom_colors/font_color = Color( 0, 0, 0, 0 )
 value = 100.0
 
 [node name="Polygon2D" type="Polygon2D" parent="."]
+visible = false
 position = Vector2( -7.30787, -19.7698 )
 color = Color( 0.207843, 0.654902, 0.360784, 1 )
 polygon = PoolVector2Array( 7.12921, -7.16909, -14.0307, 55.695, 28.9816, 55.3872 )
@@ -36,5 +38,14 @@ polygon = PoolVector2Array( 7.12921, -7.16909, -14.0307, 55.695, 28.9816, 55.387
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( -0.115989, 0.231968 )
 shape = SubResource( 1 )
+
+[node name="TextureRect" type="TextureRect" parent="."]
+margin_left = -75.0
+margin_top = -75.0
+margin_right = 75.0
+margin_bottom = 75.0
+texture = ExtResource( 3 )
+expand = true
+stretch_mode = 1
 
 [connection signal="body_entered" from="." to="." method="_on_BaseEnemy_body_entered"]

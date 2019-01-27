@@ -7,6 +7,26 @@ const popup = preload("res://Scenes/pop_label.tscn")
 const Bullet = preload("res://Scenes/Projectiles/Bullet.tscn")
 onready var Level:GameLevel = get_node("/root/GameLevel") 
 
+var EnemyIcons = []
+
+
+func _init():
+	loadAllStats("res://Assets/Scrap/")
+	
+func loadAllStats(path):
+	var dir = Directory.new()
+	dir.open(path)
+	dir.list_dir_begin()
+	while true:
+		var file = dir.get_next()
+		if file == "":
+			break
+		elif not file.begins_with(".") and not file.ends_with(".import"):
+			var stat = load(path+file)
+			EnemyIcons.append(stat)
+	dir.list_dir_end()
+
+
 var _target:WeakRef = null
 
 export var life = 10
@@ -44,6 +64,8 @@ func set_scale(scale):
 func _ready():
 	# physics currently are not really scalable, this is a workaround
 	# https://godotengine.org/qa/3299/can-i-change-the-default-size-of-an-object-like-rigidbody2d
+	var scrapid = randi()%EnemyIcons.size()
+	$TextureRect.texture = EnemyIcons[scrapid]
 	set_scale(scale)
 	$LifeBar.max_value = life
 	$LifeBar.value = life
