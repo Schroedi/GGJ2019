@@ -5,8 +5,10 @@ var CurrentStats = {}
 var AlltStats = []
 var DropWeights = []
 var StatIds = []
+var _equipped = []
 
 func _init():
+	_equipped = []
 	AlltStats = []
 	DropWeights = []
 	StatIds = []
@@ -33,9 +35,12 @@ func GetAllStats():
 	return AlltStats
 
 func EquipItem(item):
+	_equipped.append(item)
 	for s in item.ItemStats:
 		s.Equip()
 
 func UnEquipItem(item):
-	for s in item.ItemStats:
-		s.Unequip()
+	if _equipped.has(item):
+		_equipped.erase(item)
+		for s in item.ItemStats:
+			s.Unequip()
