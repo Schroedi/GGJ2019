@@ -6,6 +6,7 @@ var selected = null
 func VisItem(item:UiItem):
 	$Name.bbcode_text = item.Item.GetName()
 	$Descr.bbcode_text = item.Item.GetTextItem()
+	$Upgrade/Cost.text = "%d" % int(item.Item.getCost())
 
 func ShowItem(item:UiItem):
 	# ignore hover infos if an item is fixed
