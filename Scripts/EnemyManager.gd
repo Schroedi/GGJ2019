@@ -8,7 +8,7 @@ const BaseEnemy = preload("res://Scenes/BaseEnemy.tscn")
 const bounceRange = 200
 const ElipseA = 350
 const ElipseB = 200
-const ElipseCenter =Vector2(960,400)
+const ElipseCenter = Vector2(969.331,563)
 
 var WaveDuration = 30
 var WaveEnemyCount = 10

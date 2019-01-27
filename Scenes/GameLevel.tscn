@@ -14,7 +14,7 @@ z_index = -200
 texture = ExtResource( 2 )
 
 [node name="Weapon" parent="." instance=ExtResource( 3 )]
-position = Vector2( 960, 348.892 )
+position = Vector2( 969.331, 486.522 )
 
 [node name="Hud" parent="." instance=ExtResource( 4 )]
 
