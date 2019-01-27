@@ -1,0 +1,30 @@
+Shared Stats:
+
+13.	Investment:		Generates 5 gold per second
+7.	Bouncing:		Attacks bounce to 6 additonal targets
+8. 	Double bounce:		5% chance to bounce twice as far
+3.	Crit chance:		5% chance to hit critical
+16.	Item quality:		5% chance to find higher stat items
+15.	Drop chance:		Items drop 5% more often
+17.	Extra targets:		Waves have 5 additional targets
+18.	Mega spawn:		5% to spawn double additional targets
+14.	Scrooge:		Targets drop 5 more gold
+5. 	Additional target:	Fire at 5 additional targets
+6. 	Multiple strike:	5% to attack twice as much targets
+9.	Random damage:		Hit a random target every 5 seconds
+11.	Slow:			Hits slow targets by 5%		
+10.	Splash:			Hit every target in 5 radius
+4.	Attack Speed:		5% faster attacks
+
+Top right Stats:
+
+1.	Base Damage:		Attacks deal 100 damage
+2.	Crit damage:		210% of base damage
+19.	DPS:			302 
+12.	Effect duration: 	effects last for 5s	
+
+Item Stats:
+
+2.	Critical hits deal 5% more damage
+1.	+5 additional base damage
+12.	effects have a 5% longer duration

@@ -108,8 +108,6 @@ custom_fonts/italics_font = ExtResource( 5 )
 custom_fonts/bold_font = ExtResource( 5 )
 custom_fonts/normal_font = ExtResource( 5 )
 bbcode_enabled = true
-text = "Stat 1
-Stat 1+"
 
 [node name="Star" type="NinePatchRect" parent="ItemInfo"]
 margin_left = 40.063
@@ -405,10 +403,64 @@ margin_right = 70.0
 margin_bottom = 110.0
 texture = ExtResource( 15 )
 
+[node name="Liste mit Doppelpunkt" type="RichTextLabel" parent="."]
+margin_left = 1400.0
+margin_top = 11.0
+margin_right = 1572.0
+margin_bottom = 751.0
+custom_fonts/mono_font = ExtResource( 5 )
+custom_fonts/normal_font = ExtResource( 5 )
+bbcode_enabled = true
+bbcode_text = "[right][color=#22ffffff] Base damage:
+Crit damage:
+Crit chance:
+Attack speed:
+Additional target:
+Multiple strike:
+Bouncnig:
+Double bounce:
+Random damage:
+Splash:
+Slow:
+Effect duration:
+Investment:
+Scrooge:
+Drop chance:
+Item quality:
+Extra targets:
+Mega spawn:
+DPS:
+[/color][/right]"
+text = " Base damage:
+Crit damage:
+Crit chance:
+Attack speed:
+Additional target:
+Multiple strike:
+Bouncnig:
+Double bounce:
+Random damage:
+Splash:
+Slow:
+Effect duration:
+Investment:
+Scrooge:
+Drop chance:
+Item quality:
+Extra targets:
+Mega spawn:
+DPS:
+"
+scroll_active = false
+
 [node name="AllStatsPanel" parent="." instance=ExtResource( 16 )]
-margin_left = 1503.26
-margin_top = 12.3111
-margin_right = 1914.26
-margin_bottom = 772.311
+margin_left = 1587.0
+margin_top = 12.0
+margin_right = 1914.0
+margin_bottom = 772.0
+custom_fonts/mono_font = ExtResource( 5 )
+custom_fonts/italics_font = ExtResource( 5 )
+custom_fonts/bold_font = ExtResource( 5 )
+custom_fonts/normal_font = ExtResource( 5 )
 
 [connection signal="pressed" from="Merge/Merge" to="Merge" method="_on_Merge_pressed"]

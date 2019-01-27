@@ -1,6 +1,6 @@
 extends "res://Stats/BaseStat.gd"
 func GetText() -> String:
-	return "[b]Damage[/b]:\nAttacks deal [color=red]{0}[/color] additional damage" .format( [value] )
+	return "+color=red]{0}[/color] additional base damage" .format( [value] )
 	
 func _init():
 	Id = "damage"

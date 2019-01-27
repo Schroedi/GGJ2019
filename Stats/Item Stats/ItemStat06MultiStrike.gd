@@ -3,8 +3,7 @@ func GetText() -> String:
 	var v1 = floor(value)
 	var v2 = (value-v1)*100
 	
-	return ("[b]Multi Target[/b]:\nAttacks fire at [color=red]{0}[/color] additional targets\n "\
-	+ "[color=red]{1}%[/color] chance to attack one more target").format( [v1,v2])
+	return ("[color=red]{1}%[/color] to attack twice as much targets").format( [v1,v2])
 	
 func _init():
 	Id = "multiTarget"

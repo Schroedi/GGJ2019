@@ -1,6 +1,6 @@
 extends "res://Stats/BaseStat.gd"
 func GetText() -> String:
-	return "[b]Speed[/b]:\nAttack speed is [color=red]{0}%[/color] faster".format( [(value-1)*100])
+	return "[color=red]{0}%[/color] faster attacks".format( [(value-1)*100])
 	
 func _init():
 	Id = "speed"

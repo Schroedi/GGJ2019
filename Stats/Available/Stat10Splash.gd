@@ -1,6 +1,6 @@
 extends "res://Stats/BaseStat.gd"
 func GetText() -> String:
-	return "[b]Splash[/b]:\nEnemies in [color=red]{0}[/color] radius around the target are also hit".format( [value])
+	return "[color=red]{0}[/color] radius hits targets".format( [value])
 	
 func _init():
 	Id = "splash"
