@@ -27,5 +27,14 @@ func _on_Timer_timeout():
 	$AllStatsPanel.bbcode_text+=("%.0f"%GameState.DPSmax)+"\n"	
 	$AllNamesPanel.bbcode_text+= "Max. DPS:\n"
 	
+	$AllStatsPanel.bbcode_text+=("%.0f"%EnemyManager.currentWave)+"\n"	
+	$AllNamesPanel.bbcode_text+= "Current Wave:\n"
+	
+	$AllStatsPanel.bbcode_text+=("%.0f"%EnemyManager.currentWaveSpawnsLeft)+"\n"	
+	$AllNamesPanel.bbcode_text+= "Enemies Left:\n"
+	
+	$AllStatsPanel.bbcode_text+=("%.1fs"%EnemyManager.currentWaveDuration)+"\n"	
+	$AllNamesPanel.bbcode_text+= "Next Wave in:\n"
+	
 	$AllNamesPanel.bbcode_text+="[/color][/right]"
 	pass # Replace with function body.
