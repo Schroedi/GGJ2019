@@ -1,0 +1,135 @@
+0 Angel
+Bait
+Fishing Rod
+Lure
+Decoy
+Wand
+Staff
+
+1 Gummibear
+Sweets
+Gum Bear
+Dong
+Beef
+Willy
+Tool
+Rod
+Discostick
+Captain
+Cucumber
+Soldier
+Candle
+
+2 gun
+Cannon
+Weapon
+Firearm
+Gun
+Pistol
+Revolver
+Rifle
+Handgun
+Shotgun
+Taser
+Musket
+
+3 hase
+Bunny
+Rabbit
+Mammal
+Pika
+Furry
+Predator
+Chipmunk
+Fairy
+
+4 hut
+Hat
+Cowboy hat
+Helmet
+Cap
+Beanie
+
+5 kaese
+Cheese
+Mozarella
+Mousehole
+Food
+Parmesan
+Brie
+Gouda
+Feta
+Cheddar
+
+6 kaktus
+Flower
+Cactus
+Spikething
+Plant
+
+7 krawatte
+Businessmanswear
+Tie
+Necktie
+Straight-Bowtie
+
+8 mic
+microphone
+amplifyer
+loudspeaker
+megaphone
+
+9 radar
+Antenna
+Radar
+Scanner
+Radio
+Transmitter
+Sensor
+
+10 rocket
+Bomb
+Rocket
+Missile
+Peacemaker
+Vehicle
+Aircraft
+
+11 schirm
+Sunscreen
+Umbrella
+Tent
+
+12 schuh
+Highheel
+Boot
+Stiletto
+
+13 schuh2
+Cowboy boot
+Sneaker
+Shoe
+Sock
+Trunk
+Kikass
+
+14 sword
+Cleaver
+Dagger
+Sword
+Broadsword
+Weapon
+
+15 trower
+Trump Tower
+
+16 wecker
+Alarmclock
+Watch
+Trap
+
+17 zzz
+Sleep
+Bed
+Nap
+Powernap
