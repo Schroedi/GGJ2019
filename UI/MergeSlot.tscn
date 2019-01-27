@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Assets/item backfield.png" type="Texture" id=1]
+[ext_resource path="res://UI/MergeSlot.gd" type="Script" id=2]
+
+[node name="MergeSlot1" type="NinePatchRect"]
+margin_right = 76.0
+margin_bottom = 76.0
+rect_min_size = Vector2( 76, 76 )
+mouse_filter = 0
+texture = ExtResource( 1 )
+script = ExtResource( 2 )
+
