@@ -1,6 +1,9 @@
 extends "res://Stats/BaseStat.gd"
 func GetText() -> String:
-	return "[color=red]{0}[/color] gold per second generated".format([value.x,value.y])
+	return "{0}/s".format([value.x,value.y])
+	
+func GetTextItem() -> String:
+	return "[color=black]Generates [/color][color=red]{0} gold[/color][color=black] per second[/color]".format([value.x,value.y])	
 	
 func _init():
 	Id = "bank"

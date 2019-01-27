@@ -1,6 +1,9 @@
 extends "res://Stats/BaseStat.gd"
 func GetText() -> String:
-	return "[color=red]{0}[/color] more gold dropped".format( [value] )
+	return "{0}".format( [value] )
+	
+func GetTextItem() -> String:
+	return "[color=black]Targets drop [color=red]{0}[/color][color=black] more gold[/color]".format( [value] )	
 	
 func _init():
 	Id = "money"

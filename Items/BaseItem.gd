@@ -6,16 +6,16 @@ var ItemLvl:int = 0
 # based on number of stats?
 var ItemTier:int = 0
 
-func GetText() -> String:
+func GetTextItem() -> String:
 	var text = ""
 	for s in ItemStats:
-		text += s.GetText() + "\n"
+		text = s.GetTextItem() + "\n\n"
 	
 	return text
 
 
 func GetName() -> String:
-	return "BaseItem"
+	return "Legendary epic greatsword of Item, AKA Base Item"
 
 func LevelUp():
 	var baseCost = ItemTier * 10

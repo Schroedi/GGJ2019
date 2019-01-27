@@ -1,7 +1,10 @@
 extends "res://Stats/BaseStat.gd"
 
 func GetText() -> String:
-	return "[color=red]{0}%[/color] slower" .format( [value.x,value.y])
+	return "{0}%" .format( [value.x,value.y])
+	
+func GetTextItem() -> String:
+	return "[color=black]Slows targets by [/color][color=red]{0}%[/color]" .format( [value.x,value.y])	
 	
 
 func _init():

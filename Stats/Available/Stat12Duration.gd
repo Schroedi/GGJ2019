@@ -1,7 +1,10 @@
 extends "res://Stats/BaseStat.gd"
 
 func GetText() -> String:
-	return "[color=red]{1}%[/color] seconds" .format( [value.x,value.y])
+	return "{1}%" .format( [value.x,value.y])
+	
+func GetTextItem() -> String:
+	return "[color=black]Effects last for [color=red]+{1}%[/color][color=black] seconds[/color]" .format( [value.x,value.y])
 	
 
 func _init():

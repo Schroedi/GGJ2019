@@ -1,7 +1,10 @@
 extends "res://Stats/BaseStat.gd"
 
 func GetText() -> String:
-	return "[color=red]{0}[/color] seconds until random hit".format(  [value.x,value.y])
+	return "{0}s".format(  [value.x,value.y])
+	
+func GetTextItem() -> String:
+	return "[/color=black]Hits random every [/color][color=red]{0}[/color][/color=black] seconds[/color]".format(  [value.x,value.y])	
 	
 func _init():
 	Id = "randomDamage"
