@@ -13,7 +13,7 @@ func drop_data(position, data):
 		remove_child(old_item)
 	
 	data.get_parent().remove_child(data)
-	data._on_Item_toggled(false)
+	data.unselect()
 	data.rect_position = Vector2()
 	add_child(data)
 	Stats.EquipItem(data.Item)
