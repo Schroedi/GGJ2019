@@ -192,4 +192,5 @@ func equip(item, slotId):
 
 func unequip(item):
 	if slotVis.has(item):
+		slotVis.erase(item)
 		slotVis[item].queue_free()

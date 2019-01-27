@@ -8,7 +8,7 @@ func GetTextItem() -> String:
 func _init():
 	Id = "bank"
 	# Seconds, gold
-	value = Vector2(1,0.1)
+	value = Vector2(1,1)
 	defaultValue = Vector2(0,0)
 	
 func LevelUp():
