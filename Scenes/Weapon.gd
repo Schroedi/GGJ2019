@@ -22,7 +22,6 @@ export var _playerOwned = true setget set_player_owned
 
 const popup = preload("res://Scenes/pop_label.tscn")
 const GameLevel = preload("res://Scenes/GameLevel.gd")
-onready var Level:GameLevel = get_node("/root/GameLevel") 
 
 var _currentEnemy:WeakRef = null
 
@@ -75,7 +74,7 @@ func _shoot():
 			bounce, 
 			Stats.CurrentStats["splash"]
 			,Bullet,
-			get_node("/root/GameLevel"))
+			GameState.Level)
 			
 		reloadTimeReamining = 1 / (fireRate * Stats.CurrentStats["speed"])
 	else:
@@ -84,7 +83,7 @@ func _shoot():
 
 
 func _hasTarget():
-	return _currentEnemy != null and _currentEnemy.get_ref()
+	return _currentEnemy != null and _currentEnemy.get_ref() 
 
 
 func _select_enemy(bodies):
@@ -94,12 +93,13 @@ func _select_enemy(bodies):
 
 
 func _targeting():	
-	# pick a new enemy
-
+# pick a new enemy
 	if(EnemyManager.Enemies.size() >0):
 		var enemy = EnemyManager.Enemies.front()
 		if enemy:
 			_currentEnemy = weakref(enemy)
+	else:
+		_currentEnemy = null
 	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -131,12 +131,12 @@ func _process(delta):
 	if Stats.CurrentStats["bank"][1] >0:
 		if(bankTimer > Stats.CurrentStats["bank"][0]):		
 			var gold = Stats.CurrentStats["bank"][1]	
-			Level.addGold(gold)
+			GameState.Level.addGold(gold)
 			var pl = popup.instance()
 			pl.global_position = global_position+Vector2(rand_range(-50,50),rand_range(-50,50))
 			pl.setColor(Color.gold)
 			pl.setLabel(String(gold)+"g")	
-			Level.add_child(pl)
+			GameState.Level.add_child(pl)
 			bankTimer = 0
 	bankTimer+=delta
 

@@ -1,0 +1,39 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://UI/GameOver.gd" type="Script" id=1]
+[ext_resource path="res://Assets/highscore-02.png" type="Texture" id=2]
+[ext_resource path="res://TextHighScore.tres" type="DynamicFont" id=3]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="highscore-02" type="Sprite" parent="."]
+position = Vector2( 960, 540 )
+texture = ExtResource( 2 )
+
+[node name="TextureButton" type="TextureButton" parent="highscore-02"]
+margin_left = -167.062
+margin_top = 376.585
+margin_right = 159.938
+margin_bottom = 448.585
+
+[node name="Label2" type="Label" parent="highscore-02/TextureButton"]
+margin_left = 38.8076
+margin_top = 11.7325
+margin_right = 297.808
+margin_bottom = 66.7325
+mouse_filter = 1
+custom_fonts/font = ExtResource( 3 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Tap to restart"
+
+[node name="Label" type="Label" parent="."]
+margin_left = 676.519
+margin_top = 330.953
+margin_right = 864.519
+margin_bottom = 385.953
+custom_fonts/font = ExtResource( 3 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Highscore"
+
+[connection signal="pressed" from="highscore-02/TextureButton" to="." method="_on_TextureButton_pressed"]

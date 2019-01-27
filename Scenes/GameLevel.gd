@@ -9,7 +9,12 @@ var playerLifes = 40
 var playerGold = 0
 
 # Called when the node enters the scene tree for the first time.
-func _ready():		
+func _ready():			
+	GameState.Level = self
+	playerLifes = 40
+	playerGold = 0
+	EnemyManager.reset()
+	Stats._init()
 	EnemyManager.StartSpawn()
 	Stats.GetAllStats()
 	pass # Replace with function body.

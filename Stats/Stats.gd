@@ -7,6 +7,9 @@ var DropWeights = []
 var StatIds = []
 
 func _init():
+	AlltStats = []
+	DropWeights = []
+	StatIds = []
 	loadAllStats("res://Stats/Available/")
 	
 func loadAllStats(path):

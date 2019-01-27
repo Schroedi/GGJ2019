@@ -5,7 +5,6 @@ const GameLevel = preload("res://Scenes/GameLevel.gd")
 const ItemVis = preload("res://Items/ItemVis.tscn")
 const popup = preload("res://Scenes/pop_label.tscn")
 const Bullet = preload("res://Scenes/Projectiles/Bullet.tscn")
-onready var Level:GameLevel = get_node("/root/GameLevel") 
 
 var EnemyIcons = []
 
@@ -78,19 +77,19 @@ func _spawnItem():
 	var vis = ItemVis.instance()
 	vis.global_position = global_position
 	vis.item = ItemGen.CreateItem()
-	Level.add_child(vis)
+	GameState.Level.add_child(vis)
 
 func _die():
 	# spawn scrap
 	goldValue += Stats.CurrentStats["money"]
-	Level.addGold(goldValue) #todo scale on increased gold
+	GameState.Level.addGold(goldValue) #todo scale on increased gold
 	var pl = popup.instance()
 	pl.global_position = global_position+Vector2(rand_range(-50,50),rand_range(-50,50))
 	pl.setColor(Color.gold)
 	pl.setLabel(String(goldValue)+"g")
 	
-	Level.add_child(pl)
-	Level.playerLifes+=1
+	GameState.Level.add_child(pl)
+	GameState.Level.playerLifes+=1
 	call_deferred("_spawnItem")
 	EnemyManager.Enemies.erase(self)
 	queue_free()
@@ -131,7 +130,7 @@ func _on_BaseEnemy_body_entered(body):
 					body.targetBounce-1, 
 					0
 					,Bullet,
-					Level)
+					GameState.Level)
 					break
 		
 		# this projective cannot damage other bodies anymore
@@ -163,7 +162,7 @@ func _damage(dmg):
 	pl.global_position = global_position+Vector2(rand_range(-50,50),rand_range(-50,50))
 	pl.setColor(Color.red)
 	pl.setLabel(dmg)
-	Level.call_deferred("add_child", pl)
+	GameState.Level.call_deferred("add_child", pl)
 	#Level.add_child(pl)
 	$LifeBar.value = life
 	#slow

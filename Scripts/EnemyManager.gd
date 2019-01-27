@@ -1,6 +1,5 @@
 extends Node
 const GameLevel = preload("res://Scenes/GameLevel.gd")
-onready var _level:GameLevel = get_node("/root/GameLevel")
 const BaseEnemy = preload("res://Scenes/BaseEnemy.tscn")
 # Declare member variables here. Examples:
 # var a = 2
@@ -26,15 +25,29 @@ var WaveGoldScaling = 1.05
 var currentWaveGold = WaveGoldBase
 var currentWaveLife = WaveLifeBaseLife
 var currentWaveMovementSpeed = WaveMovementSpeed
-var currentWave = 0
+var currentWave = 1
 var currentWaveSpawnsLeft = WaveEnemyCount
 var currentWaveDuration = WaveDuration
+var currentWaveSpawnDistance = WaveSpawnDistance
 
 var lastSpawn = 0
 
 
 var Enemies = Array()
  
+func gameOver():
+	StopSpawn()
+	Enemies = Array()
+	print(get_tree().change_scene("res://UI/GameOver.tscn"))
+
+func reset():
+	currentWaveGold = WaveGoldBase
+	currentWaveLife = WaveLifeBaseLife
+	currentWaveMovementSpeed = WaveMovementSpeed
+	currentWave = 1
+	currentWaveSpawnsLeft = WaveEnemyCount
+	currentWaveDuration = WaveDuration	
+	currentWaveSpawnDistance = WaveSpawnDistance
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -68,16 +81,17 @@ func spawnEnemy():
 	s.movementSpeed = currentWaveMovementSpeed
 	s.wave = currentWave
 	s.goldValue = currentWaveGold
-	_level.playerLifes-=1
+	GameState.Level.playerLifes-=1
 	#s.Owner = _level.owner
 	Enemies.append(s)
-	_level.add_child(s)
+	GameState.Level.add_child(s)
 	if(currentWave%10 ==0 ):
 		if(currentWaveSpawnsLeft==5):
 			s.life = currentWaveLife*WaveBossLifeMultiplier
 			s.set_scale(2)
-	pass
 	
+	if GameState.Level.playerLifes <0:
+		gameOver()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -87,7 +101,7 @@ func _process(delta):
 	
 	lastSpawn += delta
 	#spawn wave enemies
-	if(currentWaveSpawnsLeft>0 && lastSpawn > WaveSpawnDistance):
+	if(currentWaveSpawnsLeft>0 && lastSpawn > currentWaveSpawnDistance):
 		spawnEnemy()
 		currentWaveSpawnsLeft -= 1
 		lastSpawn = 0
@@ -105,8 +119,8 @@ func _process(delta):
 			encount +=1
 		currentWaveSpawnsLeft += WaveEnemyCount + encount
 		currentWaveDuration = WaveDuration
-		if(currentWaveSpawnsLeft*WaveSpawnDistance)>WaveDuration:
-			WaveSpawnDistance =  WaveDuration / (currentWaveSpawnsLeft+2)
+		if(currentWaveSpawnsLeft*currentWaveSpawnDistance)>WaveDuration:
+			currentWaveSpawnDistance =  WaveDuration / (currentWaveSpawnsLeft+2)
 	
 	
 	#remove stale enemies
