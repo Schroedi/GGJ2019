@@ -66,6 +66,7 @@ func _on_Merge_pressed():
 	
 	# remove merged items
 	for i in selected:
+		GameState.ItemCount -= 1
 		i.queue_free()
 	
 	# add new item

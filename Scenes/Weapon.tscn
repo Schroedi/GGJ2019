@@ -32,4 +32,9 @@ script = ExtResource( 3 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ItemCollect"]
 shape = SubResource( 1 )
 
+[node name="TakeFloatingItemsTimer" type="Timer" parent="ItemCollect"]
+wait_time = 0.54
+autostart = true
+
 [connection signal="body_entered" from="ItemCollect" to="ItemCollect" method="_on_ItemCollect_body_entered"]
+[connection signal="timeout" from="ItemCollect/TakeFloatingItemsTimer" to="ItemCollect" method="_on_TakeFloatingItemsTimer_timeout"]
