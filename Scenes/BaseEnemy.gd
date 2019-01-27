@@ -76,10 +76,11 @@ func SpawnMoney(value, parts, global_pos, target, owner):
 		var offset = Vector2(rand_range(0, 5), rand_range(0, 5))		
 
 func _spawnItem():
-	var vis = ItemVis.instance()
-	vis.global_position = global_position
-	vis.item = ItemGen.CreateItem()
-	GameState.Level.add_child(vis)
+	if randf()<0.5+Stats.CurrentStats["dropRate"]:		
+		var vis = ItemVis.instance()
+		vis.global_position = global_position
+		vis.item = ItemGen.CreateItem()
+		GameState.Level.add_child(vis)
 
 func _die():
 	# spawn scrap
