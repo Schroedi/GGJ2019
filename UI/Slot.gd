@@ -6,8 +6,8 @@ func can_drop_data(position, data):
 
 func drop_data(position, data):
 	# do we have an item already?
-	var old_item = get_child(0)
-	if old_item:
+	if get_child_count() > 0:
+		var old_item = get_child(0)
 		Stats.UnEquipItem(old_item.Item)
 		data.get_parent().add_child(old_item)
 		remove_child(old_item)
