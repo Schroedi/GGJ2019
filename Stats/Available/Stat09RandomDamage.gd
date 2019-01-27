@@ -4,7 +4,7 @@ func GetText() -> String:
 	return "{0}s".format(  ["%.2f" %value.y])
 	
 func GetTextItem() -> String:
-	return "[/color=black]Hits random every [/color][color=red]{0}[/color][/color=black] seconds[/color]".format( ["%.2f" %value.y])	
+	return "[color=black]Hits random every [/color][color=red]{0}[/color][color=black] seconds[/color]".format( ["%.2f" %value.y])	
 	
 func _init():
 	Id = "randomDamage"
