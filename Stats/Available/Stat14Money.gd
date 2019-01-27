@@ -9,3 +9,4 @@ func _init():
 	Id = "money"
 	value = 0.1
 	defaultValue = 0 
+	IconId = [0,12]

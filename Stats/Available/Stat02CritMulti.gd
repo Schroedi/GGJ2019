@@ -9,3 +9,4 @@ func _init():
 	Id = "critMulti"
 	value = 0.1
 	defaultValue =0
+	IconId = [5,12]

@@ -9,3 +9,4 @@ func _init():
 	Id = "splash"
 	value = 10
 	defaultValue = 0
+	IconId = [5,11,16]

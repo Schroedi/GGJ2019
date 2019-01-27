@@ -16,3 +16,4 @@ func LevelUp():
 	value.x *= 1.1
 	value.y /= 1.1
 	Level += 1
+	IconId = [15]

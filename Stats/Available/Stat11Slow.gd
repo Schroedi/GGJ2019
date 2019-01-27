@@ -11,5 +11,6 @@ func _init():
 	Id = "slow"
 	value = Vector2(1,4)
 	defaultValue = Vector2(0,0)
+	IconId = [1,17]
 	
 	

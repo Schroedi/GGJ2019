@@ -9,3 +9,4 @@ func _init():
 	Id = "speed"
 	value = 0.1
 	defaultValue = 1
+	IconId = [3,13]

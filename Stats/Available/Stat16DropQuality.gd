@@ -9,3 +9,4 @@ func _init():
 	Id = "dropQuality"
 	value = 0.1
 	defaultValue = 0
+	IconId = [1,6]
