@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Scenes/BaseEnemy.gd" type="Script" id=1]
-[ext_resource path="res://UI/LifeBarStyle.tres" type="StyleBox" id=2]
-[ext_resource path="res://Assets/Scrap/scrap2.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Scrap/scrap2.png" type="Texture" id=2]
+[ext_resource path="res://UI/LifeBarStyle.tres" type="StyleBox" id=3]
 
 [sub_resource type="CapsuleShape2D" id=1]
 
@@ -20,15 +20,6 @@ contact_monitor = true
 linear_damp = 0.0
 script = ExtResource( 1 )
 
-[node name="LifeBar" type="ProgressBar" parent="."]
-margin_left = -28.1442
-margin_top = -44.8508
-margin_right = 27.8558
-margin_bottom = -30.8508
-custom_styles/fg = ExtResource( 2 )
-custom_colors/font_color = Color( 0, 0, 0, 0 )
-value = 100.0
-
 [node name="Polygon2D" type="Polygon2D" parent="."]
 visible = false
 position = Vector2( -7.30787, -19.7698 )
@@ -40,12 +31,22 @@ position = Vector2( -0.115989, 0.231968 )
 shape = SubResource( 1 )
 
 [node name="TextureRect" type="TextureRect" parent="."]
-margin_left = -75.0
+margin_left = -75.2774
 margin_top = -75.0
-margin_right = 75.0
+margin_right = 74.7226
 margin_bottom = 75.0
-texture = ExtResource( 3 )
+rect_pivot_offset = Vector2( 75, 75 )
+texture = ExtResource( 2 )
 expand = true
 stretch_mode = 1
+
+[node name="LifeBar" type="ProgressBar" parent="."]
+margin_left = -28.1442
+margin_top = -44.8508
+margin_right = 27.8558
+margin_bottom = -30.8508
+custom_styles/fg = ExtResource( 3 )
+custom_colors/font_color = Color( 0, 0, 0, 0 )
+value = 100.0
 
 [connection signal="body_entered" from="." to="." method="_on_BaseEnemy_body_entered"]

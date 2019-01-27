@@ -14,7 +14,7 @@ var WaveDuration = 30
 var WaveEnemyCount = 10
 var WaveSpawnDistance = 1
 var WaveMovementSpeed = 50
-var WaveLifeBaseLife = 30
+var WaveLifeBaseLife = 19
 var WaveGoldBase = 10
 var WaveBossLifeMultiplier = 5
 
@@ -25,7 +25,7 @@ var WaveGoldScaling = 1.05
 var currentWaveGold = WaveGoldBase
 var currentWaveLife = WaveLifeBaseLife
 var currentWaveMovementSpeed = WaveMovementSpeed
-var currentWave = 1
+var currentWave = 0
 var currentWaveSpawnsLeft = WaveEnemyCount
 var currentWaveDuration = WaveDuration
 var currentWaveSpawnDistance = WaveSpawnDistance
@@ -44,7 +44,7 @@ func reset():
 	currentWaveGold = WaveGoldBase
 	currentWaveLife = WaveLifeBaseLife
 	currentWaveMovementSpeed = WaveMovementSpeed
-	currentWave = 1
+	currentWave = 2
 	currentWaveSpawnsLeft = WaveEnemyCount
 	currentWaveDuration = WaveDuration	
 	currentWaveSpawnDistance = WaveSpawnDistance
@@ -72,6 +72,7 @@ func StopSpawn():
 func spawnEnemy():
 	var s = BaseEnemy.instance()
 	s.offset= rand_range(0,10)
+	var bosswave = currentWave%10 ==0 and currentWaveSpawnsLeft==5
 	var x = (EnemyManager.ElipseA + s.offset) * cos(deg2rad(0));
 	var y = (EnemyManager.ElipseB + s.offset) * sin(deg2rad(0));
 	s.global_position = Vector2(x,y)+ElipseCenter
@@ -84,12 +85,14 @@ func spawnEnemy():
 	GameState.Level.playerLifes-=1
 	#s.Owner = _level.owner
 	Enemies.append(s)
-	GameState.Level.add_child(s)
-	if(currentWave%10 ==0 ):
-		if(currentWaveSpawnsLeft==5):
-			s.life = currentWaveLife*WaveBossLifeMultiplier
-			s.set_scale(2)
+	if bosswave:		
+		s.life = currentWaveLife*WaveBossLifeMultiplier
 	
+	GameState.Level.add_child(s)
+	
+	if bosswave:
+			s.Texture.rect_scale = Vector2(2,2)
+			
 	if GameState.Level.playerLifes <0:
 		gameOver()
 

@@ -39,7 +39,7 @@ export var movementSpeed =20
 export var wave =0
 export var offset = 10
 export var slowtimer =0
-
+onready var Texture = $TextureRect
 
 func set_scale(scale):
 	# Override behaviour only if it is a RigidBody2D and do not touch other nodes
@@ -66,6 +66,7 @@ func _ready():
 	# https://godotengine.org/qa/3299/can-i-change-the-default-size-of-an-object-like-rigidbody2d
 	var scrapid = randi()%EnemyIcons.size()
 	$TextureRect.texture = EnemyIcons[scrapid]
+	
 	set_scale(scale)
 	$LifeBar.max_value = life
 	$LifeBar.value = life
