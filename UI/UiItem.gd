@@ -9,6 +9,7 @@ func setItem(v):
 	Item = v
 	var tier = min(Item.ItemTier, 5) - 1
 	texture_normal = GameState.ItemTexTiers[tier]
+	$icon.texture = GameState.Icons[Item.Icon]
 
 
 func IsSelected()->bool:

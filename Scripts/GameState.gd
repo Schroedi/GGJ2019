@@ -39,7 +39,7 @@ load("res://Assets/infobox/previews/schuh.png"),
 load("res://Assets/infobox/previews/sword.png"),
 load("res://Assets/infobox/previews/trower.png"),
 load("res://Assets/infobox/previews/wecker.png"),
-load("res://Assets/infobox/previews/zzz.png"]
+load("res://Assets/infobox/previews/zzz.png")]
 #icon
 var Icons = [load("res://Assets/icons/weapon items/angel.png"),
 load("res://Assets/icons/weapon items/gummibaer.png"),
@@ -58,4 +58,4 @@ load("res://Assets/icons/weapon items/schuh.png"),
 load("res://Assets/icons/weapon items/sword.png"),
 load("res://Assets/icons/weapon items/trower.png"),
 load("res://Assets/icons/weapon items/wecker.png"),
-load("res://Assets/icons/weapon items/zzz.png"]
+load("res://Assets/icons/weapon items/zzz.png")]

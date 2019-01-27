@@ -10,9 +10,10 @@ var EnemyIcons = []
 
 
 func _init():
-	loadAllStats("res://Assets/Scrap/")
+	loadAllIcons("res://Assets/Scrap/")
 	
-func loadAllStats(path):
+func loadAllIcons(path):
+	EnemyIcons = []
 	var dir = Directory.new()
 	dir.open(path)
 	dir.list_dir_begin()

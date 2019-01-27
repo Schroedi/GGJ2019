@@ -13,6 +13,7 @@ func CreateItem()->BaseItem:
 	
 	
 	i.ItemStats.append(stat.new())
+	i.Icon = randi()%GameState.Icons.size()
 	return i
 
 func _ready():
