@@ -30,9 +30,9 @@ func _on_Merge_pressed():
 			var stati = Stats.StatIds.find(s.Id)
 			# sum stat levels per stat type
 			if levels.has(s.Id):
-				levels[s.Id] += s.value
+				levels[s.Id] += s.Level
 			else:
-				levels[s.Id] = s.value
+				levels[s.Id] = s.Level
 			weights[stati] += 1
 	
 	# create new item and add it
