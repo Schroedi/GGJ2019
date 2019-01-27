@@ -2,7 +2,7 @@ extends Node2D
 
 export (Vector2) var final_scale = Vector2(1.5, 1.5)
 export (float) var distance = 100
-export (float) var duration = 0.25
+export (float) var duration = 0.5
 
 func setColor(var col):
 	$label.add_color_override("font_color",col)
