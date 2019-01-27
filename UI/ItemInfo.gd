@@ -15,10 +15,12 @@ func ShowItem(item:UiItem):
 	VisItem(item)
 
 func unselect():
+	$Upgrade.disabled = true
 	selected = null
 
 func select(item:UiItem):
 	if selected:
 		selected.unselect()
 	selected = item
+	$Upgrade.disabled = false
 	VisItem(selected)
