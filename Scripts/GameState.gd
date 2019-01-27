@@ -63,3 +63,5 @@ load("res://Assets/icons/weapon items/sword.png"),
 load("res://Assets/icons/weapon items/trower.png"),
 load("res://Assets/icons/weapon items/wecker.png"),
 load("res://Assets/icons/weapon items/zzz.png")]
+
+var scrap = [load("res://Assets/Scrap/scrap1.png"), load("res://Assets/Scrap/scrap2.png"), load("res://Assets/Scrap/scrap3.png"), load("res://Assets/Scrap/scrap4.png"), load("res://Assets/Scrap/scrap5.png"), load("res://Assets/Scrap/scrap6.png"), load("res://Assets/Scrap/scrap7.png"), load("res://Assets/Scrap/scrap8.png"), load("res://Assets/Scrap/scrap9.png")]
