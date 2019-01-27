@@ -169,8 +169,7 @@ custom_fonts/normal_font = ExtResource( 5 )
 custom_colors/default_color = Color( 0, 0, 0, 1 )
 bbcode_enabled = true
 
-[node name="Star" type="NinePatchRect" parent="ItemInfo"]
-editor/display_folded = true
+[node name="Star1" type="NinePatchRect" parent="ItemInfo"]
 margin_left = 32.063
 margin_top = 295.0
 margin_right = 61.063
@@ -178,31 +177,35 @@ margin_bottom = 323.0
 rect_min_size = Vector2( 29, 28 )
 texture = ExtResource( 6 )
 
-[node name="Star2" type="NinePatchRect" parent="ItemInfo/Star"]
-margin_top = 51.0
-margin_right = 29.0
-margin_bottom = 79.0
+[node name="Star2" type="NinePatchRect" parent="ItemInfo"]
+margin_left = 32.063
+margin_top = 346.0
+margin_right = 61.063
+margin_bottom = 374.0
 rect_min_size = Vector2( 29, 28 )
 texture = ExtResource( 6 )
 
-[node name="Star3" type="NinePatchRect" parent="ItemInfo/Star"]
-margin_top = 100.0
-margin_right = 29.0
-margin_bottom = 128.0
+[node name="Star3" type="NinePatchRect" parent="ItemInfo"]
+margin_left = 32.063
+margin_top = 395.0
+margin_right = 61.063
+margin_bottom = 423.0
 rect_min_size = Vector2( 29, 28 )
 texture = ExtResource( 6 )
 
-[node name="Star4" type="NinePatchRect" parent="ItemInfo/Star"]
-margin_top = 150.0
-margin_right = 29.0
-margin_bottom = 178.0
+[node name="Star4" type="NinePatchRect" parent="ItemInfo"]
+margin_left = 32.063
+margin_top = 445.0
+margin_right = 61.063
+margin_bottom = 473.0
 rect_min_size = Vector2( 29, 28 )
 texture = ExtResource( 6 )
 
-[node name="Star5" type="NinePatchRect" parent="ItemInfo/Star"]
-margin_top = 200.0
-margin_right = 29.0
-margin_bottom = 228.0
+[node name="Star5" type="NinePatchRect" parent="ItemInfo"]
+margin_left = 32.063
+margin_top = 495.0
+margin_right = 61.063
+margin_bottom = 523.0
 rect_min_size = Vector2( 29, 28 )
 texture = ExtResource( 6 )
 
