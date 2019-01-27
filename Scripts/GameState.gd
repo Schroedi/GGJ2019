@@ -5,6 +5,10 @@ onready var Level = get_node("/root/GameLevel")
 # How many Items does the player have
 var ItemCount = 0
 var MaxItemCount = 20
+var DPS =0
+var DPSmax =0
+var DamageLastSecond =0
+var DamageSeconds =0
 
 var ItemTexTiers = [load("res://Assets/icons/tier0.png"), 
 	load("res://Assets/icons/tier1.png"),

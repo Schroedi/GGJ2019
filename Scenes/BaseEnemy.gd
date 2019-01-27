@@ -170,6 +170,6 @@ func _damage(dmg):
 	#slow
 	if Stats.CurrentStats["slow"].x>0:
 		slowtimer = Stats.CurrentStats["slow"].y
-	
+	GameState.DamageSeconds += dmg
 	if life < 0:
 		_die()

@@ -4,7 +4,10 @@ func GetText() -> String:
 	
 func GetTextItem() -> String:
 	return "[color=black]Hits tartets in [/color][color=red]{0}[/color][color=black] radius[/color]".format( ["%.2f" %value])	
-	
+
+func GetName() ->String:
+	return "Splash damage radius"
+		
 func _init():
 	Id = "splash"
 	value = 10

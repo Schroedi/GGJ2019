@@ -4,6 +4,9 @@ func GetText() -> String:
 	
 func GetTextItem() -> String:
 	return "[color=black]Items drop [color=red]{0}%[/color][color=black] more often[/color]".format(["%.1f"%(value*100)] )
+
+func GetName() ->String:
+	return "Item drop chance"
 	
 func _init():
 	Id = "dropRate"

@@ -4,6 +4,10 @@ func GetText() -> String:
 
 func GetTextItem() -> String:
 	return "[color=black][color=red]+{0}%[/color][color=black]to find higher stat items[/color]".format(["%.1f"%(value*100)] )
+
+func GetName() ->String:
+	return "Higher quality item chance"
+
 	
 func _init():
 	Id = "dropQuality"
