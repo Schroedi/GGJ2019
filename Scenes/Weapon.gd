@@ -30,10 +30,33 @@ onready var tile = get_parent().get_parent()
 onready var canonEnd = get_node("Barrel/Muzzle")
 onready var barrel = get_node("Barrel")
 
+export var IconObjects = []
+
 
 func get_consumption():
 	return consumptionPerShot * fireRate
 
+
+func _ready():
+	IconObjects = []
+	IconObjects.append($Barrel/Panel/ANGEL)
+	IconObjects.append($Barrel/Panel/GUMMIBAER)
+	IconObjects.append($Barrel/Panel/GUN)
+	IconObjects.append($Barrel/Panel/HASE)
+	IconObjects.append($Barrel/Panel/HUT)
+	IconObjects.append($Barrel/Panel/KAESE)
+	IconObjects.append($Barrel/Panel/KAKTUS)
+	IconObjects.append($Barrel/Panel/KRAWATTE)
+	IconObjects.append($Barrel/Panel/MIC)
+	IconObjects.append($Barrel/Panel/RADAR)
+	IconObjects.append($Barrel/Panel/ROCKET)
+	IconObjects.append($Barrel/Panel/SCHIRM)
+	IconObjects.append($Barrel/Panel/SCHUH2)
+	IconObjects.append($Barrel/Panel/SCHUH)
+	IconObjects.append($Barrel/Panel/SWORD)
+	IconObjects.append($Barrel/Panel/TROWER)
+	IconObjects.append($Barrel/Panel/WECKER)
+	IconObjects.append($Barrel/Panel/ZZZ)
 
 func set_player_owned(v):
 	_playerOwned = v

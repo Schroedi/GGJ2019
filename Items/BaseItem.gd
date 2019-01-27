@@ -7,7 +7,28 @@ var ItemLvl:int = 1
 # higher tier items are more expensive to level
 # based on number of stats?
 var ItemTier:int = 1
-var Icon = 0
+var Icon = 0 setget setIcon, getIcon
+
+func setIcon(v):
+	# should only be set by ourself
+	print("icon set?!")
+	Icon = v
+
+func getIcon():
+	if Icon < 0:
+		Icon = iconType()
+	return Icon
+
+func iconType() -> int:
+	var icon = 0
+	var maxv = -1
+	for s in ItemStats:
+		if s.Level > maxv:
+			var rid = randi() % s.IconId.size()
+			icon = s.IconId[rid]
+			maxv = s.Level
+	return icon
+
 
 func GetTextItem() -> String:
 	var text = ""

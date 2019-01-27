@@ -5,7 +5,7 @@ var value
 var defaultValue = 0
 var dropWeight = 1
 var Level = 0
-
+var IconId = [0]
 
 
 func GetText() -> String:
