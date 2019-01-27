@@ -7,7 +7,7 @@ var ItemLvl:int = 1
 # higher tier items are more expensive to level
 # based on number of stats?
 var ItemTier:int = 1
-var Icon = 0 setget setIcon, getIcon
+var Icon = -1 setget setIcon, getIcon
 
 func setIcon(v):
 	# should only be set by ourself
