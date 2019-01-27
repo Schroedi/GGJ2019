@@ -7,4 +7,5 @@ func AddItem(item:BaseItem):
 	var ui = UiItem.instance()
 	ui.Item = item
 	$ScrollContainer/ItemContainer.add_child(ui)
+	GameState.ItemCount += 1
 

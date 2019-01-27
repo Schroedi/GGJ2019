@@ -3,7 +3,13 @@ extends TextureButton
 const BaseItem = preload("res://Items/BaseItem.gd")
 
 onready var ItemInfo = get_node("/root/GameLevel/Hud/ItemInfo")
-onready var Item:BaseItem
+onready var Item:BaseItem setget setItem
+
+func setItem(v):
+	Item = v
+	var tier = min(Item.ItemTier, 5) - 1
+	texture_normal = GameState.ItemTexTiers[tier]
+
 
 func IsSelected()->bool:
 	return $Highlight.visible
@@ -28,9 +34,6 @@ func unselect():
 		$Highlight.visible = false
 
 func _on_UiItem_pressed():
-	# toggle highlight if in inventory
-	# fix upgrade info if highlighted
-	# unhighlight all other
 	$Highlight.visible = not $Highlight.visible
 	if IsSelected():
 		ItemInfo.select(self)

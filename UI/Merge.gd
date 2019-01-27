@@ -37,7 +37,9 @@ func _on_Merge_pressed():
 	
 	# create new item and add it
 	var item = BaseItem.new()
-	var statCount = rng.randi_range(1,4)
+	var minStats = max(1, levelSum / 2)
+	var maxStats = max(minStats, levelSum)
+	var statCount = rng.randi_range(minStats, maxStats)
 	for i in statCount:
 		var stati = WeightRng.WeightedRng(weights)
 		weights[stati] = 0
@@ -62,10 +64,12 @@ func _on_Merge_pressed():
 		newSum += 1
 
 	# set item level as sum of old levels
-	item.ItemLvl = levelSum
+	item.ItemLvl = 1
+	item.ItemTier = statCount
 	
 	# remove merged items
 	for i in selected:
+		GameState.ItemCount -= 1
 		i.queue_free()
 	
 	# add new item

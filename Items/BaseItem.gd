@@ -3,7 +3,7 @@ extends Node
 const popup = preload("res://Scenes/pop_label.tscn")
 
 var ItemStats = []
-var ItemLvl:int = 0
+var ItemLvl:int = 1
 # higher tier items are more expensive to level
 # based on number of stats?
 var ItemTier:int = 1
