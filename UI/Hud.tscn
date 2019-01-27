@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=2]
+[gd_scene load_steps=30 format=2]
 
 [ext_resource path="res://UI/Slot.tscn" type="PackedScene" id=1]
 [ext_resource path="res://UI/ItemInfo.gd" type="Script" id=2]
@@ -9,15 +9,16 @@
 [ext_resource path="res://Assets/infobox/upgrade.png" type="Texture" id=7]
 [ext_resource path="res://TextBold.tres" type="DynamicFont" id=8]
 [ext_resource path="res://Assets/infobox/gold.png" type="Texture" id=9]
-[ext_resource path="res://UI/Inventory.gd" type="Script" id=10]
-[ext_resource path="res://Assets/item backfield.png" type="Texture" id=11]
-[ext_resource path="res://UI/ScrollContainer.gd" type="Script" id=12]
-[ext_resource path="res://UI/Merge.gd" type="Script" id=13]
-[ext_resource path="res://Assets/merge.png" type="Texture" id=14]
-[ext_resource path="res://UI/PlayerInfo.gd" type="Script" id=15]
-[ext_resource path="res://Assets/infobox/life.png" type="Texture" id=16]
-[ext_resource path="res://TextMain.tres" type="DynamicFont" id=17]
-[ext_resource path="res://UI/AllStatsPanel.tscn" type="PackedScene" id=18]
+[ext_resource path="res://Assets/infobox/previews/kaktus.png" type="Texture" id=10]
+[ext_resource path="res://UI/Inventory.gd" type="Script" id=11]
+[ext_resource path="res://Assets/item backfield.png" type="Texture" id=12]
+[ext_resource path="res://UI/ScrollContainer.gd" type="Script" id=13]
+[ext_resource path="res://UI/Merge.gd" type="Script" id=14]
+[ext_resource path="res://Assets/merge.png" type="Texture" id=15]
+[ext_resource path="res://UI/PlayerInfo.gd" type="Script" id=16]
+[ext_resource path="res://Assets/infobox/life.png" type="Texture" id=17]
+[ext_resource path="res://TextMain.tres" type="DynamicFont" id=18]
+[ext_resource path="res://UI/AllStatsPanel.tscn" type="PackedScene" id=19]
 
 [sub_resource type="StyleBoxEmpty" id=1]
 
@@ -100,26 +101,27 @@ custom_constants/separation = 20
 alignment = 1
 
 [node name="Slot1" parent="Slots/HBoxContainer" instance=ExtResource( 1 )]
+visible = false
 
 [node name="Slot2" parent="Slots/HBoxContainer" instance=ExtResource( 1 )]
-margin_left = 108.0
-margin_right = 196.0
+margin_left = 54.0
+margin_right = 142.0
 
 [node name="Slot3" parent="Slots/HBoxContainer" instance=ExtResource( 1 )]
-margin_left = 216.0
-margin_right = 304.0
+margin_left = 162.0
+margin_right = 250.0
 
 [node name="Slot4" parent="Slots/HBoxContainer" instance=ExtResource( 1 )]
-margin_left = 324.0
-margin_right = 412.0
+margin_left = 270.0
+margin_right = 358.0
 
 [node name="Slot5" parent="Slots/HBoxContainer" instance=ExtResource( 1 )]
-margin_left = 432.0
-margin_right = 520.0
+margin_left = 378.0
+margin_right = 466.0
 
 [node name="Slot6" parent="Slots/HBoxContainer" instance=ExtResource( 1 )]
-margin_left = 540.0
-margin_right = 628.0
+margin_left = 486.0
+margin_right = 574.0
 
 [node name="ItemInfo" type="Panel" parent="."]
 margin_left = 10.0
@@ -223,11 +225,9 @@ margin_right = -9.0
 margin_bottom = 37.0
 texture = ExtResource( 9 )
 
-[node name="Item Image" type="NinePatchRect" parent="ItemInfo"]
-margin_left = 40.0
-margin_top = 137.0
-margin_right = 259.0
-margin_bottom = 318.0
+[node name="kaktus" type="Sprite" parent="ItemInfo"]
+position = Vector2( 145.13, 189.955 )
+texture = ExtResource( 10 )
 
 [node name="Inventory" type="Panel" parent="."]
 margin_left = 523.0
@@ -235,7 +235,7 @@ margin_top = 879.0
 margin_right = 1473.0
 margin_bottom = 1076.0
 custom_styles/panel = SubResource( 3 )
-script = ExtResource( 10 )
+script = ExtResource( 11 )
 
 [node name="GridContainer" type="GridContainer" parent="Inventory"]
 editor/display_folded = true
@@ -251,77 +251,77 @@ columns = 10
 margin_right = 76.0
 margin_bottom = 76.0
 rect_min_size = Vector2( 76, 76 )
-texture = ExtResource( 11 )
+texture = ExtResource( 12 )
 
 [node name="Patch2" type="NinePatchRect" parent="Inventory/GridContainer"]
 margin_left = 94.0
 margin_right = 170.0
 margin_bottom = 76.0
 rect_min_size = Vector2( 76, 76 )
-texture = ExtResource( 11 )
+texture = ExtResource( 12 )
 
 [node name="Patch3" type="NinePatchRect" parent="Inventory/GridContainer"]
 margin_left = 188.0
 margin_right = 264.0
 margin_bottom = 76.0
 rect_min_size = Vector2( 76, 76 )
-texture = ExtResource( 11 )
+texture = ExtResource( 12 )
 
 [node name="Patch4" type="NinePatchRect" parent="Inventory/GridContainer"]
 margin_left = 282.0
 margin_right = 358.0
 margin_bottom = 76.0
 rect_min_size = Vector2( 76, 76 )
-texture = ExtResource( 11 )
+texture = ExtResource( 12 )
 
 [node name="Patch5" type="NinePatchRect" parent="Inventory/GridContainer"]
 margin_left = 376.0
 margin_right = 452.0
 margin_bottom = 76.0
 rect_min_size = Vector2( 76, 76 )
-texture = ExtResource( 11 )
+texture = ExtResource( 12 )
 
 [node name="Patch6" type="NinePatchRect" parent="Inventory/GridContainer"]
 margin_left = 470.0
 margin_right = 546.0
 margin_bottom = 76.0
 rect_min_size = Vector2( 76, 76 )
-texture = ExtResource( 11 )
+texture = ExtResource( 12 )
 
 [node name="Patch7" type="NinePatchRect" parent="Inventory/GridContainer"]
 margin_left = 564.0
 margin_right = 640.0
 margin_bottom = 76.0
 rect_min_size = Vector2( 76, 76 )
-texture = ExtResource( 11 )
+texture = ExtResource( 12 )
 
 [node name="Patch8" type="NinePatchRect" parent="Inventory/GridContainer"]
 margin_left = 658.0
 margin_right = 734.0
 margin_bottom = 76.0
 rect_min_size = Vector2( 76, 76 )
-texture = ExtResource( 11 )
+texture = ExtResource( 12 )
 
 [node name="Patch9" type="NinePatchRect" parent="Inventory/GridContainer"]
 margin_left = 752.0
 margin_right = 828.0
 margin_bottom = 76.0
 rect_min_size = Vector2( 76, 76 )
-texture = ExtResource( 11 )
+texture = ExtResource( 12 )
 
 [node name="Patch10" type="NinePatchRect" parent="Inventory/GridContainer"]
 margin_left = 846.0
 margin_right = 922.0
 margin_bottom = 76.0
 rect_min_size = Vector2( 76, 76 )
-texture = ExtResource( 11 )
+texture = ExtResource( 12 )
 
 [node name="Patch11" type="NinePatchRect" parent="Inventory/GridContainer"]
 margin_top = 94.0
 margin_right = 76.0
 margin_bottom = 170.0
 rect_min_size = Vector2( 76, 76 )
-texture = ExtResource( 11 )
+texture = ExtResource( 12 )
 
 [node name="Patch12" type="NinePatchRect" parent="Inventory/GridContainer"]
 margin_left = 94.0
@@ -329,7 +329,7 @@ margin_top = 94.0
 margin_right = 170.0
 margin_bottom = 170.0
 rect_min_size = Vector2( 76, 76 )
-texture = ExtResource( 11 )
+texture = ExtResource( 12 )
 
 [node name="Patch13" type="NinePatchRect" parent="Inventory/GridContainer"]
 margin_left = 188.0
@@ -337,7 +337,7 @@ margin_top = 94.0
 margin_right = 264.0
 margin_bottom = 170.0
 rect_min_size = Vector2( 76, 76 )
-texture = ExtResource( 11 )
+texture = ExtResource( 12 )
 
 [node name="Patch14" type="NinePatchRect" parent="Inventory/GridContainer"]
 margin_left = 282.0
@@ -345,7 +345,7 @@ margin_top = 94.0
 margin_right = 358.0
 margin_bottom = 170.0
 rect_min_size = Vector2( 76, 76 )
-texture = ExtResource( 11 )
+texture = ExtResource( 12 )
 
 [node name="Patch15" type="NinePatchRect" parent="Inventory/GridContainer"]
 margin_left = 376.0
@@ -353,7 +353,7 @@ margin_top = 94.0
 margin_right = 452.0
 margin_bottom = 170.0
 rect_min_size = Vector2( 76, 76 )
-texture = ExtResource( 11 )
+texture = ExtResource( 12 )
 
 [node name="Patch16" type="NinePatchRect" parent="Inventory/GridContainer"]
 margin_left = 470.0
@@ -361,7 +361,7 @@ margin_top = 94.0
 margin_right = 546.0
 margin_bottom = 170.0
 rect_min_size = Vector2( 76, 76 )
-texture = ExtResource( 11 )
+texture = ExtResource( 12 )
 
 [node name="Patch17" type="NinePatchRect" parent="Inventory/GridContainer"]
 margin_left = 564.0
@@ -369,7 +369,7 @@ margin_top = 94.0
 margin_right = 640.0
 margin_bottom = 170.0
 rect_min_size = Vector2( 76, 76 )
-texture = ExtResource( 11 )
+texture = ExtResource( 12 )
 
 [node name="Patch18" type="NinePatchRect" parent="Inventory/GridContainer"]
 margin_left = 658.0
@@ -377,7 +377,7 @@ margin_top = 94.0
 margin_right = 734.0
 margin_bottom = 170.0
 rect_min_size = Vector2( 76, 76 )
-texture = ExtResource( 11 )
+texture = ExtResource( 12 )
 
 [node name="Patch19" type="NinePatchRect" parent="Inventory/GridContainer"]
 margin_left = 752.0
@@ -385,7 +385,7 @@ margin_top = 94.0
 margin_right = 828.0
 margin_bottom = 170.0
 rect_min_size = Vector2( 76, 76 )
-texture = ExtResource( 11 )
+texture = ExtResource( 12 )
 
 [node name="Patch20" type="NinePatchRect" parent="Inventory/GridContainer"]
 margin_left = 846.0
@@ -393,7 +393,7 @@ margin_top = 94.0
 margin_right = 922.0
 margin_bottom = 170.0
 rect_min_size = Vector2( 76, 76 )
-texture = ExtResource( 11 )
+texture = ExtResource( 12 )
 
 [node name="ScrollContainer" type="ScrollContainer" parent="Inventory"]
 margin_right = 1090.0
@@ -402,7 +402,7 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 scroll_horizontal_enabled = false
 scroll_vertical_enabled = false
-script = ExtResource( 12 )
+script = ExtResource( 13 )
 
 [node name="ItemContainer" type="GridContainer" parent="Inventory/ScrollContainer"]
 custom_constants/vseparation = 6
@@ -415,11 +415,11 @@ margin_top = 687.487
 margin_right = 1903.06
 margin_bottom = 1061.48
 custom_styles/panel = SubResource( 4 )
-script = ExtResource( 13 )
+script = ExtResource( 14 )
 
 [node name="merge" type="Sprite" parent="Merge"]
 position = Vector2( 284.821, 228.344 )
-texture = ExtResource( 14 )
+texture = ExtResource( 15 )
 
 [node name="Merge" type="Button" parent="Merge"]
 margin_left = 24.4525
@@ -447,21 +447,21 @@ columns = 2
 margin_right = 76.0
 margin_bottom = 76.0
 rect_min_size = Vector2( 76, 76 )
-texture = ExtResource( 11 )
+texture = ExtResource( 12 )
 
 [node name="Patch24" type="NinePatchRect" parent="Merge/GridContainer"]
 margin_left = 94.0
 margin_right = 170.0
 margin_bottom = 76.0
 rect_min_size = Vector2( 76, 76 )
-texture = ExtResource( 11 )
+texture = ExtResource( 12 )
 
 [node name="Patch25" type="NinePatchRect" parent="Merge/GridContainer"]
 margin_top = 94.0
 margin_right = 76.0
 margin_bottom = 170.0
 rect_min_size = Vector2( 76, 76 )
-texture = ExtResource( 11 )
+texture = ExtResource( 12 )
 
 [node name="Patch26" type="NinePatchRect" parent="Merge/GridContainer"]
 margin_left = 94.0
@@ -469,14 +469,14 @@ margin_top = 94.0
 margin_right = 170.0
 margin_bottom = 170.0
 rect_min_size = Vector2( 76, 76 )
-texture = ExtResource( 11 )
+texture = ExtResource( 12 )
 
 [node name="Patch27" type="NinePatchRect" parent="Merge/GridContainer"]
 margin_top = 188.0
 margin_right = 76.0
 margin_bottom = 264.0
 rect_min_size = Vector2( 76, 76 )
-texture = ExtResource( 11 )
+texture = ExtResource( 12 )
 
 [node name="Patch28" type="NinePatchRect" parent="Merge/GridContainer"]
 margin_left = 94.0
@@ -484,13 +484,13 @@ margin_top = 188.0
 margin_right = 170.0
 margin_bottom = 264.0
 rect_min_size = Vector2( 76, 76 )
-texture = ExtResource( 11 )
+texture = ExtResource( 12 )
 
 [node name="PlayerInfo" type="Panel" parent="."]
 margin_right = 199.0
 margin_bottom = 95.0
 custom_styles/panel = SubResource( 10 )
-script = ExtResource( 15 )
+script = ExtResource( 16 )
 
 [node name="Gold" type="Label" parent="PlayerInfo"]
 margin_left = 90.0
@@ -520,15 +520,15 @@ margin_left = 33.0
 margin_top = 72.0
 margin_right = 67.0
 margin_bottom = 102.0
-texture = ExtResource( 16 )
+texture = ExtResource( 17 )
 
 [node name="Liste mit Doppelpunkt" type="RichTextLabel" parent="."]
 margin_left = 1439.0
 margin_top = 12.0
 margin_right = 1812.0
 margin_bottom = 702.0
-custom_fonts/mono_font = ExtResource( 17 )
-custom_fonts/normal_font = ExtResource( 17 )
+custom_fonts/mono_font = ExtResource( 18 )
+custom_fonts/normal_font = ExtResource( 18 )
 bbcode_enabled = true
 bbcode_text = "[right][color=#55ffffff] Base damage:
 Critical damage:
@@ -572,14 +572,14 @@ DPS:
 "
 scroll_active = false
 
-[node name="AllStatsPanel" parent="." instance=ExtResource( 18 )]
+[node name="AllStatsPanel" parent="." instance=ExtResource( 19 )]
 margin_left = 1828.0
 margin_top = 12.0
 margin_right = 1914.0
 margin_bottom = 707.0
-custom_fonts/mono_font = ExtResource( 17 )
-custom_fonts/italics_font = ExtResource( 17 )
-custom_fonts/bold_font = ExtResource( 17 )
-custom_fonts/normal_font = ExtResource( 17 )
+custom_fonts/mono_font = ExtResource( 18 )
+custom_fonts/italics_font = ExtResource( 18 )
+custom_fonts/bold_font = ExtResource( 18 )
+custom_fonts/normal_font = ExtResource( 18 )
 
 [connection signal="pressed" from="Merge/Merge" to="Merge" method="_on_Merge_pressed"]
