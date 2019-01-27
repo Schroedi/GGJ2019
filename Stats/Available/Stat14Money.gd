@@ -12,7 +12,7 @@ func GetName() ->String:
 	
 func _init():
 	Id = "money"
-	value = 0.1
+	value = 1
 	defaultValue = 0 
 	IconId = [0,12]
 	MainName = ["Phishing Rod","Stiletto"]

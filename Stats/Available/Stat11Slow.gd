@@ -12,7 +12,7 @@ func GetName() ->String:
 	
 func _init():
 	Id = "slow"
-	value = Vector2(1,4)
+	value = Vector2(10,4)
 	defaultValue = Vector2(0,0)
 	IconId = [1,17]
 	MainName = ["Bait","Nap"]

@@ -4,6 +4,7 @@ const UiItem = preload("res://UI/UiItem.gd")
 var selected = null
 
 func VisItem(item:UiItem):
+	visible = true
 	$Name.bbcode_text = item.Item.GetName()
 	$Descr.bbcode_text = item.Item.GetTextItem()
 	$Upgrade/Cost.text = "%d" % int(item.Item.getCost())
