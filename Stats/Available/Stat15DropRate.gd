@@ -14,3 +14,4 @@ func _init():
 	defaultValue = 0
 	IconId = [4,16]
 	MainName = ["Hat","Clock"]
+	Prefix = ["sniffing","searching","hunting","examining","seeking","investigating","scanning","tracking"]

@@ -14,4 +14,4 @@ func _init():
 	defaultValue = 1
 	IconId = [3,13]
 	MainName = ["Rabbit","Alarm"]
-	
+	Prefix = ["quick","speeding","fast","prompt","agile","swifty","rushing","boosted","running"]

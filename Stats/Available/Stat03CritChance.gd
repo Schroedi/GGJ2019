@@ -15,4 +15,4 @@ func _init():
 	defaultValue = 0
 	IconId = [3,4,9]
 	MainName = ["Bunny","Hat","Sensor"]
-	
+	Prefix = ["exakt","precise","homing","aiming","targeting","aiding","corrected","refined"]

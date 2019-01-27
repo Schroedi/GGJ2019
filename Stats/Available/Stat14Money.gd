@@ -15,5 +15,6 @@ func _init():
 	value = 0.1
 	defaultValue = 0 
 	IconId = [0,12]
-	MainName = ["Fishing Rod","Stiletto"]
+	MainName = ["Phishing Rod","Stiletto"]
+	Prefix = ["earning","depleating","inflational","silver","gold","copper","debtful","burdened","cashless"]
 	

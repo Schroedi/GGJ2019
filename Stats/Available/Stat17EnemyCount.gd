@@ -14,3 +14,4 @@ func _init():
 	value = 0.1
 	IconId = [0,8,17]
 	MainName = ["Bait Rod","Microphone","Sleep"]
+	Prefix = ["attractive","pleasant","charismatic","magnetic","handsome","photogenic","beautiful","hypnotic","seductive"]

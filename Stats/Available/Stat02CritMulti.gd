@@ -15,4 +15,5 @@ func _init():
 	defaultValue =0
 	IconId = [5,12]
 	MainName = ["Cheese","Stiletto"]
+	Prefix = ["exploding","hurting","harmful","destructing","burning","wounding","poisoned","breaking","penetrating"]
 	

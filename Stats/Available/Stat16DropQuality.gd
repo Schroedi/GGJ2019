@@ -15,3 +15,4 @@ func _init():
 	defaultValue = 0
 	IconId = [1,6]
 	MainName = ["Hero","Cactus"]
+	Prefix = ["robbing","pickpocketing","bandit","hacking","stalking","assassinating","shoplifting","polishing","refurbishing","reselling","expensive"]

@@ -21,3 +21,4 @@ func LevelUp():
 	Level += 1
 	IconId = [15]
 	MainName = ["Trump Tower"]
+	Prefix = ["unfair","fakenew","random","political","dishonest","biased","cheating","untrue","ridiculous","incompetent","arrogant","idiotic","ignorant","racist"]

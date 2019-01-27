@@ -20,4 +20,5 @@ func LevelUp():
 	Level += 1
 	IconId = [7,10]
 	MainName = ["Tie","Missile"]
+	Prefix = ["overpaid","investing","piggy banking","funding","exploiting","utilising","overworked","manipulated","commercialized"]
 	

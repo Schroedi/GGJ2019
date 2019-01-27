@@ -15,3 +15,4 @@ func _init():
 	defaultValue = 0
 	IconId = [6,16]
 	MainName = ["Spiker","Annoyer"]
+	Prefix = ["suspended","rebound","jumping","leaping","trampoline","moving","flying","aviated","winged"]

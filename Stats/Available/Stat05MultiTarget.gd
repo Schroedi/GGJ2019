@@ -14,3 +14,4 @@ func _init():
 	defaultValue = 0
 	IconId = [8,9]
 	MainName = ["DJ","Radio"]
+	Prefix = ["squinting","doubling","multidimensional","complex","dual","multifunctional","multiplying"]
