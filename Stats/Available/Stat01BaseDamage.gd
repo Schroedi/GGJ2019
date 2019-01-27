@@ -9,3 +9,4 @@ func _init():
 	Id = "damage"
 	value = 1
 	defaultValue = 0
+	IconId = 2
