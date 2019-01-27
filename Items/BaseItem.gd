@@ -8,6 +8,7 @@ var ItemLvl:int = 1
 # based on number of stats?
 var ItemTier:int = 1
 var Icon = -1 setget setIcon, getIcon
+var _name = ""
 
 func setIcon(v):
 	# should only be set by ourself
@@ -39,8 +40,26 @@ func GetTextItem() -> String:
 
 
 func GetName() -> String:
-	return "Legendary epic greatsword of Item, AKA Base Item"
-
+	if _name == "":
+		var tier = min(ItemTier-1, 5)
+		var prefix = NameGen.Tiers[tier][randi() % NameGen.Tiers[tier].size()]
+		
+		var MainStat = 0
+		var maxv = -1
+		for s in ItemStats:
+			if s.Level > maxv:
+				MainStat = s.MainName[randi() % s.MainName.size()]
+				maxv = s.Level
+		
+		var preStat = ""
+		if ItemStats.size() > 1:
+			var prefixes = ItemStats[randi() % ItemStats.size()].Prefix
+			preStat = prefixes[randi() % prefixes.size()]
+		
+		var randName = NameGen.Randoms[randi() % NameGen.Randoms.size()]
+		_name = "%s %s %s %s" % [prefix, preStat, MainStat, randName]
+	return _name
+	
 func getCost():
 	var baseCost = ItemTier * 10
 	var cost = pow(baseCost, ItemLvl)

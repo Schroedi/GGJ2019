@@ -6,7 +6,8 @@ var defaultValue = 0
 var dropWeight = 1
 var Level = 0
 var IconId = [0]
-
+var Prefix = ["Pref"]
+var MainName = ["Main"]
 
 func GetText() -> String:
 	return str(Id, value)
