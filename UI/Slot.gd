@@ -18,3 +18,10 @@ func drop_data(position, data):
 	add_child(data)
 	Stats.EquipItem(data.Item)
 	GameState.ItemCount -= 1
+	
+	var slotId = get_parent().SlotId
+	var weapon = GameState.Level.get_node("Weapon")
+	# it could have been equiped
+	weapon.unequip(data.Item)
+	weapon.equip(data.Item, slotId)
+	
