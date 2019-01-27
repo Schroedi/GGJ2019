@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=2]
+[gd_scene load_steps=32 format=2]
 
 [ext_resource path="res://UI/Slot.tscn" type="PackedScene" id=1]
 [ext_resource path="res://UI/ItemInfo.gd" type="Script" id=2]
@@ -16,10 +16,11 @@
 [ext_resource path="res://UI/ScrollContainer.gd" type="Script" id=14]
 [ext_resource path="res://UI/Merge.gd" type="Script" id=15]
 [ext_resource path="res://Assets/merge.png" type="Texture" id=16]
-[ext_resource path="res://UI/PlayerInfo.gd" type="Script" id=17]
-[ext_resource path="res://Assets/infobox/life.png" type="Texture" id=18]
-[ext_resource path="res://TextMain.tres" type="DynamicFont" id=19]
-[ext_resource path="res://UI/AllStatsPanel.tscn" type="PackedScene" id=20]
+[ext_resource path="res://UI/MergeSlot.tscn" type="PackedScene" id=17]
+[ext_resource path="res://UI/PlayerInfo.gd" type="Script" id=18]
+[ext_resource path="res://Assets/infobox/life.png" type="Texture" id=19]
+[ext_resource path="res://TextMain.tres" type="DynamicFont" id=20]
+[ext_resource path="res://UI/AllStatsPanel.tscn" type="PackedScene" id=21]
 
 [sub_resource type="StyleBoxEmpty" id=1]
 
@@ -123,6 +124,7 @@ margin_right = 466.0
 [node name="Slot6" parent="Slots/HBoxContainer" instance=ExtResource( 1 )]
 margin_left = 486.0
 margin_right = 574.0
+rect_pivot_offset = Vector2( 73, 245 )
 
 [node name="ItemInfo" type="Panel" parent="."]
 margin_left = 10.0
@@ -445,54 +447,37 @@ custom_constants/vseparation = 18
 custom_constants/hseparation = 18
 columns = 2
 
-[node name="Patch23" type="NinePatchRect" parent="Merge/GridContainer"]
-margin_right = 76.0
-margin_bottom = 76.0
-rect_min_size = Vector2( 76, 76 )
-texture = ExtResource( 13 )
+[node name="MergeSlot1" parent="Merge/GridContainer" instance=ExtResource( 17 )]
 
-[node name="Patch24" type="NinePatchRect" parent="Merge/GridContainer"]
+[node name="MergeSlot2" parent="Merge/GridContainer" instance=ExtResource( 17 )]
 margin_left = 94.0
 margin_right = 170.0
-margin_bottom = 76.0
-rect_min_size = Vector2( 76, 76 )
-texture = ExtResource( 13 )
 
-[node name="Patch25" type="NinePatchRect" parent="Merge/GridContainer"]
+[node name="MergeSlot3" parent="Merge/GridContainer" instance=ExtResource( 17 )]
 margin_top = 94.0
-margin_right = 76.0
 margin_bottom = 170.0
-rect_min_size = Vector2( 76, 76 )
-texture = ExtResource( 13 )
 
-[node name="Patch26" type="NinePatchRect" parent="Merge/GridContainer"]
+[node name="MergeSlot4" parent="Merge/GridContainer" instance=ExtResource( 17 )]
 margin_left = 94.0
 margin_top = 94.0
 margin_right = 170.0
 margin_bottom = 170.0
-rect_min_size = Vector2( 76, 76 )
-texture = ExtResource( 13 )
 
-[node name="Patch27" type="NinePatchRect" parent="Merge/GridContainer"]
+[node name="MergeSlot5" parent="Merge/GridContainer" instance=ExtResource( 17 )]
 margin_top = 188.0
-margin_right = 76.0
 margin_bottom = 264.0
-rect_min_size = Vector2( 76, 76 )
-texture = ExtResource( 13 )
 
-[node name="Patch28" type="NinePatchRect" parent="Merge/GridContainer"]
+[node name="MergeSlot6" parent="Merge/GridContainer" instance=ExtResource( 17 )]
 margin_left = 94.0
 margin_top = 188.0
 margin_right = 170.0
 margin_bottom = 264.0
-rect_min_size = Vector2( 76, 76 )
-texture = ExtResource( 13 )
 
 [node name="PlayerInfo" type="Panel" parent="."]
 margin_right = 199.0
 margin_bottom = 95.0
 custom_styles/panel = SubResource( 10 )
-script = ExtResource( 17 )
+script = ExtResource( 18 )
 
 [node name="Gold" type="Label" parent="PlayerInfo"]
 margin_left = 90.0
@@ -522,15 +507,15 @@ margin_left = 33.0
 margin_top = 72.0
 margin_right = 67.0
 margin_bottom = 102.0
-texture = ExtResource( 18 )
+texture = ExtResource( 19 )
 
 [node name="Liste mit Doppelpunkt" type="RichTextLabel" parent="."]
 margin_left = 1439.0
 margin_top = 12.0
 margin_right = 1812.0
 margin_bottom = 702.0
-custom_fonts/mono_font = ExtResource( 19 )
-custom_fonts/normal_font = ExtResource( 19 )
+custom_fonts/mono_font = ExtResource( 20 )
+custom_fonts/normal_font = ExtResource( 20 )
 bbcode_enabled = true
 bbcode_text = "[right][color=#55ffffff] Base damage:
 Critical damage:
@@ -574,15 +559,15 @@ DPS:
 "
 scroll_active = false
 
-[node name="AllStatsPanel" parent="." instance=ExtResource( 20 )]
+[node name="AllStatsPanel" parent="." instance=ExtResource( 21 )]
 margin_left = 1828.0
 margin_top = 12.0
 margin_right = 1914.0
 margin_bottom = 707.0
-custom_fonts/mono_font = ExtResource( 19 )
-custom_fonts/italics_font = ExtResource( 19 )
-custom_fonts/bold_font = ExtResource( 19 )
-custom_fonts/normal_font = ExtResource( 19 )
+custom_fonts/mono_font = ExtResource( 20 )
+custom_fonts/italics_font = ExtResource( 20 )
+custom_fonts/bold_font = ExtResource( 20 )
+custom_fonts/normal_font = ExtResource( 20 )
 
 [connection signal="pressed" from="ItemInfo/Upgrade" to="ItemInfo/Upgrade" method="_on_Upgrade_pressed"]
 [connection signal="pressed" from="Merge/Merge" to="Merge" method="_on_Merge_pressed"]

@@ -1,19 +1,24 @@
 extends Control
 
 onready var Inventory = get_node("/root/GameLevel/Hud/Inventory")
-onready var ItemContainer = get_node("/root/GameLevel/Hud/Inventory/ScrollContainer/ItemContainer")
+onready var ItemContainer = get_node("/root/GameLevel/Hud/Merge/GridContainer")
 
 const BaseItem = preload("res://Items/BaseItem.gd")
 var rng = RandomNumberGenerator.new()
 
+
 func _on_Merge_pressed():
-	var items = ItemContainer.get_children()
+	var mergeSlots = ItemContainer.get_children()
 	var levelSum = 0
 	var selected = []
-	for i in items:
-		if i.IsSelected():
-			selected.append(i)
-			levelSum += i.Item.ItemLvl
+	for i in mergeSlots:
+		if i.get_child_count() > 0:
+			var item = i.get_child(0)
+			selected.append(item)
+			levelSum += item.Item.ItemLvl
+	# do we have items to merge?
+	if selected.size() < 2:
+		return
 	
 	# count how often stats appear in items to weight selection
 	var weights = Stats.DropWeights.duplicate()
