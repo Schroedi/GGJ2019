@@ -7,3 +7,9 @@ func _on_Upgrade_pressed():
 		return
 	ItemInfo.selected.Item.LevelUp()
 	ItemInfo.VisItem(ItemInfo.selected)
+
+func enable():
+	disabled = false
+
+func disable():
+	disabled = true
