@@ -2,12 +2,12 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Gunhand.png-1041e03129eb6965ec2f49f3a5354918.stex"
+path="res://.import/HASE.png-5cd4573e31e15d5d5269b2edb6145615.stex"
 
 [deps]
 
-source_file="res://Assets/Gunhand.png"
-dest_files=[ "res://.import/Gunhand.png-1041e03129eb6965ec2f49f3a5354918.stex" ]
+source_file="res://Assets/Items/HASE.png"
+dest_files=[ "res://.import/HASE.png-5cd4573e31e15d5d5269b2edb6145615.stex" ]
 
 [params]
 
