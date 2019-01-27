@@ -10,8 +10,8 @@ func VisItem(item:UiItem):
 	# TODO tier BG
 	var tier = min(item.Item.ItemTier, 5) - 1
 	$"Background Tier".texture = GameState.InfoTexTiers[tier]
-	# TODO icon
-	$Icon.texture = item.get_node("icon").texture
+	# icon
+	$Icon.texture = GameState.InfoboxIcons[item.Item.Icon]
 
 func ShowItem(item:UiItem):
 	# ignore hover infos if an item is fixed
