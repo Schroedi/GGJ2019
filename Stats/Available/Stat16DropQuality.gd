@@ -3,7 +3,7 @@ func GetText() -> String:
 	return "{0}%".format(["%.1f"%(value*100)] )
 
 func GetTextItem() -> String:
-	return "[color=black][color=red]+{0}%[/color][color=black]to find higher stat items[/color]".format(["%.1f"%(value*100)] )
+	return "[color=black][color=red]+{0}%[/color][color=black] to find higher stat items[/color]".format(["%.1f"%(value*100)] )
 
 func GetName() ->String:
 	return "Higher quality item chance"
