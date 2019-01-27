@@ -9,7 +9,7 @@ var ItemTier:int = 0
 func GetTextItem() -> String:
 	var text = ""
 	for s in ItemStats:
-		text = s.GetTextItem() + "\n\n"
+		text += s.GetTextItem() + "\n\n"
 	
 	return text
 
