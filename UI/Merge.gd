@@ -37,8 +37,8 @@ func _on_Merge_pressed():
 	
 	# create new item and add it
 	var item = BaseItem.new()
-	var minStats = max(1, levelSum / 2)
-	var maxStats = max(minStats, levelSum)
+	var minStats = max(max(1, levelSum / 2), 5)
+	var maxStats = max(minStats, min(levelSum, 5))
 	var statCount = rng.randi_range(minStats, maxStats)
 	for i in statCount:
 		var stati = WeightRng.WeightedRng(weights)
