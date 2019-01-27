@@ -133,6 +133,7 @@ rect_pivot_offset = Vector2( 73, 245 )
 SlotId = 5
 
 [node name="ItemInfo" type="Panel" parent="."]
+visible = false
 margin_left = 10.0
 margin_top = 510.0
 margin_right = 471.0

@@ -10,7 +10,7 @@ func GetName() ->String:
 	
 func _init():
 	Id = "dropRate"
-	value = 0.1
+	value = 1
 	defaultValue = 0
 	IconId = [4,16]
 	MainName = ["Hat","Clock"]

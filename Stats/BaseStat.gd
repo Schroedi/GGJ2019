@@ -19,7 +19,7 @@ func GetName() ->String:
 	return Id
 func LevelUp():
 	# 10% more, override for non numeric or more complex stats
-	value *= 1.1
+	value *= 1.3
 	Level += 1
 
 func Equip():

@@ -10,21 +10,8 @@ var EnemyIcons = []
 
 
 func _init():
-	loadAllIcons("res://Assets/Scrap/")
+	EnemyIcons = GameState.scrap
 	
-func loadAllIcons(path):
-	EnemyIcons = []
-	var dir = Directory.new()
-	dir.open(path)
-	dir.list_dir_begin()
-	while true:
-		var file = dir.get_next()
-		if file == "":
-			break
-		elif not file.begins_with(".") and not file.ends_with(".import"):
-			var stat = load(path+file)
-			EnemyIcons.append(stat)
-	dir.list_dir_end()
 
 
 var _target:WeakRef = null
@@ -76,7 +63,7 @@ func SpawnMoney(value, parts, global_pos, target, owner):
 		var offset = Vector2(rand_range(0, 5), rand_range(0, 5))		
 
 func _spawnItem():
-	if randf()<0.3+Stats.CurrentStats["dropRate"]:		
+	if randf() < 0.5+Stats.CurrentStats["dropRate"]:		
 		var vis = ItemVis.instance()
 		vis.global_position = global_position
 		vis.item = ItemGen.CreateItem()

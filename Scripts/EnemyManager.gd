@@ -5,12 +5,12 @@ const BaseEnemy = preload("res://Scenes/BaseEnemy.tscn")
 # var a = 2
 # var b = "text"
 
-const bounceRange = 200
+const bounceRange = 400
 const ElipseA = 350
 const ElipseB = 200
 const ElipseCenter = Vector2(969.331,563)
 
-var WaveDuration = 30
+var WaveDuration = 15
 var WaveEnemyCount = 10
 var WaveSpawnDistance = 1
 var WaveMovementSpeed = 50
@@ -18,9 +18,9 @@ var WaveLifeBaseLife = 19
 var WaveGoldBase = 10
 var WaveBossLifeMultiplier = 5
 
-var WaveLifeScaling =1.1
+var WaveLifeScaling =1.3
 var WaveMovementScaling = 1.05
-var WaveGoldScaling = 1.05
+var WaveGoldScaling = 1.3
 
 var currentWaveGold = WaveGoldBase
 var currentWaveLife = WaveLifeBaseLife
