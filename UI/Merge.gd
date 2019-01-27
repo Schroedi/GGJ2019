@@ -64,7 +64,8 @@ func _on_Merge_pressed():
 		newSum += 1
 
 	# set item level as sum of old levels
-	item.ItemLvl = levelSum
+	item.ItemLvl = 1
+	item.ItemTier = statCount
 	
 	# remove merged items
 	for i in selected:
