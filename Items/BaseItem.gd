@@ -24,7 +24,8 @@ func iconType() -> int:
 	var maxv = -1
 	for s in ItemStats:
 		if s.Level > maxv:
-			icon = s.IconId
+			var rid = randi() % s.IconId.size()
+			icon = s.IconId[rid]
 			maxv = s.Level
 	return icon
 
