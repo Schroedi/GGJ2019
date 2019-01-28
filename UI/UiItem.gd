@@ -35,7 +35,7 @@ func _on_UiItem_mouse_entered():
 
 
 func _on_UiItem_mouse_exited():
-	pass # Replace with function body.
+	ItemInfo.Unshow()
 
 
 func unselect():
