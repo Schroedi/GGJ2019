@@ -16,6 +16,7 @@ func drop_data(position, data):
 	data.unselect()
 	data.rect_position = Vector2()
 	add_child(data)
+	Stats.UnEquipItem(data.Item)
 	Stats.EquipItem(data.Item)
 	GameState.ItemCount -= 1
 	
