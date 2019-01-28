@@ -59,7 +59,7 @@ func _ready():
 	$LifeBar.value = life
 
 func _spawnItem():
-	if randf() < 0.25*(1+Stats.CurrentStats["dropRate"]):
+	if randf() < 0.2 * (1+Stats.CurrentStats["dropRate"]):
 		var vis = ItemVis.instance()
 		vis.global_position = global_position
 		vis.item = ItemGen.CreateItem()
@@ -130,7 +130,9 @@ func GetCombinedStats():
 func _process(delta):
 	var slow = 1
 	if slowtimer>0 :
-		slow = 1-Stats.CurrentStats["slow"].x/100.0 
+		# cap slow at 90%
+		var slowstat = min(0.9, Stats.CurrentStats["slow"].x)
+		slow = 1 - slowstat / 100.0 
 	circlePos += movementSpeed * delta *slow
 	var x = (EnemyManager.ElipseA+offset) * cos(deg2rad(circlePos));
 	var y = (EnemyManager.ElipseB+offset) * sin(deg2rad(circlePos));

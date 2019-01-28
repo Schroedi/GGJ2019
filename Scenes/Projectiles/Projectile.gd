@@ -18,7 +18,10 @@ func _ready():
 	$Seek2D.connect("TargetReached", self, "arrived")
 
 func arrived():
-	Target.get_ref().BulletHit(self)
+	if Target.get_ref():
+		Target.get_ref().BulletHit(self)
+	else:
+		queue_free()
 
 func _on_VisibilityNotifier2D_screen_exited():
 	queue_free()

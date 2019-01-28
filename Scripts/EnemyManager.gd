@@ -10,7 +10,7 @@ const ElipseA = 350
 const ElipseB = 200
 const ElipseCenter = Vector2(969.331,563)
 
-var WaveDuration = 15
+var WaveDuration = 30
 var WaveEnemyCount = 10
 var WaveSpawnDistance = 1
 var WaveMovementSpeed = 50
