@@ -12,6 +12,6 @@ func _init():
 	Id = "speed"
 	value = 0.1
 	defaultValue = 1
-	IconId = [3,13]
-	MainName = ["Rabbit","Alarm"]
-	Prefix = ["quick","speeding","fast","prompt","agile","swifty","rushing","boosted","running"]
+	IconId = [13]
+	MainName = ["Cowboy Boot","Sneaker","Shoe","Leather Sock","Trunk","Kikass"]
+	Prefix = ["Quick","Oiled","Overworn","Speeding","Fast","Prompt","Agile","Swifty","Rushing","Boosted","Running","Climbing"]

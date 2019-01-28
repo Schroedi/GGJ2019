@@ -12,6 +12,6 @@ func _init():
 	Id = "multiTarget"
 	value = 1
 	defaultValue = 0
-	IconId = [8,9]
-	MainName = ["DJ","Radio"]
-	Prefix = ["squinting","doubling","multidimensional","complex","dual","multifunctional","multiplying"]
+	IconId = [2]
+	MainName = ["Cannon","Weapon","Firearm","Gun","Pistol","Revolver","Rifle","Handgun","Shotgun","Taser","Musket"]
+	Prefix = ["Squinting","Doubling","Multidimensional","Complex","Dual","Multifunctional","Multiplying","Multi Barrel","Quickdraw"]

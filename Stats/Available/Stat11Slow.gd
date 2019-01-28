@@ -14,8 +14,8 @@ func _init():
 	Id = "slow"
 	value = Vector2(1,2)
 	defaultValue = Vector2(0,0)
-	IconId = [1,17]
-	MainName = ["Bait","Nap"]
-	Prefix = ["sleeping","boring","tired","naping","barely awake","comatous","relaxing","hibernating","lazy","frosting","freezing","dazzling"]
+	IconId = [17]
+	MainName = ["Sleep","Bedtime","Yawning","Nap","Powernap"]
+	Prefix = ["Sleeping","Boring","Tired","Naping","Barely Awake","Comatous","Relaxing","Hibernating","Lazy","Frosting","Freezing","Dazzling"]
 	
 	

@@ -13,6 +13,6 @@ func _init():
 	Id = "crit"
 	value = 0.1
 	defaultValue = 0
-	IconId = [3,4,9]
-	MainName = ["Bunny","Hat","Sensor"]
-	Prefix = ["exakt","precise","homing","aiming","targeting","aiding","corrected","refined"]
+	IconId = [9]
+	MainName = ["Antenna","Radar","Scanner","Radio","Transmitter","Sensor"]
+	Prefix = ["Exakt","Precise","Homing","Aiming","Targeting","Aiding","Corrected","Refined","Fortune Telling"]

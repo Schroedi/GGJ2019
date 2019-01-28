@@ -13,6 +13,6 @@ func _init():
 	Id = "bounce"
 	value = 1
 	defaultValue = 0
-	IconId = [6,16]
-	MainName = ["Spiker","Annoyer"]
-	Prefix = ["suspended","rebound","jumping","leaping","trampoline","moving","flying","aviated","winged"]
+	IconId = [6]
+	MainName = ["Spiker","Annoyer","Cactus","Spikething","Plant","Hedgehogplant","Desert Tree","Vulture Seat"]
+	Prefix = ["Suspended","Rebound","Jumping","Leaping","Trampoline","Moving","Flying","Aviated","Winged","Piercing","Spiked","Pointed"]

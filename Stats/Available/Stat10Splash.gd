@@ -12,6 +12,6 @@ func _init():
 	Id = "splash"
 	value = 10
 	defaultValue = 0
-	IconId = [5,11,16]
-	MainName = ["Cheese","Umbrella","Clock"]
-	Prefix = ["sloshy","splashy","puddled","spraying","sparkling","wetting","trhilling","soaking","dripping","slippery","slick","wet","bumpy","twisty","greasy"]
+	IconId = [5]
+	MainName = ["Cheese","Mozarella","Mousehole","Food","Parmesan","Brie","Gouda","Feta","Cheddar","Fromage"]
+	Prefix = ["Sloshy","Splashy","Puddled","Spraying","Sparkling","Wetting","Trhilling","Soaking","Dripping","Slippery","Slick","Wet","Bumpy","Twisty","Greasy","Stinky"]

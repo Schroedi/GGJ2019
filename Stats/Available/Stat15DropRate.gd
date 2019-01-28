@@ -12,6 +12,6 @@ func _init():
 	Id = "dropRate"
 	value = 0.01
 	defaultValue = 0
-	IconId = [4,16]
-	MainName = ["Hat","Clock"]
-	Prefix = ["sniffing","searching","hunting","examining","seeking","investigating","scanning","tracking"]
+	IconId = [8]
+	MainName = ["Microphone","Amplifyer","Loudspeaker","Megaphone","Emenem","Rapper","Gangster","Micdrop","Mic","Mickey"]
+	Prefix = ["Sniffing","Rapping","Searching","Hunting","Examining","Seeking","Investigating","Scanning","Tracking","Fast Speaking","Rap-Batteling"]

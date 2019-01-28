@@ -14,7 +14,7 @@ func _init():
 	Id = "money"
 	value = 1
 	defaultValue = 0 
-	IconId = [0,12]
-	MainName = ["Phishing Rod","Stiletto"]
-	Prefix = ["earning","depleating","inflational","silver","gold","copper","debtful","burdened","cashless"]
-	
+
+	IconId = [3]
+	MainName = ["Bunny","Rabbit","Mammal","Pika","Furry","Predator","Chipmunk","Fairy"]
+	Prefix = ["Robbing","Pickpocketing","Bandit","Hacking","Stalking","Assassinating","Shoplifting","Polishing","Refurbishing","Reselling","Expensive"]

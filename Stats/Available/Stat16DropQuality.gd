@@ -13,6 +13,6 @@ func _init():
 	Id = "dropQuality"
 	value = 0.1
 	defaultValue = 0
-	IconId = [1,6]
-	MainName = ["Hero","Cactus"]
-	Prefix = ["robbing","pickpocketing","bandit","hacking","stalking","assassinating","shoplifting","polishing","refurbishing","reselling","expensive"]
+	IconId = [4]
+	MainName = ["Hat","Cowboyhat","Helmet","Cap","Beanie"]
+	Prefix = ["Earning","Depleating","Inflational","Silver","Gold","Copper","Debtful","Burdened","Cashless"]

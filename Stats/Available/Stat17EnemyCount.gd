@@ -12,6 +12,6 @@ func GetName() ->String:
 func _init():
 	Id = "enemyCount"
 	value = 0.1
-	IconId = [0,8,17]
-	MainName = ["Bait Rod","Microphone","Sleep"]
-	Prefix = ["attractive","pleasant","charismatic","magnetic","handsome","photogenic","beautiful","hypnotic","seductive"]
+	IconId = [1]
+	MainName = ["Sweetboi","Gum Bear","Dong","Beef","Willy","Tool","Rod","Discostick","Captain","Cucumber","Soldier","Candle"]
+	Prefix = ["Attractive","Pleasant","Charismatic","Magnetic","Handsome","Photogenic","Beautiful","Hypnotic","Seductive"]

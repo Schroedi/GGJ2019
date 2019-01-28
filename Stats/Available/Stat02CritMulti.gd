@@ -13,7 +13,7 @@ func _init():
 	Id = "critMulti"
 	value = 0.1
 	defaultValue = 1.2
-	IconId = [5,12]
-	MainName = ["Cheese","Stiletto"]
-	Prefix = ["exploding","hurting","harmful","destructing","burning","wounding","poisoned","breaking","penetrating"]
+	IconId = [10]
+	MainName = ["Bomb","Rocket","Missile","Peacemaker","Vehicle","Aircraft","Saturn V","Moonlander","Torpedo"]
+	Prefix = ["Exploding","Hurting","Harmful","Destructing","Burning","Wounding","Poisoned","Breaking","Penetrating","Far Reaching"]
 	
