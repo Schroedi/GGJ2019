@@ -60,7 +60,7 @@ func GetName() -> String:
 		
 		var randName = NameGen.Randoms[randi() % NameGen.Randoms.size()]
 		# prestat has a space at the end
-		_name = "%s %s%s %s" % [prefix, preStat, MainStat, randName]
+		_name = "%s %s%s%s" % [prefix, preStat, MainStat, randName]
 	return _name
 	
 func getCost():
