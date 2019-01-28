@@ -66,8 +66,8 @@ func _on_Merge_pressed():
 
 	var targetSum = int(rng.randf_range(oldLevelSum, oldLevelSum * 1.1))
 	# new item's stats should have same level as average of all old items
-	targetSum = targetSum / oldStatCount * statCount
-	print ("oldSum: %.2f, targetSum: %.2f" % [oldLevelSum, targetSum])
+	#targetSum = targetSum / oldStatCount * statCount
+	#print ("oldSum: %.2f, targetSum: %.2f" % [oldLevelSum, targetSum])
 	# add random levels until we reach our target power
 	while newSum < targetSum:
 		var id = randi() % statCount
