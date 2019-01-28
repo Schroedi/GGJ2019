@@ -14,7 +14,8 @@ wait_time = 0.2
 autostart = true
 
 [node name="AllNamesPanel" type="RichTextLabel" parent="."]
-margin_right = 300.0
+margin_left = 48.0
+margin_right = 348.0
 margin_bottom = 760.0
 mouse_filter = 2
 custom_fonts/mono_font = ExtResource( 2 )
@@ -27,8 +28,8 @@ bbcode_text = "sfsdfsdfsdf"
 text = "sfsdfsdfsdf"
 
 [node name="AllStatsPanel" type="RichTextLabel" parent="."]
-margin_left = 300.0
-margin_right = 511.0
+margin_left = 362.0
+margin_right = 573.0
 margin_bottom = 760.0
 mouse_filter = 2
 custom_fonts/mono_font = ExtResource( 2 )

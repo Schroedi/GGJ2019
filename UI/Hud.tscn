@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://UI/Slot.tscn" type="PackedScene" id=1]
 [ext_resource path="res://UI/ItemInfo.gd" type="Script" id=2]
@@ -16,20 +16,17 @@
 [ext_resource path="res://Assets/item backfield.png" type="Texture" id=14]
 [ext_resource path="res://UI/ScrollContainer.gd" type="Script" id=15]
 [ext_resource path="res://UI/Merge.gd" type="Script" id=16]
-[ext_resource path="res://Assets/merge.png" type="Texture" id=17]
-[ext_resource path="res://UI/MergeSlot.tscn" type="PackedScene" id=18]
-[ext_resource path="res://UI/PlayerInfo.gd" type="Script" id=19]
-[ext_resource path="res://Assets/infobox/life.png" type="Texture" id=20]
-[ext_resource path="res://TextMain.tres" type="DynamicFont" id=21]
-[ext_resource path="res://UI/AllStatsPanel.tscn" type="PackedScene" id=22]
+[ext_resource path="res://Assets/infobox/MergeBackground.png" type="Texture" id=17]
+[ext_resource path="res://Assets/infobox/MergeActive.png" type="Texture" id=18]
+[ext_resource path="res://Assets/infobox/MergePassive.png" type="Texture" id=19]
+[ext_resource path="res://UI/MergeSlot.tscn" type="PackedScene" id=20]
+[ext_resource path="res://UI/PlayerInfo.gd" type="Script" id=21]
+[ext_resource path="res://Assets/infobox/life.png" type="Texture" id=22]
+[ext_resource path="res://TextMain.tres" type="DynamicFont" id=23]
+[ext_resource path="res://UI/AllStatsPanel.tscn" type="PackedScene" id=24]
 
-[sub_resource type="StyleBoxFlat" id=4]
+[sub_resource type="StyleBoxEmpty" id=1]
 
-bg_color = Color( 0.0901961, 0.360784, 0.482353, 0.321569 )
-corner_radius_top_left = 5
-corner_radius_top_right = 5
-corner_radius_bottom_right = 5
-corner_radius_bottom_left = 5
 
 [node name="Hud" type="Control"]
 anchor_right = 1.0
@@ -374,46 +371,52 @@ margin_left = 1519.06
 margin_top = 687.487
 margin_right = 1903.06
 margin_bottom = 1061.48
-custom_styles/panel = SubResource( 4 )
+custom_styles/panel = SubResource( 1 )
 script = ExtResource( 16 )
 
+[node name="MergeBackground" type="Sprite" parent="Merge"]
+position = Vector2( 176.869, 228.479 )
+texture = ExtResource( 17 )
+
 [node name="Merge" type="TextureButton" parent="Merge"]
-margin_left = 207.262
-margin_top = 154.357
-margin_right = 375.262
-margin_bottom = 244.357
-texture_normal = ExtResource( 17 )
+margin_left = 239.701
+margin_top = 168.261
+margin_right = 359.701
+margin_bottom = 288.261
+rect_min_size = Vector2( 120, 120 )
+texture_normal = ExtResource( 18 )
+texture_disabled = ExtResource( 19 )
 
 [node name="GridContainer" type="GridContainer" parent="Merge"]
-margin_left = 25.0
+margin_left = -13.0
 margin_top = 93.0
-margin_right = 213.0
+margin_right = 175.0
 margin_bottom = 373.0
 custom_constants/vseparation = 18
 custom_constants/hseparation = 18
 columns = 2
 
-[node name="MergeSlot1" parent="Merge/GridContainer" instance=ExtResource( 18 )]
+[node name="MergeSlot1" parent="Merge/GridContainer" instance=ExtResource( 20 )]
 
-[node name="MergeSlot2" parent="Merge/GridContainer" instance=ExtResource( 18 )]
+[node name="MergeSlot2" parent="Merge/GridContainer" instance=ExtResource( 20 )]
 margin_left = 94.0
 margin_right = 170.0
 
-[node name="MergeSlot3" parent="Merge/GridContainer" instance=ExtResource( 18 )]
+[node name="MergeSlot3" parent="Merge/GridContainer" instance=ExtResource( 20 )]
 margin_top = 94.0
 margin_bottom = 170.0
 
-[node name="MergeSlot4" parent="Merge/GridContainer" instance=ExtResource( 18 )]
+[node name="MergeSlot4" parent="Merge/GridContainer" instance=ExtResource( 20 )]
 margin_left = 94.0
 margin_top = 94.0
 margin_right = 170.0
 margin_bottom = 170.0
 
-[node name="MergeSlot5" parent="Merge/GridContainer" instance=ExtResource( 18 )]
+[node name="MergeSlot5" parent="Merge/GridContainer" instance=ExtResource( 20 )]
 margin_top = 188.0
 margin_bottom = 264.0
 
-[node name="MergeSlot6" parent="Merge/GridContainer" instance=ExtResource( 18 )]
+[node name="MergeSlot6" parent="Merge/GridContainer" instance=ExtResource( 20 )]
 margin_left = 94.0
 margin_top = 188.0
 margin_right = 170.0
@@ -422,7 +425,7 @@ margin_bottom = 264.0
 [node name="PlayerInfo" type="Control" parent="."]
 margin_right = 199.0
 margin_bottom = 95.0
-script = ExtResource( 19 )
+script = ExtResource( 21 )
 
 [node name="Gold" type="Label" parent="PlayerInfo"]
 margin_left = 90.0
@@ -452,7 +455,7 @@ margin_left = 33.0
 margin_top = 72.0
 margin_right = 67.0
 margin_bottom = 102.0
-texture = ExtResource( 20 )
+texture = ExtResource( 22 )
 
 [node name="Liste mit Doppelpunkt" type="RichTextLabel" parent="."]
 visible = false
@@ -460,8 +463,8 @@ margin_left = 1439.0
 margin_top = 12.0
 margin_right = 1812.0
 margin_bottom = 702.0
-custom_fonts/mono_font = ExtResource( 21 )
-custom_fonts/normal_font = ExtResource( 21 )
+custom_fonts/mono_font = ExtResource( 23 )
+custom_fonts/normal_font = ExtResource( 23 )
 bbcode_enabled = true
 bbcode_text = "[right][color=#55ffffff] Base damage:
 Critical damage:
@@ -505,11 +508,11 @@ DPS:
 "
 scroll_active = false
 
-[node name="AllStatsPanel" parent="." instance=ExtResource( 22 )]
-margin_left = 1400.0
-margin_top = 1.0
-margin_right = 1900.0
-margin_bottom = 677.0
+[node name="AllStatsPanel" parent="." instance=ExtResource( 24 )]
+margin_left = 1396.1
+margin_top = 17.0
+margin_right = 1896.1
+margin_bottom = 693.0
 
 [connection signal="pressed" from="ItemInfo/Upgrade" to="ItemInfo/Upgrade" method="_on_Upgrade_pressed"]
 [connection signal="pressed" from="Merge/Merge" to="Merge" method="_on_Merge_pressed"]
