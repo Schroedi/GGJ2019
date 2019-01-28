@@ -1,7 +1,7 @@
 extends Control
 
 const UiItem = preload("res://UI/UiItem.gd")
-var selected = null
+var selected:WeakRef
 
 func VisItem(item:UiItem):
 	visible = true
@@ -32,8 +32,8 @@ func unselect():
 	selected = null
 
 func select(item:UiItem):
-	if selected:
-		selected.unselect()
-	selected = item
+	if selected and selected.get_ref():
+		selected.get_ref().unselect()
+	selected = weakref(item)
 	$Upgrade.enable()
-	VisItem(selected)
+	VisItem(item)

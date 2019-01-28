@@ -23,6 +23,7 @@ func _on_Merge_pressed():
 	# count how often stats appear in items to weight selection
 	var weights = Stats.DropWeights.duplicate()
 	var levels = {}
+	var oldStatCount = 0
 	var oldValue = 0
 	for i in selected:
 		for s in i.Item.ItemStats:
@@ -32,14 +33,16 @@ func _on_Merge_pressed():
 			if levels.has(s.Id):
 				levels[s.Id] += s.Level
 			else:
+				oldStatCount += 1
 				levels[s.Id] = s.Level
 			weights[stati] += 1
 	
 	# create new item and add it
 	var item = BaseItem.new()
-	var minStats = max(max(1, levelSum / 2), 5)
-	var maxStats = max(minStats, min(levelSum, 5))
-	var statCount = rng.randi_range(minStats, maxStats)
+	var minStats = min(max(1, oldStatCount / 2), 5)
+	var maxStats = max(minStats, min(oldStatCount, 5))
+	# min half of old stat count, max old stat count + 1
+	var statCount = rng.randi_range(minStats, maxStats + 1)
 	for i in statCount:
 		var stati = WeightRng.WeightedRng(weights)
 		weights[stati] = 0
@@ -68,6 +71,8 @@ func _on_Merge_pressed():
 	item.ItemTier = statCount
 	
 	# remove merged items
+	var Iteminfo = GameState.Level.get_node("Hud/ItemInfo")
+	Iteminfo.unselect()
 	for i in selected:
 		GameState.ItemCount -= 1
 		i.queue_free()
