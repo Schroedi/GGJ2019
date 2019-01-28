@@ -27,6 +27,7 @@ func ShowItem(item:UiItem):
 	VisItem(item)
 
 func unselect():
+	visible = false
 	$Upgrade.disable()
 	
 	selected = null
