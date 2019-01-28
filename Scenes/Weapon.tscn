@@ -52,22 +52,32 @@ texture = ExtResource( 3 )
 
 [node name="HASE" type="TextureRect" parent="Barrel/Panel"]
 visible = false
+margin_right = 300.0
+margin_bottom = 300.0
 rect_pivot_offset = Vector2( 150, 400 )
 texture = ExtResource( 4 )
 
 [node name="KRAWATTE" type="TextureRect" parent="Barrel/Panel"]
 visible = false
+margin_right = 300.0
+margin_bottom = 300.0
 rect_pivot_offset = Vector2( 150, 400 )
 texture = ExtResource( 5 )
 
 [node name="MIC" type="TextureRect" parent="Barrel/Panel"]
 visible = false
-rect_pivot_offset = Vector2( 150, 400 )
+margin_top = 15.0
+margin_right = 300.0
+margin_bottom = 315.0
+rect_pivot_offset = Vector2( 150, 385 )
 texture = ExtResource( 6 )
 
 [node name="RADAR" type="TextureRect" parent="Barrel/Panel"]
 visible = false
-rect_pivot_offset = Vector2( 150, 400 )
+margin_top = 10.0
+margin_right = 300.0
+margin_bottom = 310.0
+rect_pivot_offset = Vector2( 150, 390 )
 texture = ExtResource( 7 )
 
 [node name="ROCKET" type="TextureRect" parent="Barrel/Panel"]
@@ -77,12 +87,18 @@ texture = ExtResource( 8 )
 
 [node name="SCHIRM" type="TextureRect" parent="Barrel/Panel"]
 visible = false
-rect_pivot_offset = Vector2( 150, 400 )
+margin_top = 10.0
+margin_right = 300.0
+margin_bottom = 310.0
+rect_pivot_offset = Vector2( 150, 390 )
 texture = ExtResource( 9 )
 
 [node name="SCHUH2" type="TextureRect" parent="Barrel/Panel"]
 visible = false
-rect_pivot_offset = Vector2( 150, 400 )
+margin_top = 10.0
+margin_right = 300.0
+margin_bottom = 310.0
+rect_pivot_offset = Vector2( 150, 390 )
 texture = ExtResource( 10 )
 
 [node name="SCHUH" type="TextureRect" parent="Barrel/Panel"]
@@ -92,7 +108,10 @@ texture = ExtResource( 11 )
 
 [node name="SWORD" type="TextureRect" parent="Barrel/Panel"]
 visible = false
-rect_pivot_offset = Vector2( 150, 400 )
+margin_top = 10.0
+margin_right = 300.0
+margin_bottom = 310.0
+rect_pivot_offset = Vector2( 150, 390 )
 texture = ExtResource( 12 )
 
 [node name="TROWER" type="TextureRect" parent="Barrel/Panel"]
@@ -117,7 +136,10 @@ texture = ExtResource( 16 )
 
 [node name="HUT" type="TextureRect" parent="Barrel/Panel"]
 visible = false
-rect_pivot_offset = Vector2( 150, 400 )
+margin_top = 10.0
+margin_right = 300.0
+margin_bottom = 310.0
+rect_pivot_offset = Vector2( 150, 390 )
 texture = ExtResource( 17 )
 
 [node name="GUMMIBAER" type="TextureRect" parent="Barrel/Panel"]
