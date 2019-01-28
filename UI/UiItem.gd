@@ -7,10 +7,19 @@ onready var Item:BaseItem setget setItem
 
 func setItem(v):
 	Item = v
+	updateVis()
+	v.connect("upgraded", self, "updateVis")
+
+func updateVis():
+	var stars = Item.ItemLvl - 1
+	$Star.visible = stars > 0
+	if stars > 0:
+		var starID = min(stars - 1, 4)
+		$Star.texture = GameState.StarTex[starID]
+	
 	var tier = min(Item.ItemTier, 5) - 1
 	texture_normal = GameState.ItemTexTiers[tier]
 	$icon.texture = GameState.Icons[Item.Icon]
-
 
 func IsSelected()->bool:
 	return $Highlight.visible

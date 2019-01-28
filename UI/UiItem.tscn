@@ -22,7 +22,7 @@ texture = ExtResource( 3 )
 position = Vector2( 44, 44 )
 texture = ExtResource( 4 )
 
-[node name="slot1" type="Sprite" parent="."]
+[node name="Star" type="Sprite" parent="."]
 position = Vector2( 44, 44 )
 texture = ExtResource( 5 )
 

@@ -10,6 +10,8 @@ var ItemTier:int = 1
 var Icon = -1 setget setIcon, getIcon
 var _name = ""
 
+signal upgraded
+
 func setIcon(v):
 	# should only be set by ourself
 	print("icon set?!")
@@ -75,6 +77,14 @@ func LevelUp():
 		GameState.Level.add_child(pl)
 		return
 	GameState.Level.playerGold -= cost
+	
+	var equipped = Stats.IsEquipped(self)
+	if equipped:
+		Stats.UnEquipItem(self)
+		
 	for s in ItemStats:
 		s.LevelUp()
 	ItemLvl += 1
+	if equipped:
+		Stats.EquipItem(self)
+	emit_signal("upgraded")

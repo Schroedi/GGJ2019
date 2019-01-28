@@ -24,6 +24,9 @@ func loadAllStats():
 func GetAllStats():
 	return AlltStats
 
+func IsEquipped(item):
+	return _equipped.has(item)
+
 func EquipItem(item):
 	_equipped.append(item)
 	for s in item.ItemStats:

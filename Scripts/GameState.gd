@@ -24,6 +24,8 @@ var InfoTexTiers = [load("res://Assets/infobox/itier0.png"),
 					load("res://Assets/infobox/itier4.png"),
 					load("res://Assets/infobox/itier5.png")]
 
+var StarTex = [load("res://Assets/icons/slot1.png"), load("res://Assets/icons/slot2.png"), load("res://Assets/icons/slot3.png"), load("res://Assets/icons/slot4.png"), load("res://Assets/icons/slot5.png")]
+
 # infobox
 var InfoboxIcons = [
 load("res://Assets/infobox/previews/angel.png"),
