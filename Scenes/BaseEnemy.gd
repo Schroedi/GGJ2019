@@ -91,43 +91,39 @@ func bounceProjectile(var src, var target,var dmg,var bounceLeft,var splash, var
 					splash,
 					bullet,
 					level)
+
+func BulletHit(bullet):
+	_damage(bullet.damage)
+	if bullet.splash > 0:
+		var enms = EnemyManager.findEnemiesInRange(self, bullet.splash)
+		for en in enms:
+			var isLast = en == bullet.Source.get_ref()
+			var isNotEnemy = not (en.get_class() == self.get_class())
+			if  isLast or isNotEnemy :
+				continue
+			else:
+				en._damage(bullet.damage)
+	if bullet.targetBounce > 0:
+		var enms = EnemyManager.findEnemiesInRange(self, EnemyManager.bounceRange)
+		for en in enms:
+			var isLast = en == bullet.Source.get_ref()
+			var isNotEnemy = not (en.get_class() == self.get_class())
+			if  isLast or isNotEnemy:
+				continue
+			else:
+				call_deferred("bounceProjectile", weakref(self), weakref(en),
+				bullet.damage,
+				bullet.targetBounce-1, 
+				0
+				,Bullet,
+				GameState.Level)
+				break
 	
-func _on_BaseEnemy_body_entered(body):
-	
-	if "damage" in body and body.damage > 0 and body.Target.get_ref()==self:
-		_damage(body.damage)
-		if("splash" in body and body.splash>0):
-			var enms =EnemyManager.findEnemiesInRange(self,body.splash)
-			for en in enms:
-				var isLast = en == body.Source.get_ref()
-				var isSelf =  en == self 
-				var isNotEnemy = not (en.get_class() == self.get_class())
-				if  isLast  or isSelf or isNotEnemy :	
-					continue
-				else:	
-					en._damage(body.damage)
-		if "targetBounce" in body and body.targetBounce>0:
-			var enms =EnemyManager.findEnemiesInRange(self,EnemyManager.bounceRange)
-			for en in enms:
-				var isLast = en == body.Source.get_ref()
-				var isSelf =  en == self 
-				var isNotEnemy = not (en.get_class() == self.get_class())
-				if  isLast  or isSelf or isNotEnemy :	
-					continue
-				else:	
-					call_deferred("bounceProjectile",weakref(self),weakref(en),
-					body.damage,
-					body.targetBounce-1, 
-					0
-					,Bullet,
-					GameState.Level)
-					break
-		
-		# this projective cannot damage other bodies anymore
-		body.damage = 0
-		body.queue_free()
-		
-		
+	# this projective cannot damage other bodies anymore
+	bullet.damage = 0
+	bullet.queue_free()
+
+
 func UseEnergy(v):
 	return true
 
@@ -144,10 +140,12 @@ func _process(delta):
 	var y = (EnemyManager.ElipseB+offset) * sin(deg2rad(circlePos));
 	global_position = Vector2(x,y)+EnemyManager.ElipseCenter
 	slowtimer-=delta
-		
+
 
 func _damage(dmg):
-	life-=dmg	
+	if life < 0:
+		return
+	life-=dmg
 	var pl = popup.instance()
 	pl.global_position = global_position+Vector2(rand_range(-50,50),rand_range(-50,50))
 	pl.setColor(Color.red)

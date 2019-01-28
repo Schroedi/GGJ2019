@@ -4,8 +4,8 @@ var damage = 0
 export var velocity = 1000
 var dir = Vector2(1, 0)
 var inflictsDamage = true
-var Target 
-var Source
+var Target:WeakRef
+var Source:WeakRef
 var targetBounce = 0
 var splash = 0
 
@@ -15,7 +15,10 @@ func _ready():
 	$Seek2D.Target = Target
 	# orientate along velocity
 	rotation = linear_velocity.angle()
+	$Seek2D.connect("TargetReached", self, "arrived")
 
+func arrived():
+	Target.get_ref().BulletHit(self)
 
 func _on_VisibilityNotifier2D_screen_exited():
 	queue_free()

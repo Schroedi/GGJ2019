@@ -5,7 +5,7 @@ const BaseEnemy = preload("res://Scenes/BaseEnemy.tscn")
 # var a = 2
 # var b = "text"
 
-const bounceRange = 400
+const bounceRange = 100
 const ElipseA = 350
 const ElipseB = 200
 const ElipseCenter = Vector2(969.331,563)
@@ -61,7 +61,7 @@ func StartSpawn():
 func findEnemiesInRange(var enemy, var dist):
 	var enemies = []
 	for en in Enemies:
-		if(en != enemy and (en.global_position-enemy.global_position).length()<dist):
+		if en != enemy and en.life > 0 and (en.global_position-enemy.global_position).length() < dist:
 			enemies.append(en)
 	return enemies
 

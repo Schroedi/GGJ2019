@@ -3,6 +3,7 @@ extends Node2D
 # expects to have a Body2D as parent (apply impulse)
 # steers towards it
 
+signal TargetReached
 
 # will hold an object reference during runtime
 var Target:WeakRef
@@ -10,7 +11,7 @@ export var TargetDistance = 500
 export var MaxSpeed = 200
 export var MaxAcc = 50
 
-var reachRadius = 2
+export var reachRadius = 20
 
 onready var _parent = get_parent()
 var _targetPos = null
@@ -54,6 +55,7 @@ func _physics_process(delta: float) -> void:
 	# are we close enough? div 2 to avoid jitter
 	if d < reachRadius / 2:
 		$Debug/Dist.text = "Dist: %0.2f / %0.2f" % [d, 0]
+		emit_signal("TargetReached")
 		return
 
 	desired = desired.normalized()
@@ -64,7 +66,7 @@ func _physics_process(delta: float) -> void:
 	var currSpeed = get_parent().linear_velocity.length()
 	var slowDist = (currSpeed * currSpeed) / (2.0 * MaxAcc)
 	$Debug/Dist.text = "Dist: %0.2f / %0.2f" % [d, slowDist]
-	if d <= slowDist + reachRadius:
+	if d <= slowDist:
 		desired = Vector2()
 		$Debug/Slowing.text = "Slowing = True"
 	else:
