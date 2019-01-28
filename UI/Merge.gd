@@ -9,13 +9,11 @@ var rng = RandomNumberGenerator.new()
 
 func _on_Merge_pressed():
 	var mergeSlots = ItemContainer.get_children()
-	var levelSum = 0
 	var selected = []
 	for i in mergeSlots:
 		if i.get_child_count() > 0:
 			var item = i.get_child(0)
 			selected.append(item)
-			levelSum += item.Item.ItemLvl
 	# do we have items to merge?
 	if selected.size() < 2:
 		return
@@ -24,10 +22,10 @@ func _on_Merge_pressed():
 	var weights = Stats.DropWeights.duplicate()
 	var levels = {}
 	var oldStatCount = 0
-	var oldValue = 0
+	var oldLevelSum = 0
 	for i in selected:
 		for s in i.Item.ItemStats:
-			oldValue += s.Level
+			oldLevelSum += s.Level
 			var stati = Stats.StatIds.find(s.Id)
 			# sum stat levels per stat type
 			if levels.has(s.Id):
@@ -59,7 +57,7 @@ func _on_Merge_pressed():
 	for sn in item.ItemStats:
 		newSum += sn.Level
 
-	var targetSum = rand_range(oldValue, oldValue * 1.1)
+	var targetSum = rand_range(oldLevelSum, oldLevelSum * 1.1)
 	# add random levels until we reach our target power
 	while newSum < targetSum:
 		var id = randi() % statCount
