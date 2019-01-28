@@ -59,7 +59,7 @@ func _ready():
 	$LifeBar.value = life
 
 func _spawnItem():
-	if randf() < 0.2 * (1+Stats.CurrentStats["dropRate"]):
+	if randf() < 0.25 * (1+Stats.CurrentStats["dropRate"]):
 		var vis = ItemVis.instance()
 		vis.global_position = global_position
 		vis.item = ItemGen.CreateItem()
