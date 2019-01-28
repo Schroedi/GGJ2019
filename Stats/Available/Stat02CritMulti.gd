@@ -12,7 +12,7 @@ func GetName() ->String:
 func _init():
 	Id = "critMulti"
 	value = 0.1
-	defaultValue =0
+	defaultValue = 1.2
 	IconId = [5,12]
 	MainName = ["Cheese","Stiletto"]
 	Prefix = ["exploding","hurting","harmful","destructing","burning","wounding","poisoned","breaking","penetrating"]

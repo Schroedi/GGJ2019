@@ -71,9 +71,9 @@ func set_player_owned(v):
 # returns: {"HullDmg":42, "ShieldDmg": 24}
 func CalcDamage() -> float:
 	var dmg = BaseDmg + Stats.CurrentStats["damage"]
-	var crit =Stats.CurrentStats["crit"];
-	if(crit>0 and randf()>(1-crit)):
-		crit *= (Stats.CurrentStats["critMulti"]+1)		
+	var crit = min(Stats.CurrentStats["crit"], 1)
+	if crit > 0 and randf() > (1 - crit):
+		dmg *= Stats.CurrentStats["critMulti"]
 	return dmg
 
 
