@@ -16,8 +16,9 @@ func CreateItem()->BaseItem:
 	return i
 
 func _ready():
-	pass
-	#var vis = ItemVis.instance()
-	#vis.global_position = Vector2(600, 250)
-	#vis.item = ItemGen.CreateItem()
-	#get_node("/root/GameLevel").add_child(vis)
+	return
+	for i in range(10):
+		var vis = ItemVis.instance()
+		vis.global_position = Vector2(600, 250)
+		vis.item = ItemGen.CreateItem()
+		get_node("/root/GameLevel").add_child(vis)

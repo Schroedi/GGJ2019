@@ -47,7 +47,7 @@ func _on_Merge_pressed():
 	var minStats = min(max(1, oldStatCount / 2), 5)
 	var maxStats = max(minStats, min(oldStatCount, 5))
 	# min half of old stat count, max old stat count + 1
-	var statCount = rng.randi_range(minStats, maxStats + 1)
+	var statCount = rng.randi_range(minStats, maxStats)
 	for i in statCount:
 		var stati = WeightRng.WeightedRng(weights)
 		weights[stati] = 0
@@ -64,12 +64,21 @@ func _on_Merge_pressed():
 	for sn in item.ItemStats:
 		newSum += sn.Level
 
-	var targetSum = rand_range(oldLevelSum, oldLevelSum * 1.1)
+	var targetSum = int(rng.randf_range(oldLevelSum, oldLevelSum * 1.1))
+	# new item's stats should have same level as average of all old items
+	targetSum = targetSum / oldStatCount * statCount
+	print ("oldSum: %.2f, targetSum: %.2f" % [oldLevelSum, targetSum])
 	# add random levels until we reach our target power
 	while newSum < targetSum:
 		var id = randi() % statCount
 		item.ItemStats[id].LevelUp()
 		newSum += 1
+	# is the new item too strong?
+	while newSum > targetSum:
+		var id = randi() % statCount
+		item.ItemStats[id].LevelDown()
+		newSum -= 1
+	
 
 	# set item level as sum of old levels
 	item.ItemLvl = 1

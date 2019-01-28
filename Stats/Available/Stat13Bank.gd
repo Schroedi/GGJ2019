@@ -10,15 +10,15 @@ func _init():
 	# Seconds, gold
 	value = Vector2(1,1)
 	defaultValue = Vector2(0,0)
-
-func GetName() ->String:
-	return "Investment"
-		
-func LevelUp():
-	# 10% more, override for non numeric or more complex stats
-	value.y *= 1.1
-	Level += 1
 	IconId = [7]
 	MainName = ["Businessmanswear","Tie","Necktie","Straight-Bowtie"]
 	Prefix = ["Overpaid","Investing","Piggy-Banking","Funding","Exploiting","Utilising","Overworked","Manipulated","Commercialized","Manipulating"]
+	
+func GetName() ->String:
+	return "Investment"
+		
+func LevelUp(dir=1):
+	# 10% more, override for non numeric or more complex stats
+	value.y *= 1.1 * dir
+	Level += 1
 	
