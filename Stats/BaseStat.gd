@@ -24,7 +24,7 @@ func LevelUp(dir=1):
 	Level += 1 * dir
 
 func LevelDown():
-	if Level == 1:
+	if Level <= 1:
 		return
 	LevelUp(-1)
 

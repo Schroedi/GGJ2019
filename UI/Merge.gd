@@ -68,18 +68,9 @@ func _on_Merge_pressed():
 	# new item's stats should have same level as average of all old items
 	#targetSum = targetSum / oldStatCount * statCount
 	#print ("oldSum: %.2f, targetSum: %.2f" % [oldLevelSum, targetSum])
-	# add random levels until we reach our target power
-	while newSum < targetSum:
-		var id = randi() % statCount
-		item.ItemStats[id].LevelUp()
-		newSum += 1
-	# is the new item too strong?
-	while newSum > targetSum:
-		var id = randi() % statCount
-		item.ItemStats[id].LevelDown()
-		newSum -= 1
 	
-
+	Stats.adjustToPower(item, targetSum)
+	
 	# set item level as sum of old levels
 	item.ItemLvl = 1
 	item.ItemTier = statCount

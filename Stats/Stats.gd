@@ -24,6 +24,22 @@ func loadAllStats():
 func GetAllStats():
 	return AlltStats
 
+func adjustToPower(item, targetPower):
+	var newSum = 0
+	var statCount = item.ItemStats.size()
+	for sn in item.ItemStats:
+		newSum += sn.Level
+	# add random levels until we reach our target power
+	while newSum < targetPower:
+		var id = randi() % statCount
+		item.ItemStats[id].LevelUp()
+		newSum += 1
+	# is the new item too strong?
+	while newSum > targetPower:
+		var id = randi() % statCount
+		item.ItemStats[id].LevelDown()
+		newSum -= 1
+
 func IsEquipped(item):
 	return _equipped.has(item)
 

@@ -62,7 +62,7 @@ func _spawnItem():
 	if randf() < 0.25 * (1+Stats.CurrentStats["dropRate"]):
 		var vis = ItemVis.instance()
 		vis.global_position = global_position
-		vis.item = ItemGen.CreateItem()
+		vis.item = ItemGen.CreateItem(Stats.CurrentStats["dropQuality"])
 		GameState.Level.add_child(vis)
 
 func _die():
