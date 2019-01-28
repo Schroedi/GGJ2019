@@ -14,7 +14,7 @@ rect_min_size = Vector2( 88, 88 )
 custom_styles/panel = SubResource( 1 )
 script = ExtResource( 1 )
 
-[node name="NinePatchRect" type="NinePatchRect" parent="."]
+[node name="TextureRect" type="TextureRect" parent="."]
 margin_left = 6.0
 margin_top = 6.0
 margin_right = 82.0

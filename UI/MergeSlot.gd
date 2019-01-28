@@ -1,4 +1,4 @@
-extends NinePatchRect
+extends TextureRect
 
 func has_item():
 	return get_child_count() > 0

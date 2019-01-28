@@ -141,7 +141,7 @@ margin_bottom = 1111.0
 custom_styles/panel = SubResource( 2 )
 script = ExtResource( 2 )
 
-[node name="Background Tier" type="NinePatchRect" parent="ItemInfo"]
+[node name="Background Tier" type="TextureRect" parent="ItemInfo"]
 margin_right = 460.0
 margin_bottom = 600.0
 texture = ExtResource( 3 )
@@ -175,7 +175,7 @@ custom_fonts/normal_font = ExtResource( 5 )
 custom_colors/default_color = Color( 0, 0, 0, 1 )
 bbcode_enabled = true
 
-[node name="Star1" type="NinePatchRect" parent="ItemInfo"]
+[node name="Star1" type="TextureRect" parent="ItemInfo"]
 margin_left = 32.063
 margin_top = 295.0
 margin_right = 61.063
@@ -183,7 +183,7 @@ margin_bottom = 323.0
 rect_min_size = Vector2( 29, 28 )
 texture = ExtResource( 6 )
 
-[node name="Star2" type="NinePatchRect" parent="ItemInfo"]
+[node name="Star2" type="TextureRect" parent="ItemInfo"]
 margin_left = 32.063
 margin_top = 346.0
 margin_right = 61.063
@@ -191,7 +191,7 @@ margin_bottom = 374.0
 rect_min_size = Vector2( 29, 28 )
 texture = ExtResource( 6 )
 
-[node name="Star3" type="NinePatchRect" parent="ItemInfo"]
+[node name="Star3" type="TextureRect" parent="ItemInfo"]
 margin_left = 32.063
 margin_top = 395.0
 margin_right = 61.063
@@ -199,7 +199,7 @@ margin_bottom = 423.0
 rect_min_size = Vector2( 29, 28 )
 texture = ExtResource( 6 )
 
-[node name="Star4" type="NinePatchRect" parent="ItemInfo"]
+[node name="Star4" type="TextureRect" parent="ItemInfo"]
 margin_left = 32.063
 margin_top = 445.0
 margin_right = 61.063
@@ -207,7 +207,7 @@ margin_bottom = 473.0
 rect_min_size = Vector2( 29, 28 )
 texture = ExtResource( 6 )
 
-[node name="Star5" type="NinePatchRect" parent="ItemInfo"]
+[node name="Star5" type="TextureRect" parent="ItemInfo"]
 margin_left = 32.063
 margin_top = 495.0
 margin_right = 61.063
@@ -234,7 +234,7 @@ custom_fonts/font = ExtResource( 10 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Gold"
 
-[node name="Goldpatch2" type="NinePatchRect" parent="ItemInfo/Upgrade"]
+[node name="Goldpatch2" type="TextureRect" parent="ItemInfo/Upgrade"]
 margin_left = -18.395
 margin_top = 92.532
 margin_right = 8.60501
@@ -263,83 +263,83 @@ custom_constants/vseparation = 18
 custom_constants/hseparation = 18
 columns = 10
 
-[node name="Patch" type="NinePatchRect" parent="Inventory/GridContainer"]
+[node name="Patch" type="TextureRect" parent="Inventory/GridContainer"]
 margin_right = 76.0
 margin_bottom = 76.0
 rect_min_size = Vector2( 76, 76 )
 texture = ExtResource( 14 )
 
-[node name="Patch2" type="NinePatchRect" parent="Inventory/GridContainer"]
+[node name="Patch2" type="TextureRect" parent="Inventory/GridContainer"]
 margin_left = 94.0
 margin_right = 170.0
 margin_bottom = 76.0
 rect_min_size = Vector2( 76, 76 )
 texture = ExtResource( 14 )
 
-[node name="Patch3" type="NinePatchRect" parent="Inventory/GridContainer"]
+[node name="Patch3" type="TextureRect" parent="Inventory/GridContainer"]
 margin_left = 188.0
 margin_right = 264.0
 margin_bottom = 76.0
 rect_min_size = Vector2( 76, 76 )
 texture = ExtResource( 14 )
 
-[node name="Patch4" type="NinePatchRect" parent="Inventory/GridContainer"]
+[node name="Patch4" type="TextureRect" parent="Inventory/GridContainer"]
 margin_left = 282.0
 margin_right = 358.0
 margin_bottom = 76.0
 rect_min_size = Vector2( 76, 76 )
 texture = ExtResource( 14 )
 
-[node name="Patch5" type="NinePatchRect" parent="Inventory/GridContainer"]
+[node name="Patch5" type="TextureRect" parent="Inventory/GridContainer"]
 margin_left = 376.0
 margin_right = 452.0
 margin_bottom = 76.0
 rect_min_size = Vector2( 76, 76 )
 texture = ExtResource( 14 )
 
-[node name="Patch6" type="NinePatchRect" parent="Inventory/GridContainer"]
+[node name="Patch6" type="TextureRect" parent="Inventory/GridContainer"]
 margin_left = 470.0
 margin_right = 546.0
 margin_bottom = 76.0
 rect_min_size = Vector2( 76, 76 )
 texture = ExtResource( 14 )
 
-[node name="Patch7" type="NinePatchRect" parent="Inventory/GridContainer"]
+[node name="Patch7" type="TextureRect" parent="Inventory/GridContainer"]
 margin_left = 564.0
 margin_right = 640.0
 margin_bottom = 76.0
 rect_min_size = Vector2( 76, 76 )
 texture = ExtResource( 14 )
 
-[node name="Patch8" type="NinePatchRect" parent="Inventory/GridContainer"]
+[node name="Patch8" type="TextureRect" parent="Inventory/GridContainer"]
 margin_left = 658.0
 margin_right = 734.0
 margin_bottom = 76.0
 rect_min_size = Vector2( 76, 76 )
 texture = ExtResource( 14 )
 
-[node name="Patch9" type="NinePatchRect" parent="Inventory/GridContainer"]
+[node name="Patch9" type="TextureRect" parent="Inventory/GridContainer"]
 margin_left = 752.0
 margin_right = 828.0
 margin_bottom = 76.0
 rect_min_size = Vector2( 76, 76 )
 texture = ExtResource( 14 )
 
-[node name="Patch10" type="NinePatchRect" parent="Inventory/GridContainer"]
+[node name="Patch10" type="TextureRect" parent="Inventory/GridContainer"]
 margin_left = 846.0
 margin_right = 922.0
 margin_bottom = 76.0
 rect_min_size = Vector2( 76, 76 )
 texture = ExtResource( 14 )
 
-[node name="Patch11" type="NinePatchRect" parent="Inventory/GridContainer"]
+[node name="Patch11" type="TextureRect" parent="Inventory/GridContainer"]
 margin_top = 94.0
 margin_right = 76.0
 margin_bottom = 170.0
 rect_min_size = Vector2( 76, 76 )
 texture = ExtResource( 14 )
 
-[node name="Patch12" type="NinePatchRect" parent="Inventory/GridContainer"]
+[node name="Patch12" type="TextureRect" parent="Inventory/GridContainer"]
 margin_left = 94.0
 margin_top = 94.0
 margin_right = 170.0
@@ -347,7 +347,7 @@ margin_bottom = 170.0
 rect_min_size = Vector2( 76, 76 )
 texture = ExtResource( 14 )
 
-[node name="Patch13" type="NinePatchRect" parent="Inventory/GridContainer"]
+[node name="Patch13" type="TextureRect" parent="Inventory/GridContainer"]
 margin_left = 188.0
 margin_top = 94.0
 margin_right = 264.0
@@ -355,7 +355,7 @@ margin_bottom = 170.0
 rect_min_size = Vector2( 76, 76 )
 texture = ExtResource( 14 )
 
-[node name="Patch14" type="NinePatchRect" parent="Inventory/GridContainer"]
+[node name="Patch14" type="TextureRect" parent="Inventory/GridContainer"]
 margin_left = 282.0
 margin_top = 94.0
 margin_right = 358.0
@@ -363,7 +363,7 @@ margin_bottom = 170.0
 rect_min_size = Vector2( 76, 76 )
 texture = ExtResource( 14 )
 
-[node name="Patch15" type="NinePatchRect" parent="Inventory/GridContainer"]
+[node name="Patch15" type="TextureRect" parent="Inventory/GridContainer"]
 margin_left = 376.0
 margin_top = 94.0
 margin_right = 452.0
@@ -371,7 +371,7 @@ margin_bottom = 170.0
 rect_min_size = Vector2( 76, 76 )
 texture = ExtResource( 14 )
 
-[node name="Patch16" type="NinePatchRect" parent="Inventory/GridContainer"]
+[node name="Patch16" type="TextureRect" parent="Inventory/GridContainer"]
 margin_left = 470.0
 margin_top = 94.0
 margin_right = 546.0
@@ -379,7 +379,7 @@ margin_bottom = 170.0
 rect_min_size = Vector2( 76, 76 )
 texture = ExtResource( 14 )
 
-[node name="Patch17" type="NinePatchRect" parent="Inventory/GridContainer"]
+[node name="Patch17" type="TextureRect" parent="Inventory/GridContainer"]
 margin_left = 564.0
 margin_top = 94.0
 margin_right = 640.0
@@ -387,7 +387,7 @@ margin_bottom = 170.0
 rect_min_size = Vector2( 76, 76 )
 texture = ExtResource( 14 )
 
-[node name="Patch18" type="NinePatchRect" parent="Inventory/GridContainer"]
+[node name="Patch18" type="TextureRect" parent="Inventory/GridContainer"]
 margin_left = 658.0
 margin_top = 94.0
 margin_right = 734.0
@@ -395,7 +395,7 @@ margin_bottom = 170.0
 rect_min_size = Vector2( 76, 76 )
 texture = ExtResource( 14 )
 
-[node name="Patch19" type="NinePatchRect" parent="Inventory/GridContainer"]
+[node name="Patch19" type="TextureRect" parent="Inventory/GridContainer"]
 margin_left = 752.0
 margin_top = 94.0
 margin_right = 828.0
@@ -403,7 +403,7 @@ margin_bottom = 170.0
 rect_min_size = Vector2( 76, 76 )
 texture = ExtResource( 14 )
 
-[node name="Patch20" type="NinePatchRect" parent="Inventory/GridContainer"]
+[node name="Patch20" type="TextureRect" parent="Inventory/GridContainer"]
 margin_left = 846.0
 margin_top = 94.0
 margin_right = 922.0
@@ -507,14 +507,14 @@ margin_bottom = 109.0
 custom_fonts/font = ExtResource( 10 )
 text = "Life"
 
-[node name="Goldpatch" type="NinePatchRect" parent="PlayerInfo"]
+[node name="Goldpatch" type="TextureRect" parent="PlayerInfo"]
 margin_left = 34.0
 margin_top = 21.0
 margin_right = 61.0
 margin_bottom = 52.0
 texture = ExtResource( 11 )
 
-[node name="NinePatchRect2" type="NinePatchRect" parent="PlayerInfo"]
+[node name="TextureRect2" type="TextureRect" parent="PlayerInfo"]
 margin_left = 33.0
 margin_top = 72.0
 margin_right = 67.0
