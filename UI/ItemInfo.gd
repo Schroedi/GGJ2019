@@ -20,6 +20,10 @@ func ShowStars(count):
 		var s = get_node("Star"+String(i+1))
 		s.visible = i < count
 
+func Unshow():
+	# hide if no valid selection -> was hover
+	visible = hasValidSelection()
+
 func ShowItem(item:UiItem):
 	# ignore hover infos if an item is fixed
 	if selected:
@@ -27,12 +31,16 @@ func ShowItem(item:UiItem):
 	VisItem(item)
 
 func unselect():
+	visible = false
 	$Upgrade.disable()
 	
 	selected = null
 
+func hasValidSelection():
+	return selected and selected.get_ref()
+
 func select(item:UiItem):
-	if selected and selected.get_ref():
+	if hasValidSelection():
 		selected.get_ref().unselect()
 	selected = weakref(item)
 	$Upgrade.enable()

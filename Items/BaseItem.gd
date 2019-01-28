@@ -56,10 +56,11 @@ func GetName() -> String:
 		var preStat = ""
 		if ItemStats.size() > 1:
 			var prefixes = ItemStats[randi() % ItemStats.size()].Prefix
-			preStat = prefixes[randi() % prefixes.size()]
+			preStat = prefixes[randi() % prefixes.size()] + " "
 		
 		var randName = NameGen.Randoms[randi() % NameGen.Randoms.size()]
-		_name = "%s %s %s %s" % [prefix, preStat, MainStat, randName]
+		# prestat has a space at the end
+		_name = "%s %s%s %s" % [prefix, preStat, MainStat, randName]
 	return _name
 	
 func getCost():
