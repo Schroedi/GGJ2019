@@ -2,34 +2,24 @@ extends Node
 
 var CurrentStats = {}
 
-var AlltStats = []
+var AlltStats = [load("res://Stats/Available/Stat01BaseDamage.gd"), load("res://Stats/Available/Stat02CritMulti.gd"), load("res://Stats/Available/Stat03CritChance.gd"), load("res://Stats/Available/Stat04Speed.gd"), load("res://Stats/Available/Stat05MultiTarget.gd"), load("res://Stats/Available/Stat07Bounce.gd"), load("res://Stats/Available/Stat09RandomDamage.gd"), load("res://Stats/Available/Stat10Splash.gd"), load("res://Stats/Available/Stat11Slow.gd"), load("res://Stats/Available/Stat13Bank.gd"), load("res://Stats/Available/Stat14Money.gd"), load("res://Stats/Available/Stat15DropRate.gd"), load("res://Stats/Available/Stat16DropQuality.gd"), load("res://Stats/Available/Stat17EnemyCount.gd")]
+
 var DropWeights = []
 var StatIds = []
 var _equipped = []
 
 func _init():
 	_equipped = []
-	AlltStats = []
 	DropWeights = []
 	StatIds = []
-	loadAllStats("res://Stats/Available/")
+	loadAllStats()
 	
-func loadAllStats(path):
-	var dir = Directory.new()
-	dir.open(path)
-	dir.list_dir_begin()
-	while true:
-		var file = dir.get_next()
-		if file == "":
-			break
-		elif not file.begins_with("."):
-			var stat = load(path+file)
-			AlltStats.append(stat)
-			var statInst = stat.new()
-			DropWeights.append(statInst.dropWeight)
-			StatIds.append(statInst.Id)
-			CurrentStats[statInst.Id] = statInst.defaultValue
-	dir.list_dir_end()
+func loadAllStats():
+	for stat in AlltStats:
+		var statInst = stat.new()
+		DropWeights.append(statInst.dropWeight)
+		StatIds.append(statInst.Id)
+		CurrentStats[statInst.Id] = statInst.defaultValue
 
 func GetAllStats():
 	return AlltStats

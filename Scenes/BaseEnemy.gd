@@ -58,10 +58,6 @@ func _ready():
 	$LifeBar.max_value = life
 	$LifeBar.value = life
 
-func SpawnMoney(value, parts, global_pos, target, owner):
-	for i in range(parts):
-		var offset = Vector2(rand_range(0, 5), rand_range(0, 5))		
-
 func _spawnItem():
 	if randf() < 0.25*(1+Stats.CurrentStats["dropRate"]):
 		var vis = ItemVis.instance()

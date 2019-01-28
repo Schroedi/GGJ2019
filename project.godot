@@ -28,6 +28,11 @@ WeightRng="*res://Scripts/WeightRng.gd"
 GameState="*res://Scripts/GameState.gd"
 NameGen="*res://Scripts/NameGen.gd"
 
+[debug]
+
+gdscript/warnings/unused_class_variable=false
+gdscript/warnings/unused_argument=false
+
 [display]
 
 window/size/width=1920
