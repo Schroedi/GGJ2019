@@ -384,8 +384,13 @@ margin_top = 168.261
 margin_right = 359.701
 margin_bottom = 288.261
 rect_min_size = Vector2( 120, 120 )
+disabled = true
 texture_normal = ExtResource( 18 )
 texture_disabled = ExtResource( 19 )
+
+[node name="CanMergeTimer" type="Timer" parent="Merge/Merge"]
+wait_time = 0.3
+autostart = true
 
 [node name="GridContainer" type="GridContainer" parent="Merge"]
 margin_left = -13.0
@@ -516,3 +521,4 @@ margin_bottom = 693.0
 
 [connection signal="pressed" from="ItemInfo/Upgrade" to="ItemInfo/Upgrade" method="_on_Upgrade_pressed"]
 [connection signal="pressed" from="Merge/Merge" to="Merge" method="_on_Merge_pressed"]
+[connection signal="timeout" from="Merge/Merge/CanMergeTimer" to="Merge" method="updateMergeable"]

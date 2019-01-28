@@ -6,14 +6,21 @@ onready var ItemContainer = get_node("/root/GameLevel/Hud/Merge/GridContainer")
 const BaseItem = preload("res://Items/BaseItem.gd")
 var rng = RandomNumberGenerator.new()
 
-
-func _on_Merge_pressed():
+func getMergeItems():
 	var mergeSlots = ItemContainer.get_children()
 	var selected = []
 	for i in mergeSlots:
 		if i.get_child_count() > 0:
 			var item = i.get_child(0)
 			selected.append(item)
+	return selected
+
+func updateMergeable():
+	$Merge.disabled = getMergeItems().size() < 2
+
+
+func _on_Merge_pressed():
+	var selected = getMergeItems()
 	# do we have items to merge?
 	if selected.size() < 2:
 		return
