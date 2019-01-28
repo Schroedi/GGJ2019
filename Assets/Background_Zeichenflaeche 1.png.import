@@ -2,12 +2,12 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/GUI_Zeichenfläche 1.jpg-cb8ef5c21c0d474062931cb2db78d7a1.stex"
+path="res://.import/Background_Zeichenflaeche 1.png-1b8876cb7094fc1e73da363a36df1505.stex"
 
 [deps]
 
-source_file="res://GUI_Zeichenfläche 1.jpg"
-dest_files=[ "res://.import/GUI_Zeichenfläche 1.jpg-cb8ef5c21c0d474062931cb2db78d7a1.stex" ]
+source_file="res://Assets/Background_Zeichenflaeche 1.png"
+dest_files=[ "res://.import/Background_Zeichenflaeche 1.png-1b8876cb7094fc1e73da363a36df1505.stex" ]
 
 [params]
 
