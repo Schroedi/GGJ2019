@@ -22,7 +22,7 @@ func CreateItem(quality)->BaseItem:
 	return i
 
 func _ready():
-	#return
+	return
 	for i in range(10):
 		var vis = ItemVis.instance()
 		vis.global_position = Vector2(600, 250)
