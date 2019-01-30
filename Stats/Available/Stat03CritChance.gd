@@ -12,7 +12,7 @@ func GetName() ->String:
 func _init():
 	Id = "crit"
 	multi = 1/100.0
-	add = 0.05
+	add = 0
 	defaultValue = 0
 	IconId = [9]
 	MainName = ["Antenna","Radar","Scanner","Radio","Transmitter","Sensor"]

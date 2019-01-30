@@ -8,7 +8,7 @@ func GetTextItem() -> String:
 func _init():
 	Id = "bank"
 	multi = 1
-	add = 1
+	add = 0
 	defaultValue = 0
 	IconId = [7]
 	MainName = ["Businessmanswear","Tie","Necktie","Straight-Bowtie"]

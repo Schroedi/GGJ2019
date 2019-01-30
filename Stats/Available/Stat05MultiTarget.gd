@@ -10,8 +10,8 @@ func GetName() ->String:
 	
 func _init():
 	Id = "multiTarget"
-	multi = 1/10.0
-	add = 1
+	multi = 1/5.0
+	add = 0
 	defaultValue = 0
 	IconId = [2]
 	MainName = ["Cannon","Weapon","Firearm","Gun","Pistol","Revolver","Rifle","Handgun","Shotgun","Taser","Musket"]

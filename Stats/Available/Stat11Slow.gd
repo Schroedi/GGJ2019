@@ -16,7 +16,7 @@ func GetName() ->String:
 func _init():
 	Id = "slow"
 	multi = 1/2.0
-	add = 1
+	add = 0
 	defaultValue = 0
 	IconId = [17]
 	MainName = ["Sleep","Bedtime","Yawning","Nap","Powernap"]

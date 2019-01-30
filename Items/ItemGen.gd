@@ -22,9 +22,9 @@ func CreateItem(quality)->BaseItem:
 	return i
 
 func _ready():
-	return
+	#return
 	for i in range(10):
 		var vis = ItemVis.instance()
 		vis.global_position = Vector2(600, 250)
-		vis.item = ItemGen.CreateItem(0.25)
+		vis.item = ItemGen.CreateItem(0.55)
 		get_node("/root/GameLevel").add_child(vis)

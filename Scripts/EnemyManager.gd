@@ -5,7 +5,7 @@ const BaseEnemy = preload("res://Scenes/BaseEnemy.tscn")
 # var a = 2
 # var b = "text"
 
-const bounceRange = 100
+const bounceRange = 300
 const ElipseA = 350
 const ElipseB = 200
 const ElipseCenter = Vector2(969.331,563)
