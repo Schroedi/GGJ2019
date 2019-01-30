@@ -11,8 +11,10 @@ func GetName() ->String:
 	
 func _init():
 	Id = "bounce"
-	value = 1
+	multi = 1/10.0
+	add = 1
 	defaultValue = 0
 	IconId = [6]
 	MainName = ["Spiker","Annoyer","Cactus","Spikething","Plant","Hedgehogplant","Desert Tree","Vulture Seat"]
 	Prefix = ["Suspended","Rebound","Jumping","Leaping","Trampoline","Moving","Flying","Aviated","Winged","Piercing","Spiked","Pointed"]
+	LevelUp()

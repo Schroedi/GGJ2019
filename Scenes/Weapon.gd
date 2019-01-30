@@ -1,13 +1,13 @@
 extends Node2D
 
+const RngDmg = preload("res://Stats/Available/Stat09RandomDamage.gd")
+
 # how many seconds to reload
 export var turnSpeed = 10
 # shots per second
 export var fireRate:float = 1.0
-export var BaseDmg = 10
 
 var reloadTimeReamining = 0
-var targetReady = false
 
 var bankTimer = 0
 var randomDamageTimer = 0
@@ -68,42 +68,38 @@ func set_player_owned(v):
 		sa.set_collision_mask_bit(1, _playerOwned)
 
 # Calculate complete damage for a given tile lebel
-# returns: {"HullDmg":42, "ShieldDmg": 24}
-func CalcDamage() -> float:
-	var dmg = BaseDmg + Stats.CurrentStats["damage"]
+func CalcDamage():
+	var dmg = Stats.CurrentStats["damage"]
 	var crit = min(Stats.CurrentStats["crit"], 1)
-	if crit > 0 and randf() > (1 - crit):
-		dmg *= Stats.CurrentStats["critMulti"]
-	return dmg
+	var isCrit = crit > 0 and randf() >= (1 - crit)
+	if isCrit:
+		dmg += dmg * Stats.CurrentStats["critMulti"]
+	return [dmg, isCrit]
 
 
 func _shoot():
-	if targetReady:
-		# parent is socket and his parent is the ship tile
-		var targetChance = Stats.CurrentStats["multiTarget"]
-		var targets = floor(targetChance)
-		var bounceChance = Stats.CurrentStats["bounce"]
-		var bounce = floor(bounceChance)
-		targetChance -= targets
-		if(randf()>1-targetChance):
-			targets+=1
+	# parent is socket and his parent is the ship tile
+	var targetChance = floor(Stats.CurrentStats["multiTarget"])
+	var targets = floor(targetChance)
+	var bounceChance = Stats.CurrentStats["bounce"]
+	var bounce = floor(bounceChance)
+	targetChance -= targets
+	if(randf()>1-targetChance):
 		targets+=1
-		if(randf()>1-targetChance):
-			bounce+=1
-		for i in range(targets):
-			if(i>=EnemyManager.Enemies.size()):
-				break			
-			Helpers.fireProjectile(weakref(canonEnd),weakref( EnemyManager.Enemies[i]),
-			CalcDamage(),
-			bounce, 
-			Stats.CurrentStats["splash"]
-			,Bullet,
-			GameState.Level)
-			
-		reloadTimeReamining = 1 / (fireRate * Stats.CurrentStats["speed"])
-	else:
-		#print("aiming")
-		pass
+	targets+=1
+	if(randf()>1-targetChance):
+		bounce+=1
+	for i in range(targets):
+		if(i>=EnemyManager.Enemies.size()):
+			break			
+		Helpers.fireProjectile(weakref(canonEnd),weakref( EnemyManager.Enemies[i]),
+		CalcDamage(),
+		bounce, 
+		Stats.CurrentStats["splash"]
+		,Bullet,
+		GameState.Level)
+		
+	reloadTimeReamining = 1 / (fireRate * Stats.CurrentStats["speed"])
 
 
 func _hasTarget():
@@ -130,48 +126,35 @@ func _targeting():
 func _process(delta):
 	reloadTimeReamining -= delta
 	_targeting()
-	
-	# look at enemy
-	if _hasTarget():
-		var target = _currentEnemy.get_ref()
-		var rot = target.global_position.angle_to_point(global_position)
-		barrel.global_rotation = Helpers.lerp_angle(barrel.global_rotation, rot, delta * turnSpeed)
-		if abs(barrel.global_rotation - rot) < 0.1:
-			targetReady = true
-		else: 
-			targetReady = false
-			
-		if reloadTimeReamining <= 0:
-			#print("shooting")
-			_shoot()
-		else:
-			#print("reload", reloadTimeReamining, fireRate)
-			pass
-	else:
-		barrel.global_rotation += 	delta * turnSpeed * 0.05
+	if reloadTimeReamining <= 0:
+		#print("shooting")
+		_shoot()
+	barrel.global_rotation += delta * turnSpeed * 0.05
 		
 		
 	#banking
-	if Stats.CurrentStats["bank"][1] >0:
-		if(bankTimer > Stats.CurrentStats["bank"][0]):		
-			var gold = Stats.CurrentStats["bank"][1]	
+	if Stats.CurrentStats["bank"] > 0:
+		if bankTimer > 1:
+			var gold = Stats.CurrentStats["bank"]
 			GameState.Level.addGold(gold)
 			var pl = popup.instance()
 			pl.global_position = global_position+Vector2(rand_range(-50,50),rand_range(-50,50))
 			pl.setColor(Color.gold)
-			pl.setLabel(String(gold)+"g")	
+			pl.setLabel("%.2f g" % gold)
 			GameState.Level.add_child(pl)
 			bankTimer = 0
 	bankTimer+=delta
 
 	#random Damage
-	if Stats.CurrentStats["randomDamage"][0] >0:
-		if(randomDamageTimer > Stats.CurrentStats["randomDamage"][1]):		
-			var dmg = CalcDamage()*Stats.CurrentStats["randomDamage"][0]
-			if EnemyManager.Enemies.size()>0:				
+	if Stats.CurrentStats["randomDamage"] > 0:
+		var baseSeconds = RngDmg.BaseSeconds
+		var multi = RngDmg.DamageLevelMulti
+		if(randomDamageTimer > baseSeconds - Stats.CurrentStats["randomDamage"]):
+			var dmg = CalcDamage()[0] * rand_range(0.1, 1) * Stats.CurrentStats["randomDamage"] * multi
+			if EnemyManager.Enemies.size() > 0:
 				var enm = randi()%EnemyManager.Enemies.size()
 				var en = EnemyManager.Enemies[enm]
-				en._damage(dmg)
+				en._damage([dmg, true])
 				randomDamageTimer = 0
 	randomDamageTimer+=delta
 

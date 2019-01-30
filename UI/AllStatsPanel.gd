@@ -1,23 +1,18 @@
 extends Container
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
+var statlist = []
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body
+	for statObj in Stats.AlltStats:
+		statlist.append(statObj.new())
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
 
 
 func _on_Timer_timeout():
 	$AllStatsPanel.bbcode_text = ""	
 	$AllNamesPanel.bbcode_text = "[right][color=#55ffffff]"
-	for statObj in Stats.AlltStats:
-		var stat =statObj.new()
+	for stat in statlist:
 		stat.value = Stats.CurrentStats[stat.Id]
 		$AllStatsPanel.bbcode_text+= stat.GetText()+"\n"	
 		$AllNamesPanel.bbcode_text+= stat.GetName()+":\n"

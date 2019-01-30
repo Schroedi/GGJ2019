@@ -24,7 +24,7 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if(dpsMeter>1):
-		GameState.DPS = (GameState.DPS+GameState.DamageSeconds)/2
+		GameState.DPS = (GameState.DPS+GameState.DamageSeconds)/2.0
 		GameState.DamageSeconds = 0
 		GameState.DPSmax = max(GameState.DPSmax ,GameState.DPS)
 		dpsMeter=0

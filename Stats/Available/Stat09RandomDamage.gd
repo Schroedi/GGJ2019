@@ -1,10 +1,14 @@
 extends "res://Stats/BaseStat.gd"
 
+# random dmg = BaseDmg() * rand_range(0.1, 1) * value * DamageLevelMulti
+const DamageLevelMulti = 1000
+const BaseSeconds = 30
+
 func GetText() -> String:
-	return "{0}s".format(  ["%.2f" %value.y])
+	return "{0}s".format(  ["%.2f" % (BaseSeconds - value)])
 	
 func GetTextItem() -> String:
-	return "[color=black]Hits random every [/color][color=red]{0}[/color][color=black] seconds[/color]".format( ["%.2f" %value.y])	
+	return "[color=black]Hits random every [/color][color=red]{0}[/color][color=black] seconds[/color]".format( ["%.2f" % (BaseSeconds - value)])
 	
 func GetName() ->String:
 	return "Random damage every"
@@ -12,15 +16,14 @@ func GetName() ->String:
 func _init():
 	Id = "randomDamage"
 	# damage, seconds
-	value = Vector2(10,10)
-	defaultValue = Vector2(0,0)
+	multi = 1/10.0
+	defaultValue = 0
 	IconId = [15]
 	MainName = ["Wig Tower"]
-	Prefix = ["Unfair","Fakenew","Random","Political","Dishonest","Biased","Cheating","Untrue","Ridiculous","Incompetent","Arrogant","Idiotic","Ignorant","Racist"]
+	Prefix = ["Unfair","Fakenews","Random","Political","Dishonest","Biased","Cheating","Untrue","Ridiculous","Incompetent","Arrogant","Idiotic","Ignorant","Racist"]
+	LevelUp()
 
 func LevelUp(dir=1):
-	# 10% more, override for non numeric or more complex stats
-	value.x *= 1.1 * dir
-	value.y /= 1.1 * dir
-	Level += 1 * dir
-	
+	.LevelUp(dir)
+	# clamp to once per second
+	value = max(1, value)

@@ -10,8 +10,9 @@ func GetName() ->String:
 	
 func _init():
 	Id = "damage"
-	value = 1
-	defaultValue = 0
+	multi = 10
+	defaultValue = 10
 	IconId = [14]
 	Prefix = ["Hurting","Sharpened","Wounding","Slashing","Brutal","Rough","Spiked","Strong","Hard","Robust","Solid","Powerfull","Full Metal","Wooden","Copper"]
 	MainName = ["Cleaver","Dagger","Sword","Broadsword","Weapon"]
+	LevelUp()

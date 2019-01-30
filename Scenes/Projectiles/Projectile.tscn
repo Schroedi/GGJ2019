@@ -26,7 +26,8 @@ scale = Vector2( 2.12473, 1.18664 )
 
 [node name="Seek2D" parent="." instance=ExtResource( 2 )]
 TargetDistance = 0
-MaxSpeed = 1000
-MaxAcc = 40000
+MaxSpeed = 2000
+MaxAcc = 20000
+reachRadius = 50
 
 [connection signal="screen_exited" from="CollisionShape2D/VisibilityNotifier2D" to="." method="_on_VisibilityNotifier2D_screen_exited"]

@@ -36,7 +36,7 @@ func iconType() -> int:
 func GetTextItem() -> String:
 	var text = ""
 	for s in ItemStats:
-		text += s.GetTextItem() + "\n\n"
+		text += s.GetTextItem() + " (" + String(s.Level) + ")\n\n"
 	
 	return text
 

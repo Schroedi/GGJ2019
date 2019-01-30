@@ -10,8 +10,10 @@ func GetName() ->String:
 	
 func _init():
 	Id = "multiTarget"
-	value = 1
+	multi = 1/10.0
+	add = 1
 	defaultValue = 0
 	IconId = [2]
 	MainName = ["Cannon","Weapon","Firearm","Gun","Pistol","Revolver","Rifle","Handgun","Shotgun","Taser","Musket"]
 	Prefix = ["Squinting","Doubling","Multidimensional","Complex","Dual","Multifunctional","Multiplying","Multi Barrel","Quickdraw"]
+	LevelUp()

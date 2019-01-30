@@ -10,8 +10,9 @@ func GetName() ->String:
 	
 func _init():
 	Id = "speed"
-	value = 0.1
+	multi = 1/10.0
 	defaultValue = 1
 	IconId = [12]
 	MainName = ["Cowboy Boot","Sneaker","Shoe","Leather Sock","Trunk","Kikass"]
 	Prefix = ["Quick","Oiled","Overworn","Speeding","Fast","Prompt","Agile","Swifty","Rushing","Boosted","Running","Climbing"]
+	LevelUp()

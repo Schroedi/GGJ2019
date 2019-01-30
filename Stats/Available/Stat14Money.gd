@@ -12,9 +12,9 @@ func GetName() ->String:
 	
 func _init():
 	Id = "money"
-	value = 1
+	multi = 10
 	defaultValue = 0 
-
 	IconId = [3]
 	MainName = ["Bunny","Rabbit","Mammal","Pika","Furry","Predator","Chipmunk","Fairy"]
 	Prefix = ["Robbing","Pickpocketing","Bandit","Hacking","Stalking","Assassinating","Shoplifting","Polishing","Refurbishing","Reselling","Expensive"]
+	LevelUp()

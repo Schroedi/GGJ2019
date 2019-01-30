@@ -1,10 +1,11 @@
-extends RigidBody2D
+extends Node2D
 const DamageHelper = preload("res://Scripts/Damage.gd")
 const Helpers = preload("res://Scripts/Helpers.gd")
 const GameLevel = preload("res://Scenes/GameLevel.gd")
 const ItemVis = preload("res://Items/ItemVis.tscn")
 const popup = preload("res://Scenes/pop_label.tscn")
 const Bullet = preload("res://Scenes/Projectiles/Bullet.tscn")
+const StatSlow = preload("res://Stats/Available/Stat11Slow.gd")
 
 var EnemyIcons = []
 
@@ -27,25 +28,6 @@ export var wave =0
 export var offset = 10
 export var slowtimer =0
 onready var Texture = $TextureRect
-
-func set_scale(scale):
-	# Override behaviour only if it is a RigidBody2D and do not touch other nodes
-	if self is RigidBody2D:
-		for child in self.get_children():
-			if not "scale" in child:
-				# skip ui elements for now
-				continue
-			if not child.has_meta("original_scale"):
-				# save original scale and position as a reference for future modifications
-				child.set_meta("original_scale",child.scale)
-				child.set_meta("original_pos",child.position)
-			var original_scale = child.get_meta("original_scale")
-			var original_pos = child.get_meta("original_pos")
-			# When scaled, position also has to be changed to keep offset
-			child.position = original_pos * scale
-			child.scale = original_scale * scale
-	else:
-		.set_scale(scale)
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -72,7 +54,7 @@ func _die():
 	var pl = popup.instance()
 	pl.global_position = global_position+Vector2(rand_range(-50,50),rand_range(-50,50))
 	pl.setColor(Color.gold)
-	pl.setLabel(String(goldValue)+"g")
+	pl.setLabel("%.1f g" % goldValue)
 	
 	GameState.Level.add_child(pl)
 	GameState.Level.playerLifes+=1
@@ -89,15 +71,11 @@ func bounceProjectile(var src, var target,var dmg,var bounceLeft,var splash, var
 					level)
 
 func BulletHit(bullet):
-	_damage(bullet.damage)
 	if bullet.splash > 0:
 		var enms = EnemyManager.findEnemiesInRange(self, bullet.splash)
 		for en in enms:
 			var isLast = en == bullet.Source.get_ref()
-			var isNotEnemy = not (en.get_class() == self.get_class())
-			if  isLast or isNotEnemy :
-				continue
-			else:
+			if not isLast:
 				en._damage(bullet.damage)
 	if bullet.targetBounce > 0:
 		var enms = EnemyManager.findEnemiesInRange(self, EnemyManager.bounceRange)
@@ -115,6 +93,7 @@ func BulletHit(bullet):
 				GameState.Level)
 				break
 	
+	_damage(bullet.damage)
 	# this projective cannot damage other bodies anymore
 	bullet.damage = 0
 	bullet.queue_free()
@@ -131,9 +110,9 @@ func _process(delta):
 	var slow = 1
 	if slowtimer>0 :
 		# cap slow at 90%
-		var slowstat = min(0.9, Stats.CurrentStats["slow"].x)
-		slow = 1 - slowstat / 100.0 
-	circlePos += movementSpeed * delta *slow
+		var slowstat = min(90, Stats.CurrentStats["slow"])
+		slow = 1 - (slowstat / 100.0)
+	circlePos += movementSpeed * delta * slow
 	var x = (EnemyManager.ElipseA+offset) * cos(deg2rad(circlePos));
 	var y = (EnemyManager.ElipseB+offset) * sin(deg2rad(circlePos));
 	global_position = Vector2(x,y)+EnemyManager.ElipseCenter
@@ -143,17 +122,20 @@ func _process(delta):
 func _damage(dmg):
 	if life < 0:
 		return
-	life-=dmg
-	var pl = popup.instance()
-	pl.global_position = global_position+Vector2(rand_range(-50,50),rand_range(-50,50))
-	pl.setColor(Color.red)
-	pl.setLabel(dmg)
-	GameState.Level.call_deferred("add_child", pl)
-	#Level.add_child(pl)
+	life-=dmg[0]
+	
+	# crit
+	if dmg[1]:
+		var pl = popup.instance()
+		pl.global_position = global_position+Vector2(rand_range(-50,50),rand_range(-50,50))
+		pl.setColor(Color.red)
+		pl.setLabel("%.0f" % dmg[0])
+		GameState.Level.add_child(pl)
+	
 	$LifeBar.value = life
 	#slow
-	if Stats.CurrentStats["slow"].x>0:
-		slowtimer = Stats.CurrentStats["slow"].y
-	GameState.DamageSeconds += dmg
+	if Stats.CurrentStats["slow"]>0:
+		slowtimer = StatSlow.SlowTime
+	GameState.DamageSeconds += dmg[0]
 	if life < 0:
 		_die()

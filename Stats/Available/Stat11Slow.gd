@@ -1,10 +1,13 @@
 extends "res://Stats/BaseStat.gd"
 
+# seconds
+const SlowTime = 1.0
+
 func GetText() -> String:
-	return "{0}%" .format( ["%.2f" %value.x])
+	return "{0}%" .format( ["%.2f" % value])
 	
 func GetTextItem() -> String:
-	return "[color=black]Slows targets by [/color][color=red]{0}%[/color]".format(["%.2f" %value.x])	
+	return "[color=black]Slows targets by [/color][color=red]{0}%[/color]".format(["%.2f" % value])
 	
 
 func GetName() ->String:
@@ -12,10 +15,10 @@ func GetName() ->String:
 	
 func _init():
 	Id = "slow"
-	value = Vector2(1,2)
-	defaultValue = Vector2(0,0)
+	multi = 1/2.0
+	add = 1
+	defaultValue = 0
 	IconId = [17]
 	MainName = ["Sleep","Bedtime","Yawning","Nap","Powernap"]
 	Prefix = ["Sleeping","Boring","Tired","Naping","Barely Awake","Comatous","Relaxing","Hibernating","Lazy","Frosting","Freezing","Dazzling"]
-	
-	
+	LevelUp()

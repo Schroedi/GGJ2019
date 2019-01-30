@@ -1,24 +1,20 @@
 extends "res://Stats/BaseStat.gd"
 func GetText() -> String:
-	return "{0}/s".format(["%.1f"%value.y])
+	return "{0}/s".format(["%.1f" % value])
 	
 func GetTextItem() -> String:
-	return "[color=black]Generates [/color][color=red]{0} gold[/color][color=black] per second[/color]".format(["%.1f"%value.y])	
+	return "[color=black]Generates [/color][color=red]{0} gold[/color][color=black] per second[/color]".format(["%.1f" % value])
 	
 func _init():
 	Id = "bank"
-	# Seconds, gold
-	value = Vector2(1,1)
-	defaultValue = Vector2(0,0)
+	multi = 1
+	add = 1
+	defaultValue = 0
 	IconId = [7]
 	MainName = ["Businessmanswear","Tie","Necktie","Straight-Bowtie"]
 	Prefix = ["Overpaid","Investing","Piggy-Banking","Funding","Exploiting","Utilising","Overworked","Manipulated","Commercialized","Manipulating"]
+	LevelUp()
 	
 func GetName() ->String:
 	return "Investment"
-		
-func LevelUp(dir=1):
-	# 10% more, override for non numeric or more complex stats
-	value.y *= 1.1 * dir
-	Level += 1
 	

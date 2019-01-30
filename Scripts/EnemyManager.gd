@@ -61,7 +61,7 @@ func StartSpawn():
 func findEnemiesInRange(var enemy, var dist):
 	var enemies = []
 	for en in Enemies:
-		if en != enemy and en.life > 0 and (en.global_position-enemy.global_position).length() < dist:
+		if en != enemy and en.life > 0 and (en.global_position-enemy.global_position).length() <= dist:
 			enemies.append(en)
 	return enemies
 
@@ -76,7 +76,6 @@ func spawnEnemy():
 	var x = (EnemyManager.ElipseA + s.offset) * cos(deg2rad(0));
 	var y = (EnemyManager.ElipseB + s.offset) * sin(deg2rad(0));
 	s.global_position = Vector2(x,y)+ElipseCenter
-	s.linear_velocity =  Vector2(0,0)
 	s.circlePos = 0
 	s.life = currentWaveLife
 	s.movementSpeed = currentWaveMovementSpeed
@@ -114,13 +113,12 @@ func _process(delta):
 		currentWave += 1
 		currentWaveLife *= WaveLifeScaling
 		currentWaveMovementSpeed *= WaveMovementScaling
+		# limit speed
+		currentWaveMovementSpeed = min(currentWaveMovementSpeed, 180)
 		currentWaveGold *= WaveGoldScaling
-		var encountChance =Stats.CurrentStats["enemyCount"]
-		var encount = floor(encountChance)
-		encountChance-=encount
-		if(1-encount<randf()):
-			encount +=1
-		currentWaveSpawnsLeft += WaveEnemyCount + encount
+		var encount = Stats.CurrentStats["enemyCount"]
+		#spawn up to 39 enemies so we don't die instantly
+		currentWaveSpawnsLeft += min(WaveEnemyCount + encount, 39)
 		currentWaveDuration = WaveDuration
 		if(currentWaveSpawnsLeft*currentWaveSpawnDistance)>WaveDuration:
 			currentWaveSpawnDistance =  WaveDuration / (currentWaveSpawnsLeft+2)
