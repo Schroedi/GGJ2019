@@ -1,6 +1,8 @@
 extends Node
 const GameLevel = preload("res://Scenes/GameLevel.gd")
 const BaseEnemy = preload("res://Scenes/BaseEnemy.tscn")
+
+const popup = preload("res://Scenes/pop_label.tscn")
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
@@ -44,7 +46,7 @@ func reset():
 	currentWaveGold = WaveGoldBase
 	currentWaveLife = WaveLifeBaseLife
 	currentWaveMovementSpeed = WaveMovementSpeed
-	currentWave = 2
+	currentWave = 1
 	currentWaveSpawnsLeft = WaveEnemyCount
 	currentWaveDuration = WaveDuration	
 	currentWaveSpawnDistance = WaveSpawnDistance
@@ -111,6 +113,15 @@ func _process(delta):
 	#advance wave
 	if(currentWaveDuration<0):
 		currentWave += 1
+		
+		var pl = popup.instance()
+		pl.global_position = ElipseCenter-Vector2(150,100)
+		pl.setColor(Color.green)
+		pl.setLabel("Wave %.0f started"%currentWave)
+		pl.makeLargePopup()	
+		GameState.Level.add_child(pl)
+		
+		
 		currentWaveLife *= WaveLifeScaling
 		currentWaveMovementSpeed *= WaveMovementScaling
 		# limit speed

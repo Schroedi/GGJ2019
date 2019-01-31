@@ -34,6 +34,8 @@
 [node name="Hud" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+margin_top = 0.487701
+margin_bottom = 0.487671
 
 [node name="Slots" type="Control" parent="."]
 margin_left = 671.0
@@ -436,20 +438,52 @@ margin_bottom = 95.0
 script = ExtResource( 21 )
 
 [node name="Gold" type="Label" parent="PlayerInfo"]
-margin_left = 90.0
+margin_left = 125.0
 margin_top = 17.0
-margin_right = 159.0
-margin_bottom = 90.0
+margin_right = 189.0
+margin_bottom = 59.0
 custom_fonts/font = ExtResource( 10 )
 text = "Gold"
 
 [node name="Life" type="Label" parent="PlayerInfo"]
-margin_left = 90.0
-margin_top = 67.0
-margin_right = 146.0
-margin_bottom = 109.0
+margin_left = 125.0
+margin_top = 66.226
+margin_right = 176.0
+margin_bottom = 108.226
 custom_fonts/font = ExtResource( 10 )
 text = "Life"
+
+[node name="lWave" type="Label" parent="PlayerInfo"]
+margin_left = 33.0
+margin_top = 116.0
+margin_right = 125.0
+margin_bottom = 158.0
+custom_fonts/font = ExtResource( 10 )
+text = "Wave"
+
+[node name="lNext" type="Label" parent="PlayerInfo"]
+margin_left = 33.0
+margin_top = 158.0
+margin_right = 125.0
+margin_bottom = 200.0
+custom_fonts/font = ExtResource( 10 )
+text = "Next "
+
+[node name="Wave" type="Label" parent="PlayerInfo"]
+margin_left = 125.0
+margin_top = 115.512
+margin_right = 209.0
+margin_bottom = 157.512
+custom_fonts/font = ExtResource( 10 )
+text = "Wave"
+
+[node name="Next" type="Label" parent="PlayerInfo"]
+margin_left = 125.0
+margin_top = 158.0
+margin_right = 209.0
+margin_bottom = 200.0
+custom_fonts/font = ExtResource( 10 )
+text = "Next"
 
 [node name="Goldpatch" type="TextureRect" parent="PlayerInfo"]
 margin_left = 34.0
@@ -530,8 +564,10 @@ margin_bottom = 150.0
 rect_scale = Vector2( 0.3, 0.3 )
 
 [node name="Discord-Logo-White" type="TextureButton" parent="Control"]
-margin_right = 245.0
-margin_bottom = 240.0
+margin_left = -2.57924
+margin_top = 441.055
+margin_right = 242.421
+margin_bottom = 681.055
 texture_normal = ExtResource( 25 )
 texture_hover = ExtResource( 26 )
 script = ExtResource( 27 )
