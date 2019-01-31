@@ -11,6 +11,8 @@ var Level = 0
 var IconId = [0]
 var Prefix = ["Pref"]
 var MainName = ["Main"]
+var valueMin = 0
+var valueMax = 65535
 
 func GetText() -> String:
 	return str(Id, value)
@@ -26,6 +28,7 @@ func LevelUp(dir=1):
 	Level += 1 * dir
 	# todo does not work for vector
 	value = pow(Level, expo) * multi + add
+	value = clamp(value, valueMin, valueMax)
 
 func LevelDown():
 	if Level <= 1:
@@ -34,6 +37,8 @@ func LevelDown():
 
 func Equip():
 	Stats.CurrentStats[Id] += value
+	Stats.CurrentStats[Id] = clamp(Stats.CurrentStats[Id], valueMin, valueMax)
 
 func Unequip():
 	Stats.CurrentStats[Id] -= value
+	Stats.CurrentStats[Id] = clamp(Stats.CurrentStats[Id], valueMin, valueMax)

@@ -15,6 +15,8 @@ func GetName() ->String:
 		
 func _init():
 	Id = "randomDamage"
+	valueMin = 1
+	valueMax = 30
 	# damage, seconds
 	multi = 1/10.0
 	defaultValue = 0
@@ -22,8 +24,3 @@ func _init():
 	MainName = ["Wig Tower"]
 	Prefix = ["Unfair","Fakenews","Random","Political","Dishonest","Biased","Cheating","Untrue","Ridiculous","Incompetent","Arrogant","Idiotic","Ignorant","Racist"]
 	LevelUp()
-
-func LevelUp(dir=1):
-	.LevelUp(dir)
-	# clamp to once per second
-	value = max(1, value)

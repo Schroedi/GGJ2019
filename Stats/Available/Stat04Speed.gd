@@ -10,7 +10,7 @@ func GetName() ->String:
 	
 func _init():
 	Id = "speed"
-	multi = 1/10.0
+	multi = 1/100.0
 	defaultValue = 1
 	IconId = [12]
 	MainName = ["Cowboy Boot","Sneaker","Shoe","Leather Sock","Trunk","Kikass"]
