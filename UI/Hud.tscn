@@ -595,6 +595,7 @@ margin_bottom = 150.0
 rect_scale = Vector2( 0.3, 0.3 )
 
 [node name="Discord-Logo-White" type="TextureButton" parent="Control"]
+visible = false
 margin_left = -2.57924
 margin_top = 441.055
 margin_right = 242.421
