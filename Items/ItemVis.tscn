@@ -5,7 +5,6 @@
 [ext_resource path="res://Scripts/Seek2D.tscn" type="PackedScene" id=3]
 
 [sub_resource type="CircleShape2D" id=1]
-
 radius = 35.8605
 
 [node name="ItemVis" type="RigidBody2D"]
@@ -23,4 +22,3 @@ TargetDistance = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )
-

@@ -3,6 +3,9 @@
 importer="texture"
 type="StreamTexture"
 path="res://.import/gummibaer.png-32c109a04f3994a6b79a54b1fbdf194f.stex"
+metadata={
+"vram_texture": false
+}
 
 [deps]
 

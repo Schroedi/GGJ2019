@@ -3,6 +3,9 @@
 importer="texture"
 type="StreamTexture"
 path="res://.import/largefan_metal.png-44c6d03104ab0d37c7e6a86a764148a6.stex"
+metadata={
+"vram_texture": false
+}
 
 [deps]
 

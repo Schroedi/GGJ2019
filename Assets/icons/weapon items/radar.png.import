@@ -3,6 +3,9 @@
 importer="texture"
 type="StreamTexture"
 path="res://.import/radar.png-c54e6447f82c67f9c1d443029bfe60d2.stex"
+metadata={
+"vram_texture": false
+}
 
 [deps]
 

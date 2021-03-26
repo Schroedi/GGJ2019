@@ -3,6 +3,9 @@
 importer="texture"
 type="StreamTexture"
 path="res://.import/mecha_foot.png-ef6d93b0d0302f4fa6f4bd0efc0591f1.stex"
+metadata={
+"vram_texture": false
+}
 
 [deps]
 

@@ -3,6 +3,9 @@
 importer="texture"
 type="StreamTexture"
 path="res://.import/devilray.png-ccc3b7945d9e2a35f81a8c42696126bb.stex"
+metadata={
+"vram_texture": false
+}
 
 [deps]
 

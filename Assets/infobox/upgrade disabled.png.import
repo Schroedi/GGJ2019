@@ -3,6 +3,9 @@
 importer="texture"
 type="StreamTexture"
 path="res://.import/upgrade disabled.png-48728450adbdf477ae5e3c56bbb55870.stex"
+metadata={
+"vram_texture": false
+}
 
 [deps]
 

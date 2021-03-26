@@ -3,6 +3,9 @@
 importer="texture"
 type="StreamTexture"
 path="res://.import/hummer.png-5a84a5d631f0d8d456b9916d87a7f270.stex"
+metadata={
+"vram_texture": false
+}
 
 [deps]
 

@@ -3,6 +3,9 @@
 importer="texture"
 type="StreamTexture"
 path="res://.import/wecker.png-d07bd3aa50e94bb5d6ce09901dcd4f53.stex"
+metadata={
+"vram_texture": false
+}
 
 [deps]
 

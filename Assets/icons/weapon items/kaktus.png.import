@@ -3,6 +3,9 @@
 importer="texture"
 type="StreamTexture"
 path="res://.import/kaktus.png-d4cded8c728414690dac4183a05d40fe.stex"
+metadata={
+"vram_texture": false
+}
 
 [deps]
 

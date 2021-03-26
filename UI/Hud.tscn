@@ -30,7 +30,6 @@
 
 [sub_resource type="StyleBoxEmpty" id=1]
 
-
 [node name="Hud" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -378,6 +377,9 @@ margin_right = 1903.06
 margin_bottom = 1061.48
 custom_styles/panel = SubResource( 1 )
 script = ExtResource( 16 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="MergeBackground" type="Sprite" parent="Merge"]
 position = Vector2( 176.869, 228.479 )
@@ -392,6 +394,9 @@ rect_min_size = Vector2( 120, 120 )
 disabled = true
 texture_normal = ExtResource( 18 )
 texture_disabled = ExtResource( 19 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="CanMergeTimer" type="Timer" parent="Merge/Merge"]
 wait_time = 0.3
@@ -413,6 +418,7 @@ __meta__ = {
 [node name="CanUpgradeTimer" type="Timer" parent="Merge/UpgradeAll"]
 wait_time = 0.33
 autostart = true
+
 [node name="GridContainer" type="GridContainer" parent="Merge"]
 margin_left = -13.0
 margin_top = 93.0
@@ -421,6 +427,9 @@ margin_bottom = 373.0
 custom_constants/vseparation = 18
 custom_constants/hseparation = 18
 columns = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="MergeSlot1" parent="Merge/GridContainer" instance=ExtResource( 20 )]
 
