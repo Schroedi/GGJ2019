@@ -10,4 +10,6 @@ rect_min_size = Vector2( 76, 76 )
 mouse_filter = 0
 texture = ExtResource( 1 )
 script = ExtResource( 2 )
-
+__meta__ = {
+"_edit_use_anchors_": false
+}
