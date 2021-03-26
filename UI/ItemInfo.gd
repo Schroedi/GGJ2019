@@ -45,3 +45,7 @@ func select(item:UiItem):
 	selected = weakref(item)
 	$Upgrade.enable()
 	VisItem(item)
+
+func refresh() -> void:
+	if hasValidSelection():
+		select(selected.get_ref())

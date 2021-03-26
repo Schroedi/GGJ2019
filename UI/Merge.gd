@@ -2,6 +2,8 @@ extends Control
 
 onready var Inventory = get_node("/root/GameLevel/Hud/Inventory")
 onready var ItemContainer = get_node("/root/GameLevel/Hud/Merge/GridContainer")
+onready var ItemInfo = get_node("/root/GameLevel/Hud/ItemInfo")
+const popup = preload("res://Scenes/pop_label.tscn")
 
 const BaseItem = preload("res://Items/BaseItem.gd")
 var rng = RandomNumberGenerator.new()
@@ -85,3 +87,30 @@ func _on_Merge_pressed():
 	# add new item
 	Inventory.AddItem(item)
 
+
+
+func _on_UpgradeAll_pressed() -> void:
+	if not _canUpgrade():
+		var pl = popup.instance()
+		pl.global_position = Vector2(340,600)
+		pl.setColor(Color.red)
+		pl.setLabel("Not enough Gold")	
+		GameState.Level.add_child(pl)
+		return
+	
+	var items = getMergeItems()
+	for i in items:
+		i.Item.LevelUp()
+		ItemInfo.refresh()
+
+
+func _canUpgrade() -> bool:
+	var items = getMergeItems()
+	var total_cost: float = 0
+	for i in items:
+		total_cost += i.Item.getCost()
+	return getMergeItems().size() > 0 and GameState.Level.playerGold >= total_cost
+
+
+func _on_CanUpgradeTimer_timeout() -> void:
+	$UpgradeAll.disabled = not _canUpgrade()

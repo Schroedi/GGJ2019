@@ -397,6 +397,22 @@ texture_disabled = ExtResource( 19 )
 wait_time = 0.3
 autostart = true
 
+[node name="UpgradeAll" type="TextureButton" parent="Merge"]
+margin_left = 191.0
+margin_top = 88.0
+margin_right = 311.0
+margin_bottom = 208.0
+rect_min_size = Vector2( 120, 120 )
+disabled = true
+texture_normal = ExtResource( 18 )
+texture_disabled = ExtResource( 19 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CanUpgradeTimer" type="Timer" parent="Merge/UpgradeAll"]
+wait_time = 0.33
+autostart = true
 [node name="GridContainer" type="GridContainer" parent="Merge"]
 margin_left = -13.0
 margin_top = 93.0
@@ -575,4 +591,6 @@ script = ExtResource( 27 )
 [connection signal="pressed" from="ItemInfo/Upgrade" to="ItemInfo/Upgrade" method="_on_Upgrade_pressed"]
 [connection signal="pressed" from="Merge/Merge" to="Merge" method="_on_Merge_pressed"]
 [connection signal="timeout" from="Merge/Merge/CanMergeTimer" to="Merge" method="updateMergeable"]
+[connection signal="pressed" from="Merge/UpgradeAll" to="Merge" method="_on_UpgradeAll_pressed"]
+[connection signal="timeout" from="Merge/UpgradeAll/CanUpgradeTimer" to="Merge" method="_on_CanUpgradeTimer_timeout"]
 [connection signal="pressed" from="Control/Discord-Logo-White" to="Control/Discord-Logo-White" method="_on_DiscordLogoWhite_pressed"]
